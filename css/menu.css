@@ -1,0 +1,248 @@
+.main{
+    display: flex;
+}
+.dropmenu{
+    display: flex;
+    flex-wrap:wrap;
+} 
+.main .dropmenu{
+    width: 200px;
+    background-color:rgb(247, 199, 77) ;
+    font-size: 36px;
+    text-align: center;
+    /* height: 600px; */
+}
+.main .dropmenu .column{
+    box-sizing:border-box;
+    padding: 10px 0;
+}
+.main .dropmenu .column:hover{
+    transition: border 0.3s ease;
+    border-left: 3px solid rgb(255, 58, 58);
+    border-bottom: 3px solid rgb(255, 58, 58);
+}
+.main .dropmenu .column .dropmenu{
+    display: none;
+}
+.main .dropmenu .column:hover .dropmenu{
+    display:block
+}
+.main .dropmenu .column .dropmenu .item{
+    font-size: 24px;
+}
+
+
+.container{
+    margin: 15px;
+}
+.container .card-container{
+}
+
+.container .switch{
+    display: flex;
+    justify-content:flex-end;
+    margin: 15px;
+}
+.container .switch i{
+    font-size: 25px;
+    margin: 5px;
+    color: #ff6000;
+}
+.container .switch .detailed:hover{
+    background-color: rgb(169, 205, 236);
+    border-radius:10px;
+}
+.container .switch .simple:hover{
+    background-color: rgb(169, 205, 236);
+    border-radius:10px;
+}
+
+
+.card-container{
+    display: flex;
+    flex-wrap:wrap;
+}
+
+.m-card{
+    display: flex;
+    flex-wrap:wrap;
+    margin: 5px;
+    box-shadow: 5px 5px 5px 5px rgb(235, 244, 244);
+    /* background-color: rgb(238, 147, 10); */
+}
+/* 詳細模式 */
+.m-card-detailed{
+    max-width: 100%;
+}
+/* 簡略模式 */
+.m-card-simple{
+    max-width: 30%;
+    justify-content:center;   
+}
+
+.m-card .m-img{
+    width: 300px;
+    height: 300px;
+    border: 5px solid rgb(173, 189, 230);
+}
+.m-card .m-img img{
+    height: 100%;
+    object-fit: fill;
+}
+.introduce{
+    padding: 15px;
+    /* height: 60%; */
+    width: 60%;
+    display: flex;
+    flex-direction:column;
+    justify-content:space-between;
+}
+
+
+
+
+/* 產品操作按鈕 */
+.reduce,.plus {
+    border:0cap;
+    width: 35px;
+    height: 35px;
+    border-radius:40px;
+    margin: 0 5px;
+    background-color: rgb(231, 228, 228);
+}
+.quantity{
+    width: 50px;
+}
+.shopping{
+    background-color: #ff6000;
+    border: 1px solid #ff6000;
+    border-radius:10px;
+    color: #ffffff;
+    padding: 12px 14px;
+    margin-top: 15px;
+}
+
+
+
+
+
+
+/* 介紹頁 */
+
+
+.people{
+    width: 100%;
+    background-color: rgb(52, 52, 50);
+    display: flex;
+    justify-content:center;   
+}
+.people .people-txt{
+    color: #aedd39;
+    text-align:center;
+}
+
+.people .people-img{
+    width: 30%;
+    height: 80%;
+    padding: 15px;
+}
+.people .people-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+
+.people-icon{
+    display: flex;
+    justify-content:center;   
+    color: #b7cf2c;
+    background-color:rgb(131, 131, 131);
+   
+}
+
+.people-icon .icon-unit{
+    margin: 50px 20px;
+    background-color: #47240e7a;
+    padding: 20px;
+    border-radius:10px;
+}
+.people-icon .icon-unit .icon-img{
+    font-size: 40px;
+    text-align:center;
+}
+.people-icon .icon-unit .icon-txt{
+    font-size: 24px;
+    text-align:center;
+}
+
+
+.banner-star{
+    background-image:url("/img/pexels-photo-110867.jpg") ;
+    width: 100%;
+    height: 400px;
+    background-size: cover;
+    background-position: 50% 100%;
+}
+
+
+.form-container{
+    width: 100%;
+    display: flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    height: 700px;
+    margin: 0px 5px;   
+}
+
+
+.form-container .contact{
+    width: 100%;
+    font-size: 60px;
+    font-weight:800;
+    text-align: center;
+    padding: 20px 0;
+    background-color:rgb(131, 131, 131);
+    margin-bottom: 40px;
+}
+.form-container .recruiting{
+     width: 50%;
+}
+.recruiting p{
+    text-align: center;
+}
+.recruiting .recruiting-txt{
+    font-size: 24px;
+}
+
+.recruiting-map{
+    display: flex;
+}
+.form-container .contact-form{
+    width: 40%;
+}
+
+
+/* 重置樣式 */
+.contact-form input{
+    width: 300px;
+    margin-top: 5px;
+}   
+#phone ,#purpose{
+    margin-left: 40px;
+}
+#message{
+    width: 340px;
+    height: 200px;
+}
+.note{
+    display: inline;
+    color: #ff0000;
+}
+.contact-form .form-txt{
+    font-weight:800;
+    font-size: 18px;
+    margin: 10px 0 0 5px;
+}
+#form-submit-button{
+    margin: 10px 0 50px 50px;
+}
