@@ -1,28 +1,39 @@
 .main{
     display: flex;
+    background-color:rgba(255, 212, 95, 0.2) ;
 }
-.dropmenu{
-    display: flex;
-    flex-wrap:wrap;
-} 
+
+
+/*  */
 .main .dropmenu{
+    display: flex;
+    justify-content:space-around;
+    flex-wrap:wrap;
+    background-color: rgb(255, 214, 92);
     width: 200px;
-    background-color:rgb(247, 199, 77) ;
     font-size: 36px;
     text-align: center;
+
     /* height: 600px; */
 }
 .main .dropmenu .column{
     box-sizing:border-box;
     padding: 10px 0;
+    width: 175px;
+
 }
 .main .dropmenu .column:hover{
     transition: border 0.3s ease;
-    border-left: 3px solid rgb(255, 58, 58);
-    border-bottom: 3px solid rgb(255, 58, 58);
+    background-color: ;
+    /* border-left: 3px solid rgb(255, 58, 58);
+    border-bottom: 3px solid rgb(255, 58, 58); */
+
 }
 .main .dropmenu .column .dropmenu{
     display: none;
+    width: 175px;
+    background-color: rgb(255, 255, 255 ,0.5) ;
+    border-radius:20px
 }
 .main .dropmenu .column:hover .dropmenu{
     display:block
@@ -32,21 +43,19 @@
 }
 
 
+/*  */
 .container{
     margin: 15px;
 }
-.container .card-container{
-}
-
 .container .switch{
     display: flex;
-    justify-content:flex-end;
+    justify-content:flex-start;
     margin: 15px;
+    color: #ff6000;
+    font-size: 25px;
 }
 .container .switch i{
-    font-size: 25px;
-    margin: 5px;
-    color: #ff6000;
+    margin:  0 5px;
 }
 .container .switch .detailed:hover{
     background-color: rgb(169, 205, 236);
@@ -58,17 +67,18 @@
 }
 
 
+/*  */
 .card-container{
     display: flex;
     flex-wrap:wrap;
 }
-
 .m-card{
     display: flex;
     flex-wrap:wrap;
-    margin: 5px;
-    box-shadow: 5px 5px 5px 5px rgb(235, 244, 244);
-    /* background-color: rgb(238, 147, 10); */
+    margin: 15px;
+    box-shadow: 5px 5px 5px 5px rgb(222 168 218 / 22%);
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
 }
 /* 詳細模式 */
 .m-card-detailed{
@@ -81,13 +91,13 @@
 }
 
 .m-card .m-img{
-    width: 300px;
-    height: 300px;
-    border: 5px solid rgb(173, 189, 230);
+    width: 20vw;
+   
 }
 .m-card .m-img img{
-    height: 100%;
-    object-fit: fill;
+    width: 100%;
+    object-fit: fill; 
+    border: 5px solid rgb(173, 189, 230);
 }
 .introduce{
     padding: 15px;
@@ -97,10 +107,6 @@
     flex-direction:column;
     justify-content:space-between;
 }
-
-
-
-
 /* 產品操作按鈕 */
 .reduce,.plus {
     border:0cap;
@@ -121,15 +127,13 @@
     padding: 12px 14px;
     margin-top: 15px;
 }
+.shopping:hover{
+    color: #2600ff;
+}
 
 
 
-
-
-
-/* 介紹頁 */
-
-
+/* 關於我們 */
 .people{
     width: 100%;
     background-color: rgb(52, 52, 50);
