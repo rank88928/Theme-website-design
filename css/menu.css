@@ -24,10 +24,8 @@
 }
 .main .dropmenu .column:hover{
     transition: border 0.3s ease;
-    background-color: ;
     /* border-left: 3px solid rgb(255, 58, 58);
     border-bottom: 3px solid rgb(255, 58, 58); */
-
 }
 .main .dropmenu .column .dropmenu{
     display: none;
