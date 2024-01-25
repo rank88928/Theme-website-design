@@ -80,21 +80,5 @@ plusbutton.forEach(function(plusbutton, index){
     
 
 
-// window.addEventListener("scroll",function(){
-//     let scrolly = window.scrollY;
-
-//     console.log(scrolly);
-// });
-
-// document.body.addEventListener("scroll",function(){
-//     let scrolly = window.scrollY;
-
-//     console.log(scrolly);
-// });
-// document.documentElement.addEventListener("scroll", function() {
-//     let scrolly = window.scrollY;
-//     console.log(scrolly);
-// });
-
 
 
