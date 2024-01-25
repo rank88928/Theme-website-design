@@ -76,9 +76,25 @@ plusbutton.forEach(function(plusbutton, index){
 
 
 
+// 動畫效果
+    
 
 
+// window.addEventListener("scroll",function(){
+//     let scrolly = window.scrollY;
 
+//     console.log(scrolly);
+// });
+
+// document.body.addEventListener("scroll",function(){
+//     let scrolly = window.scrollY;
+
+//     console.log(scrolly);
+// });
+// document.documentElement.addEventListener("scroll", function() {
+//     let scrolly = window.scrollY;
+//     console.log(scrolly);
+// });
 
 
 
