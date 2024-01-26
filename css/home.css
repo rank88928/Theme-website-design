@@ -36,7 +36,6 @@
     padding: 10px;
 }
 /* 相反布局 */
-
 .contrary{
     background: linear-gradient(200deg, transparent 0%, transparent 45%, #f7f3ee 45%, #f7f3ee 100%);
     flex-direction: row-reverse;
@@ -46,21 +45,60 @@
 }
 
 
+/* 產品列 */
+.product-list{
+    height: auto;
+    display: flex;
+    flex-wrap:wrap;  
+    justify-content:space-between;   
+    background-color: #f7f3ee;
+    padding: 0 80px;
+}
+.product-card{
+    width: 300px;
+    height: 500px;
+    background-color: #ffffff;
+    color: #000;
+    margin: 15px 10px;
+    padding: 20px;
+}
+.product-card .product-img{
+    width: 100%;
+    height: 40%;
+    border: 1px solid rgb(0, 0, 0);
+}
+.product-img img{
+   width: 100%;
+   height: 100%;
+}
+.product-card .product-txt{
+    width: 100%;
+    height: 60%;
+}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+.product-card h3{
+    margin: 5px;
+}
+.product-card p{
+    margin: 0 20px;
+}
+.order{
+    display: flex;
+    justify-content:space-between; 
+}
+.product-card a{
+    color: #ffffff;
+    padding: 0;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    margin: 20px;
+}
+.product-card a i{
+    margin-top: 9px;
+    margin-left: 8px;
+}
 
 
 
@@ -118,46 +156,6 @@
 
 
 
-
-.product-list{
-    /* margin: 15px; */
-    display: flex;
-    flex-wrap:wrap;     
-    justify-content:space-around;
-    background-color: rgba(255, 212, 95, 0.2); 
-}
-.card{
-    width: 350px;
-    background-color: #222831;
-    color: #ffffff;
-    margin: 30px 30px;
-    padding: 20px;
-}
-.card img{
-    border: 5px solid rgb(233, 209, 140);
-}
-.card h3{
-    margin: 20px;
-}
-.card p{
-    margin: 0 20px;
-}
-.order{
-    display: flex;
-    justify-content:space-between; 
-}
-.card a{
-    color: #ffffff;
-    padding: 0;
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    margin: 20px;
-}
-.card a i{
-    margin-top: 9px;
-    margin-left: 8px;
-}
 
 
 
