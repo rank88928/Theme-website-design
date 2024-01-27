@@ -80,5 +80,3 @@ plusbutton.forEach(function(plusbutton, index){
     
 
 
-
-
