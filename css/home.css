@@ -1,4 +1,3 @@
-
 /* 左右圖文 */
 .introduce-box-1{
     height: 600px;
@@ -130,6 +129,40 @@
 
 
 
+.store-map{
+    background-color: #383838;
+    padding: 40px;
+    display: flex;
+    color: #ffffff;
+    font-size: 24px;
+    justify-content:center;   
+}
+.address{
+    display: flex;
+    flex-direction:column;  
+    justify-content:center;     
+    margin-left: 60px;
+    width: 30%;
+}
+.address .address-txt{
+    display: flex;
+    width: 120%;
+    padding: 15px 0;
+    border-top: 1px solid rgb(0, 0, 0);
+    font-size: 20px;
+    align-items:center;    
+}
+.address .address-txt p{
+    width: 25%;  
+    margin: 0; 
+    padding: 10px;
+}
+.address .address-txt .txt-data{
+    width: 60%;
+}
+
+
+
 
 
 
@@ -170,23 +203,6 @@
 }
 
 
-
-
-
-
-.store-map{
-    background-color: #222831;
-    padding: 60px;
-    display: flex;
-    color: #ffffff;
-    font-size: 24px;
-}
-.store-map .address {
-    margin-left: 30px;
-    /* display: flex; */
-    justify-content:center;
-    text-align: center; 
-}
 
 
 
@@ -248,30 +264,39 @@
 .icon-right{
     padding-left:10% ;
 }
-.special-icon-1{
+
+.product-card:nth-child(1)::before,
+.product-card:nth-child(3)::before,
+.product-card:nth-child(5)::before,
+.product-card:nth-child(6)::before{
+    content: "";
+    position: absolute;
+    background-image:url("/img/icon-2.png") ; 
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 80px;
+    top: 0px;
+    left: -20px;
+    transform: rotate(-23deg)
+}
+.product-card:nth-child(3)::after,
+.product-card:nth-child(4)::after,
+.product-card:nth-child(6)::after,
+.product-card:nth-child(7)::after{
+    content: "午晚提供";
     position: absolute;
     writing-mode: vertical-lr;
     width: 30px;
     height: 100px;
-    color: #ff0000;
-    background-color: #fff;
-    top: -35px;
-    right: 20px;
+    color: #ff000075;
+    background-color: #f9d5a659;
+    top: 110px;
+    right: 25px;
     border-radius:10px;
     text-align: center;
     font-weight:800;
 }
-.special-icon-2{
-    position: absolute;
-    border-image:url("/img/0003.jpg"); 
-    width: 100px;
-    height: 100px;
-    z-index: 5;
-    color: #000;
-    border: 1px solid #ccc;
-    top: 50px;
-}
-
 
 
 
