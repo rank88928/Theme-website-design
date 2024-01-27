@@ -48,6 +48,8 @@
 }
 
 
+
+
 /* 產品列表 */
 .product-list{
     height: auto;
@@ -118,22 +120,87 @@
 
 
 
+/* 顧客回饋 */
+.commentary-container{
+    width: 100%;
+    overflow: hidden;
+}
+.commentary-list{
+    width: 500%;
+    height: 280px;
+    padding: 36px 0;
+    margin: 20px;
+    display: flex;
+    border-top: 2px double  rgba(0, 0, 0, 0.405);
+    border-bottom: 2px double  rgba(0, 0, 0, 0.405);
+    border-width:5px;
+}
+.commentary-list .commentary-card{
+    width: 300px;
+    height: 100%;
+    margin: 0px 30px;
+    padding: 15px;
+    border: 2px double  rgba(0, 0, 0, 0.405);
+    border-width:10px;
+    position: relative;
+}
+.commentary-list .commentary-card::after{
+    content: '';
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    border-top:3px solid rgba(0, 0, 0, 0.405);
+    background-color: #fff;
+    z-index: 1;
+    transform: rotate(135deg);
+    top: -35px;
+    left: -35px;
+}
+.commentary-list .commentary-card::before{
+    content: '';
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    border-top:3px solid rgba(0, 0, 0, 0.405);
+    background-color: #fff;
+    z-index: 1;
+    transform: rotate(315deg);
+    top: 164px;
+    left: 267px;
+}
+.commentary-list .commentary-card .commentary-img{
+    background-color: rgb(245, 170, 237);
+    width: 90px;
+    height: 90px;
+    border-radius: 70px;
+    line-height: 90px;
+    text-align: center;
+    font-size: 40px;
+}
+.commentary-list .commentary-card .commentary-txt{
+    margin: 10px;
+}
+.commentary-list .commentary-card .commentary-star{
+    width: 230px;
+    height: 40px;
+    background-image:url("/img/star-rating-1.png") ;
+    background-repeat: no-repeat; 
+    background-size: 200% 650%;
+    position: absolute;
+    top: 145px;
+    left: 5px;
+    background-position: 0% 0%;
+}
 
 
 
-
-
-
-
-
-
-
-
+/* 店面介紹 */
 .store-map{
-    background-color: #383838;
+    background-image: url("/img/background-wall-1.gif");
+    background-repeat: repeat; 
     padding: 40px;
     display: flex;
-    color: #ffffff;
+    color: #000000;
     font-size: 24px;
     justify-content:center;   
 }
@@ -148,7 +215,7 @@
     display: flex;
     width: 120%;
     padding: 15px 0;
-    border-top: 1px solid rgb(0, 0, 0);
+    border-top: 1px solid rgb(255, 205, 41);
     font-size: 20px;
     align-items:center;    
 }
@@ -167,47 +234,10 @@
 
 
 
-.featured-products{
-    display: flex;
-    flex-wrap:wrap;
-    justify-content:center; 
-    background-color: rgba(245, 191, 43, 0.47); 
-}
-.featured-products .featured{
-    width: 40%;
-    height: 210px;
-    background-color: #222831;
-    margin: 20px;
-    color: #ffffff;
-    display: flex;
-    border-radius: 15px;
-    min-width: 500px;
-}
-.featured-products .featured img{
-    width: 175px;
-    height: 175px;
-    margin: 15px;
-    border-radius: 50%;
-    border: 5px solid rgb(247, 199, 77);
-}
-.featured .price{
-    padding-top: 20px;
-    font-style: italic;
-    margin: 15px 0;
-}
-.price a{
-    display:inline-block;
-    margin-top: 15px;
-    margin-left: 30px;
-    color: #ffffff;
-}
-
-
-
 
 
 .faq{
-    background-color: rgba(245, 191, 43, 0.47);
+    background-color: #ffe8cb;
     width: 70%;
     border-radius: 30px;
     margin: 30px auto;
@@ -221,7 +251,6 @@
     border-radius: 30px;
     padding: 20px;
     margin-bottom: 20px;
-    
 }
 .dropmenu-element .qa-Click-box{
     display: flex;

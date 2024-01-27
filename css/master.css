@@ -3,20 +3,25 @@ a{
     text-decoration: none
 }
 .header{
-    background-image: url("/img/hero-bg.jpg");
-    background-size: cover;
+    background-image: url("/img/background-wall-1.gif");
+    /* background-size: cover; */
+    background-repeat: repeat; 
     width: 100%;
     height: 650px;
 }
 .header-container{
-    width: 80%;
+    width: 100%;
     height: 100px;
     margin: auto;
     display: flex;
     line-height: 100px;
     justify-content:space-between;
-    color: rgb(255, 255, 255);
+    background-color:#0000005c;
+    /* color: ; */
     font-size: 24px;
+    padding: 0 130px;
+    position:fixed;
+    z-index: 10;
 }
 .header-container a{
     color: #ffffff;
@@ -44,13 +49,31 @@ a{
     color: blue;
 }
 
+
+.video-container{
+    width: 100%;
+    display: flex;
+    justify-content:flex-end;
+}
+.video-container .video-1{
+    width: 80%;
+    height: 615px;
+    object-fit: cover;
+}
+
+
+
+
+
+
+
 /* 輪播大小 */
 .carousel-size{
     width: 60%;
     height: 20%;
-    opacity:0.5;
+    /* opacity:0.5; */
     position:absolute;
-    top: 200px;
+    top: 1000px;
     margin-left: 10%;
 }
 .img-size{
@@ -63,8 +86,9 @@ a{
 
 /* 頁尾區域 */
 .footer{
-    background-color:#222831 ;
-    color: #ffffff;
+    background-image: url("/img/background-wall-1.gif");
+    background-repeat: repeat; 
+    color: #000000;
 }
 .footer-siteinfo{
     display: flex;
