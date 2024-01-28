@@ -4,54 +4,95 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>丹丹漢堡</title>
-    <link rel="stylesheet" href="css/reset.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/home.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/master.css">
+    <link rel="stylesheet" href="css/home.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    
     <script src="module.js"></script>
 </head>
 <body>
     <div id="header"></div>
-    <!-- 頁頭+輪撥 -->
-    
-    <div class="introduce-box-1">
-        <div class="txt-box">
-            <p>前菜 輕食</p>
-            <p>在悠閒的早晨 用美食展開全新的一天</p>
-            <p>菜品供應時間至上午11點前 亦可訂餐外帶</p>
-            <a href="" class="but-link-1">VIEW MORE<i class="fa-solid fa-chevron-right icon-right"></i></a>
+
+    <div class="top-video">
+        <!-- 影片 -->
+        <div class="video-container">
+            <video class="video-1" src="/img/production_id_4253721 (2160p).mp4" autoplay loop muted></video>
         </div>
-        <div class="img-box">
-            <div class="box-left">
-                <img src="/img/0006.jpg" alt="">
-            </div>
-            <div class="box-right">
-                <img src="/img/0005.jpg" alt="">
-                <img src="/img/0004.jpg" alt="">
-            </div>
-        </div>
-    </div>
-    <div class="introduce-box-1 contrary">
-        <div class="txt-box">
-            <p>主菜 商業午餐</p>
-            <p></p>
-            <p></p>
-            <a href="" class="but-link-1 ">VIEW MORE<i class="fa-solid fa-chevron-right icon-right"></i></a>
-        </div>
-        <div class="img-box">
-            <div class="box-left">
-                <img src="/img/0007.jpg" alt="">
-            </div>
-            <div class="box-right">
-                <img src="/img/0008.jpg" alt="">
-                <img src="/img/0009.jpg" alt="">
+        <!-- 輪播套件 -->
+        <div class="carousel-size">
+            <div id="carouselExampleIndicators" class="carousel-fade" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                <div class="carousel-item active"> 
+                    <img src="/img/0001.jpg" class="d-block img-size " alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="/img/0002.jpg" class="d-block img-size " alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="/img/0003.jpg" class="d-block img-size" alt="...">
+                </div>
+                </div>
+                <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+                </button> -->
             </div>
         </div>
     </div>
 
+    <div class="introduce-box">
+        <div class="introduce-box-1">
+            <div class="txt-box">
+                <p>前菜 輕食</p>
+                <p>在悠閒的早晨 用美食展開全新的一天</p>
+                <p>菜品供應時間至上午11點前 亦可訂餐外帶</p>
+                <a href="/menu.html" class="but-link-1">VIEW MORE<i class="fa-solid fa-chevron-right icon-right"></i></a>
+            </div>
+            <div class="img-box">
+                <div class="box-left" >
+                    <img src="/img/0006.jpg" alt="" class="wow animate__animated animate__fadeInRight" data-wow-delay='0.5s'>
+                </div>
+                <div class="box-right">
+                    <img src="/img/0005.jpg" alt="" class="wow animate__animated animate__fadeInRight" data-wow-delay='1s'>
+                    <img src="/img/0004.jpg" alt="" class="wow animate__animated animate__fadeInRight" data-wow-delay='1.5s'>
+                </div>
+            </div>
+        </div>
+        <div class="introduce-box-1 contrary">
+            <div class="txt-box wow animate__animated animate__rotateInDownLeft" data-wow-delay='0.5s'>
+                <p>主菜 商業午餐</p>
+                <p></p>
+                <p></p>
+                <a href="/menu.html" class="but-link-1 ">VIEW MORE<i class="fa-solid fa-chevron-right icon-right"></i></a>
+            </div>
+            <div class="img-box">
+                <div class="box-left">
+                    <img src="/img/0007.jpg" alt="" class="wow animate__animated animate__fadeInLeft" data-wow-delay='1.5s'>
+                </div>
+                <div class="box-right">
+                    <img src="/img/0008.jpg" alt="" class="wow animate__animated animate__fadeInLeft" data-wow-delay='1s'>
+                    <img src="/img/0009.jpg" alt="" class="wow animate__animated animate__fadeInLeft" data-wow-delay='0.5s'>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <div class="product-list">
-        <div class="product-card">
+        <div class="product-card wow animate-fade-in-left" data-wow-delay='0.3s'>
             <div class="product-img">
                 <img src="/img/0009.jpg" alt="">
             </div>
@@ -64,7 +105,7 @@
                 </div>
             </div>
         </div>
-        <div class="product-card">
+        <div class="product-card wow animate-fade-in-left" data-wow-delay='0.4s'>
             <div class="product-img">
                 <img src="/img/0010.jpg" alt="">
             </div>
@@ -77,7 +118,7 @@
                 </div>
             </div>
         </div>
-        <div class="product-card">
+        <div class="product-card wow animate-fade-in-left" data-wow-delay='0.5s'>
             <div class="product-img">
                 <img src="/img/0012.jpg" alt="">
             </div>
@@ -90,7 +131,7 @@
                 </div>
             </div>
         </div>
-        <div class="product-card">
+        <div class="product-card wow animate-fade-in-left" data-wow-delay='0.6s'>
             <div class="product-img">
                 <img src="/img/0006.jpg" alt="">
             </div>
@@ -103,7 +144,7 @@
                 </div>
             </div>
         </div>
-        <div class="product-card">
+        <div class="product-card wow animate-fade-in-left" data-wow-delay='0.7s'>
             <div class="product-img">
                 <img src="/img/0005.jpg" alt="">
             </div>
@@ -117,7 +158,7 @@
             </div>
             <span class="special-icon-2"></span>
         </div>
-        <div class="product-card">
+        <div class="product-card wow animate-fade-in-left" data-wow-delay='0.8s'>
             <div class="product-img">
                 <img src="/img/0007.jpg" alt="">
             </div>
@@ -130,7 +171,7 @@
                 </div>
             </div>
         </div>
-        <div class="product-card">
+        <div class="product-card wow animate-fade-in-left" data-wow-delay='0.9s'>
             <div class="product-img">
                 <img src="/img/0008.jpg" alt="">
             </div>
@@ -143,7 +184,7 @@
                 </div>
             </div>
         </div>
-        <div class="product-card">
+        <div class="product-card wow animate-fade-in-left" data-wow-delay='1s'>
             <div class="product-img">
                 <img src="/img/0004.jpg" alt="">
             </div>
@@ -288,15 +329,20 @@
             <div class="qa-a">請電話聯絡定餐門市，若已開始製作餐點將無法取消</div>
         </div>
     </div>
+    <div class="anchor">
+        <div class="but"><a href="#header" title="回到最上方"><i class="fa-solid fa-sort-up"></i></a></div>
+        <div class="but"><a href="/menu.html" title="去點餐"><i class="fa-solid fa-utensils"></i></a></div>
+        <div class="but"><a href="#footer" title="最下方"><i class="fa-solid fa-sort-down"></i></a></div>
+    </div>
 
     <div id="footer"></div>
     <!-- 頁尾 -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="js.js"></script>
+  
     <script>
-
-
+        new WOW().init();
     </script>
 
 </body>

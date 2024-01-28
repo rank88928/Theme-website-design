@@ -1,35 +1,34 @@
 
 /* 頁頭頁尾區域樣式及全局共通樣式*/
-
-
-
-/* 頁首部分 */
-a{    
-    text-decoration: none
-}
-.header{
+body{
     background-image: url("/img/background-wall-1.gif");
     /* background-size: cover; */
     background-repeat: repeat; 
     width: 100%;
-    height: 650px;
+    height: auto;
+}
+a{    
+    text-decoration: none;
+    color: #ffffff;
+}
+
+
+/* 頁首部分 */
+.header{
+    height: 110px;
 }
 .header-container{
     width: 100%;
     height: 100px;
-    margin: auto;
+    /* margin: auto; */
     display: flex;
     line-height: 100px;
     justify-content:space-between;
     background-color:#0000005c;
-    /* color: ; */
     font-size: 24px;
     padding: 0 130px;
     position:fixed;
     z-index: 10;
-}
-.header-container a{
-    color: #ffffff;
 }
 .header .logo img{
     width: 160px;
@@ -38,12 +37,19 @@ a{
 .header .nav{
     display: flex;
 }
-.header .item a{
-    margin: 0 20px;
+.header .item{
+     padding: 0 20px;
 }
-.header .item a:hover{
+.header .item:hover{
+    background-color: #4d4b4b4f;
+    border-left: 1px solid #ffffff;
+    border-right:1px solid #ffffff;
+    /* box-sizing: border-box; */
+}
+.header .item:hover a{
     color: rgb(247, 199, 77);
 }
+
 .header .user{
     display: flex;
 }
@@ -51,49 +57,16 @@ a{
     margin: 10px;
 }
 .header .user .icon:hover{
-    color: blue;
-}
-
-
-.video-container{
-    width: 100%;
-    display: flex;
-    justify-content:flex-end;
-}
-.video-container .video-1{
-    width: 80%;
-    height: 615px;
-    object-fit: cover;
-}
-
-
-
-
-
-
-
-/* 輪播大小 */
-.carousel-size{
-    width: 60%;
-    height: 20%;
-    /* opacity:0.5; */
-    position:absolute;
-    top: 1000px;
-    margin-left: 10%;
-}
-.img-size{
-    width: 100%;
-    height: 100%;
-    object-fit: fill;
-    max-height: 400px;
+    color: rgb(247, 199, 77);
 }
 
 
 /* 頁尾部分 */
 .footer{
-    background-image: url("/img/background-wall-1.gif");
-    background-repeat: repeat; 
+    /* background-image: url("/img/background-wall-1.gif");
+    background-repeat: repeat;  */
     color: #000000;
+    background-color: #f7f3ee;
 }
 .footer-siteinfo{
     display: flex;
@@ -116,8 +89,47 @@ a{
 }
 .footer-icon i{
     margin: 10px;
-    color: #ffffff;
+    color: #000000;
 }
+
+
+/*
+.footer-icon .yt{
+    color: #ff0000;
+}
+.footer-icon .tw{
+    color: #0088ff;
+}
+.footer-icon .fb{
+    color: #0088ff;
+}
+.footer-icon .line{
+    color: #4cc764;
+}
+.footer-icon .ig{
+    position:relative;
+    z-index: 10;
+}
+.footer-icon .ig::after{
+    content: '';
+    display: block;
+    background: linear-gradient(
+        45deg,
+        #f09433 0%,
+        #e6683c 25%,
+        #dc2743 50%,
+        #cc2366 75%,
+        #bc1888 100%
+      );
+      border-radius:30%;
+      height: 30px;
+      width: 30px;
+      position:absolute;
+      top: 4px;
+      left: 2px;
+      z-index:-3;
+} */
+
 
 .footer-icon .yt:hover{
     color: #ff0000;
@@ -158,6 +170,9 @@ a{
 
 
 
+
+
+/* 側邊錨點 */
 .footer-siteinfo .qr{
     width: 30%;
 }
@@ -184,8 +199,6 @@ a{
 
 
 
-/* 全局樣式 */
-
 /* 黃色按鈕 */
 .yellow-button{
     background-color: rgb(247, 199, 77);
@@ -196,3 +209,109 @@ a{
 .yellow-button:hover{
     color: rgb(13, 0, 255);
 }
+
+/* 共通組件 */
+
+/* 圖標 */
+.icon-right{
+    padding-left:10% ;
+}
+
+.product-card:nth-child(1)::before,
+.product-card:nth-child(3)::before,
+.product-card:nth-child(5)::before,
+.product-card:nth-child(6)::before{
+    content: "";
+    position: absolute;
+    background-image:url("/img/icon-2.png") ; 
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 80px;
+    top: 0px;
+    left: -20px;
+    transform: rotate(-23deg);
+    z-index: 10;
+}
+.product-card:nth-child(3)::after,
+.product-card:nth-child(4)::after,
+.product-card:nth-child(6)::after,
+.product-card:nth-child(7)::after{
+    content: "午晚提供";
+    position: absolute;
+    writing-mode: vertical-lr;
+    width: 30px;
+    height: 100px;
+    color: #ff000075;
+    background-color: #f9d5a659;
+    top: 110px;
+    right: 25px;
+    border-radius:10px;
+    text-align: center;
+    font-weight:800;
+    z-index: 10;
+}
+
+
+/* 按鈕-1  選中後有動畫黑底*/
+.but-link-1{
+    display: block;
+    width: 100%;
+    height: 70px;
+    border: 1px solid #000;
+    text-align: center;
+    line-height: 70px;
+    color: #000;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    margin: 100px 0;
+    
+}
+.but-link-1::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height:100%;
+    left: 0px;
+    transition: transform ease .3s;     
+    transform: translateX(-100%);
+    z-index: -1;
+    border-right: 60px solid transparent;
+    border-bottom: 70px solid #000;
+}
+.but-link-1:hover{
+    color: #fff;
+}
+.but-link-1:hover::before{
+    background-color: #000;
+    transform: translateX(0%);
+}
+
+
+
+
+/* 動畫效果 */
+
+.animate-fade-in-left{
+    animation-name:fadeInLeft-1;
+    animation-duration: 1s; 
+    animation-fill-mode: both;
+}
+
+
+@keyframes fadeInLeft-1 {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(-100%,0,0);
+        transform: translate3d(-100%,0,0)
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0)
+    }
+}
+
+  

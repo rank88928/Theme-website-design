@@ -1,7 +1,50 @@
 
 /* 首頁樣式 */
 
+.top-video{
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 0;
+    display: flex;
+}
+.video-container{
+    width: 70%;
+}
+.video-container .video-1{
+    width: 100%;
+    height: 615px;
+    object-fit: cover;
+    margin-right: auto;
+}
+
+/* 輪播大小 */
+
+.carousel-size{
+    width: 30%;
+    margin-top: 270px;
+}
+.carousel-indicators{
+    /* width: 30%; */
+    /* margin: 270px; */
+    margin-left: 70%;
+    margin-right: 0;
+    margin-bottom: 55px;
+}
+.carousel-item img{
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    /* max-height: 400px; */
+    opacity: 0.9;
+}
+
+
 /* 左右圖文 */
+.introduce-box{
+    margin-top: 550px;
+    overflow: hidden;
+}
 .introduce-box-1{
     height: 600px;
     width: 100%;
@@ -41,6 +84,20 @@
     padding: 10px;
     object-fit: cover;
 }
+
+.speed-1{
+    --animate-duration: 1s;
+}
+.speed-2{
+    --animate-duration: 3s;
+}
+.speed-3{
+    --animate-duration: 4s;
+}
+
+
+
+
 /* 相反布局 */
 .contrary{
     background: linear-gradient(200deg, transparent 0%, transparent 45%, #f7f3ee 45%, #f7f3ee 100%);
@@ -101,6 +158,9 @@
     -webkit-box-orient: vertical;
 }
 
+
+
+
 .order{
     display: flex;
     justify-content:space-between; 
@@ -127,6 +187,7 @@
 .commentary-container{
     width: 100%;
     overflow: hidden;
+    background-color: #fff;
 }
 .commentary-list{
     width: 500%;
@@ -233,12 +294,7 @@
 
 
 
-
-
-
-
-
-
+/* 問答欄 */
 .faq{
     background-color: #ffe8cb;
     width: 70%;
@@ -280,89 +336,4 @@
 }
 .rotate-180 {
     transform: rotate(180deg);
-}
-
-
-
-
-
-
-
-
-
-/* 共通組件 */
-
-/* 圖標 */
-.icon-right{
-    padding-left:10% ;
-}
-
-.product-card:nth-child(1)::before,
-.product-card:nth-child(3)::before,
-.product-card:nth-child(5)::before,
-.product-card:nth-child(6)::before{
-    content: "";
-    position: absolute;
-    background-image:url("/img/icon-2.png") ; 
-    background-size: contain;
-    background-repeat: no-repeat;
-    width: 100px;
-    height: 80px;
-    top: 0px;
-    left: -20px;
-    transform: rotate(-23deg)
-}
-.product-card:nth-child(3)::after,
-.product-card:nth-child(4)::after,
-.product-card:nth-child(6)::after,
-.product-card:nth-child(7)::after{
-    content: "午晚提供";
-    position: absolute;
-    writing-mode: vertical-lr;
-    width: 30px;
-    height: 100px;
-    color: #ff000075;
-    background-color: #f9d5a659;
-    top: 110px;
-    right: 25px;
-    border-radius:10px;
-    text-align: center;
-    font-weight:800;
-}
-
-
-
-/* 按鈕 */
-.but-link-1{
-    display: block;
-    width: 100%;
-    height: 70px;
-    border: 1px solid #000;
-    text-align: center;
-    line-height: 70px;
-    color: #000;
-    position: relative;
-    z-index: 2;
-    overflow: hidden;
-    margin: 100px 0;
-    
-}
-.but-link-1::before{
-    content: "";
-    position: absolute;
-    width: 100%;
-    height:100%;
-    left: 0px;
-    transition: transform ease .3s;     
-    transform: translateX(-100%);
-    z-index: -1;
-    border-right: 60px solid transparent;
-    border-bottom: 70px solid #000;
-}
-.but-link-1:hover{
-    color: #fff;
-}
-.but-link-1:hover::before{
-    background-color: #000;
-    transform: translateX(0%);
 }
