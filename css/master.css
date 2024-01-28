@@ -1,4 +1,9 @@
-/* 頁首 */
+
+/* 頁頭頁尾區域樣式及全局共通樣式*/
+
+
+
+/* 頁首部分 */
 a{    
     text-decoration: none
 }
@@ -84,7 +89,7 @@ a{
 }
 
 
-/* 頁尾區域 */
+/* 頁尾部分 */
 .footer{
     background-image: url("/img/background-wall-1.gif");
     background-repeat: repeat; 
@@ -179,7 +184,9 @@ a{
 
 
 
-/* 全局樣式 黃色按鈕 */
+/* 全局樣式 */
+
+/* 黃色按鈕 */
 .yellow-button{
     background-color: rgb(247, 199, 77);
     border-radius:30px;
