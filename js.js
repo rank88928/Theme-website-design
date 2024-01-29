@@ -76,7 +76,32 @@ plusbutton.forEach(function(plusbutton, index){
 
 
 
-// 動畫效果
+// 登入頁面
+
+document.addEventListener("DOMContentLoaded", function(){
     
+    let login = document.querySelector(".login-page-grey");
+    let loginOpen = document.querySelector(".login-open");
+    let Closelogin = document.querySelector(".Close-login");
+
+    loginOpen.addEventListener("click", function(){
+        login.style.display ="block";
+        console.log("Login button clicked");
+    });
+    Closelogin.addEventListener("click", function(){
+        login.style.display ="none";
+        console.log("Login button clicked");
+    });
+});
 
 
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  
+    console.log(login); // 檢查是否正確選中
+    console.log(loginOpen);
+    console.log(Closelogin)
+    // 其他代碼...
+});
