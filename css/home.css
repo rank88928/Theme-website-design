@@ -1,5 +1,5 @@
 
-/* 首頁樣式 */
+/* 入口首頁樣式 */
 
 .top-video{
     width: 100%;
@@ -84,7 +84,7 @@
     padding: 10px;
     object-fit: cover;
 }
-
+/* 動畫速度 */
 .speed-1{
     --animate-duration: 1s;
 }
