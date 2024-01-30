@@ -39,7 +39,6 @@ simple.addEventListener('click', function(){
 
 
 //菜單購物車數量修改按鈕
-
 let reducebutton = document.querySelectorAll(".reduce")
 let plusbutton = document.querySelectorAll(".plus")
 let quantity = document.querySelectorAll(".quantity")
@@ -65,7 +64,6 @@ reducebutton.forEach(function(reducebutton, index){
         }
     });
 });
-
 plusbutton.forEach(function(plusbutton, index){
     plusbutton.addEventListener("click", function(){
 
@@ -76,32 +74,29 @@ plusbutton.forEach(function(plusbutton, index){
 
 
 
-// 登入頁面
-
-document.addEventListener("DOMContentLoaded", function(){
-    
-    let login = document.querySelector(".login-page-grey");
-    let loginOpen = document.querySelector(".login-open");
-    let Closelogin = document.querySelector(".Close-login");
-
-    loginOpen.addEventListener("click", function(){
-        login.style.display ="block";
-        console.log("Login button clicked");
-    });
-    Closelogin.addEventListener("click", function(){
-        login.style.display ="none";
-        console.log("Login button clicked");
-    });
-});
 
 
 
 
 
-document.addEventListener("DOMContentLoaded", function() {
-  
-    console.log(login); // 檢查是否正確選中
-    console.log(loginOpen);
-    console.log(Closelogin)
-    // 其他代碼...
-});
+
+
+
+
+
+
+// 登入頁面開啟或關閉
+
+    // let login = document.querySelector(".login-page-grey");
+    // let loginOpen = document.querySelector(".login-open");
+    // let closelogin = document.querySelector(".close-login");
+
+    // loginOpen.addEventListener("click", function(){
+    //     login.style.display ="block";
+    //     console.log("Login button clicked");
+    // });
+    // closelogin.addEventListener("click", function(){
+    //     login.style.display ="none";
+    //     console.log("Login button clicked");
+    // });
+
