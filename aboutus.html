@@ -3,105 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>丹丹漢堡</title>
-    <link rel="stylesheet" href="css/reset.css">
+    <title>餐廳</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/home.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/master.css">
+    <link rel="stylesheet" href="css/button.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <!-- 全局共通引入 -->
+    <link rel="stylesheet" href="css/aboutus.css">
+    <!-- 該頁布局 -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>  
     <script src="module.js"></script>
 </head>
 <body>
     <div id="header"></div>
-    <!-- 頁頭+輪撥 -->
+    <!-- 頁頭 -->
 
-    <div class="about-container">
+    <div class="video-container">
+        <video class="video-1" src="/img/production_id_2.mp4" autoplay loop muted></video>
+    </div>
+
+    <div class="about-container top-m">
         <div class="people">
-                <div class="people-txt 
-                animation-positioning-2
-                animate__animated 
-                animate__fadeIn
-                wow
-                ">
-                <p>主廚</p>
-                <p>XXX</p>
+            <div class="people-txt wow animate__animated animate__zoomInUp" data-wow-delay='0.5s'>
+                <h3>主廚<br>XXX</h3>
                 <p>經歷<br>
                 雪梨大飯店-行政總主廚<br>
                 迪拜帆船飯店-西餐總主廚<br>
                 米其林三星-諾瑪餐館-廚師</p>
-                <p>料理理念</p>
-                <p> 簡單 在地 原物 風味</p>
+                <p>料理理念<br>簡單 在地 原物 風味</p>
             </div>
             <div class="people-img">
-                <div class="animation-positioning-1
-                            animate__animated 
-                            animate__bounceInRight
-                             wow"> 
-                </div>
+                <div class="chef-img wow animate__animated animate__fadeInRight" data-wow-delay='0.5s'></div>
             </div>
         </div>
+
         <div class="people-icon">
-            <div class="icon-unit">
-                <div class="icon-img">
-                    <i class="fa-solid fa-seedling"></i>
-                </div>
-                <div class="icon-txt">
-                    <p>簡單</p>
-                    <p>樸實手法帶人們回歸食物真正的原本<br>
-                    沒有華麗的裝飾與過重的調味 幸福即是當下</p>
-                </div>
+           
+            <div class="icon-unit wow animate__animated animate__bounceIn" data-wow-delay='1s'>
+                <i class="fa-solid fa-seedling icon-img">簡單</i>
+                <p class="icon-txt">樸實手法帶人們回歸食物真正的原本<br>沒有華麗的裝飾與過重的調味 幸福即是當下</p>
             </div>
-            <div class="icon-unit">
-                <div class="icon-img">
-                    <i class="fa-solid fa-tractor"></i>
-                </div>
-                <div class="icon-txt">
-                    <p>在地</p>
-                    <p>我們每份食材都是結合當地農產<br>
-                    為創新小農與環保減碳盡一份心力</p>
-                </div>
+
+            <div class="icon-unit wow animate__animated animate__bounceIn" data-wow-delay='1.2s'>
+                <i class="fa-solid fa-tractor icon-img">在地</i>
+                <p class="icon-txt">我們每份食材都是結合當地農產<br>為創新小農與環保減碳盡一份心力</p>         
             </div>
-            <div class="icon-unit">
-                <div class="icon-img">
-                    <i class="fa-solid fa-lemon"></i>
-                </div>
-                <div class="icon-txt">
-                    <p>原物</p>
-                    <p>美好的食材不需要過多的調理<br>
-                        本店所使用材料堅持自店手工全程製作
-                    </p>
-                </div>
+
+            <div class="icon-unit wow animate__animated animate__bounceIn" data-wow-delay='1.4s'>
+                <i class="fa-solid fa-lemon icon-img">原物</i>
+                <p class="icon-txt">美好的食材不需要過多的調理<br>本店所使用材料堅持自店手工全程製作</p>
             </div>
-            <div class="icon-unit">
-                <div class="icon-img">
-                    <i class="fa-solid fa-fire"></i>
-                </div>
-                <div class="icon-txt">
-                    <p>風味</p>
-                    <p>採用最單純的烹調方式<br>
-                    帶出最純粹乾淨的味道
-                    讓您回歸真正的自然</p>
-                </div>
-            </div>        
+
+            <div class="icon-unit wow animate__animated animate__bounceIn" data-wow-delay='1.6s'>
+                <i class="fa-solid fa-fire icon-img">風味</i>
+                <p class="icon-txt">採用最單純的烹調方式<br>帶出最純粹乾淨的味道 讓您回歸真正的自然</p>
+            </div>      
         </div>
+
         <div class="people"> 
             <div class="people-img">
-                <div class="animation-positioning-2
-                            animate__animated 
-                            animate__rotateInDownLeft
-                             "> 
-                </div>
+                <div class="team-img wow animate__animated animate__fadeInLeftBig" data-wow-delay='0.5s'></div>            
             </div>
-            <div class="people-txt 
-                        animation-positioning-2
-                        animate__animated 
-                        animate__fadeIn
-                        wow
-                        ">
-                <p>我們的團隊</p>
+            <div class="people-txt wow animate__animated animate__zoomInUp" data-wow-delay='0.5s'>
+                <h3>我們的團隊</h3>
                 <p>一群熱愛家鄉與料理的年輕人<br>
                 因為有著共同的理念 開始深耕家鄉的土壤<br>
                 靠著熱忱讓平凡也能耀眼摘星<br>
@@ -115,24 +82,32 @@
                 2020年-亞洲最佳餐廳-第3名
             </div>
         </div>
+
+
         <div class="form-container">
             <div class="contact">
                 <h3>連絡我們</h3>   
             </div>
+
             <div class="recruiting">
-                <p class="recruiting-txt">招募訊息</p>
-                <p class="recruiting-txt">我們尋找有共同理想的夥伴<br>
-                    如果您有興趣歡迎來店面談
-                </p>
+                <div class="recruiting-txt">
+                    <p>招募訊息<br>
+                    我們尋找有共同理想的夥伴<br>
+                    如果您有興趣歡迎來店面談</p>
+                    </p>
+                </div>
+               
                 <div class="recruiting-map">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2235.0540049028787!2d120.44606088936165!3d23.461889163051993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1szh-TW!2stw!4v1704673938405!5m2!1szh-TW!2stw" width="300" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     <div class="address">
-                        <p>民生店營業時間</p>
-                        <p>  周一至周六<br>上午9:30至14:30<br>下午17:30至19:30<br>
-                            地址:嘉義市XXX路<br>XXX巷50號 </p>
+                        <p>南山店營業時間</p>
+                        <p> 周一至周六<br>上午9:30至14:30<br>下午17:30至19:30<br>
+                        地址:嘉義市XXX路<br>XXX巷50號 </p>
                     </div>
                 </div>
             </div>
+
+
             <div class="contact-form">
                 <label for="name">您的姓名:</label>
 
@@ -160,14 +135,30 @@
             </div>
              
         </div>
-
-
     </div>
 
     <div id="footer"></div>
     <!-- 頁尾 -->
     
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <script src="js.js"></script>
 </body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script defer src="js.js"></script>
+
+    <script>
+        new WOW().init();
+
+        let login = document.querySelector(".login-mask");
+        let loginOpen = document.querySelector(".login-open");
+        let closelogin = document.querySelector(".close-login");
+
+        loginOpen.addEventListener("click", function(){
+            login.style.display ="block";
+            console.log("Login button clicked");
+        });
+        closelogin.addEventListener("click", function(){
+            login.style.display ="none";
+            console.log("Login button clicked");
+        });
+    </script>
+
 </html>
