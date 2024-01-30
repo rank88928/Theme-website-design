@@ -3,7 +3,7 @@
 
 .main{
     display: flex;
-    background-color:rgba(255, 212, 95, 0.2) ;
+    background-color:rgb(247,243,238) ;
 }
 
 
@@ -25,8 +25,6 @@
 }
 .main .dropmenu .column:hover{
     transition: border 0.3s ease;
-    /* border-left: 3px solid rgb(255, 58, 58);
-    border-bottom: 3px solid rgb(255, 58, 58); */
 }
 .main .dropmenu .column .dropmenu{
     display: none;
@@ -128,155 +126,4 @@
 }
 .shopping:hover{
     color: #2600ff;
-}
-
-
-
-
-/* 關於我們 */
-
-.about-container .video-1{
-    padding: 20px;
-    background-color:  rgba(255, 212, 95, 0.2);
-}
-
-
-.people{
-    width: 100%;
-    background-color: rgb(52, 52, 50);
-    display: flex;
-    justify-content:center;   
-}
-.people .people-txt{
-    color: #aedd39;
-    text-align:center;
-    width: 30vw;
-    --animate-duration: 6s;
-}
-.people .people-img{
-    width: 50vw;
-    height: 400px;
-    padding: 30px;
-    margin-left: 7vw;
-    position: relative;
-    overflow: hidden;
-}
-/* 動畫效果 */
-.people .people-img .animation-positioning-1{
-    background-image:url("/img/platting-4282016_1280.jpg") ;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    position: absolute;
-    width: 30vw;
-    height: 340px;
-    --animate-duration: 4s;
-}
-.people .people-img .animation-positioning-2{
-    background-image:url("/img/people-2561634_1280.jpg") ;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    position: absolute;
-    width: 30vw;
-    height: 340px;
-    --animate-duration: 3s;
-}
-
-
-
-
-
-
-
-.people-icon{
-    display: flex;
-    justify-content:center;   
-    color: #512631;
-    background-color:  rgba(255, 212, 95, 0.2);
-    text-align:center;
-    font-size: 24px;
-}
-.people-icon .icon-unit{
-    margin: 50px 20px;
-    background-color: #47240e7a;
-    padding: 20px;
-    border-radius:10px;
-}
-.people-icon .icon-unit .icon-img{
-    font-size: 40px;
-}
-
-
-
-.banner-star{
-    background-image:url("/img/pexels-photo-110867.jpg") ;
-    width: 100%;
-    height: 400px;
-    background-size: cover;
-    background-position: 50% 100%;
-}
-
-
-.form-container{
-    width: 100%;
-    display: flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    height: 700px;
-}
-
-
-.form-container .contact{
-    width: 100%;
-    text-align: center;
-    padding: 20px 0;
-    background-color:rgb(131, 131, 131);
-}
-.form-container .contact h3{
-    font-size: 60px;
-}
-
-
-
-.form-container .recruiting{
-     width: 50%;
-}
-.recruiting p{
-    text-align: center;
-}
-.recruiting .recruiting-txt{
-    font-size: 24px;
-}
-.recruiting-map{
-    display: flex;
-}
-
-
-.form-container .contact-form{
-    width: 40%;
-}
-
-
-/* 重置樣式 */
-.contact-form input{
-    width: 300px;
-    margin-top: 5px;
-}   
-#phone ,#purpose{
-    margin-left: 40px;
-}
-#message{
-    width: 340px;
-    height: 200px;
-}
-.note{
-    display: inline;
-    color: #ff0000;
-}
-.contact-form .form-txt{
-    font-weight:800;
-    font-size: 18px;
-    margin: 10px 0 0 5px;
-}
-#form-submit-button{
-    margin: 10px 0 50px 50px;
 }
