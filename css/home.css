@@ -57,7 +57,17 @@
 .introduce-box-1 .txt-box{
     width: 40%;
     padding: 30px 60px;
+    text-align: center;
 }
+.introduce-box-1 .txt-box h3{
+    font-size: 36px;
+    margin-bottom: 40px;
+}
+.introduce-box-1 .txt-box p{
+   font-size: 24px;
+   line-height: 36px;
+}
+
 .introduce-box-1 .img-box{
     width: 60%;
     height: 100%;
@@ -84,20 +94,6 @@
     padding: 10px;
     object-fit: cover;
 }
-/* 動畫速度 */
-.speed-1{
-    --animate-duration: 1s;
-}
-.speed-2{
-    --animate-duration: 3s;
-}
-.speed-3{
-    --animate-duration: 4s;
-}
-
-
-
-
 /* 相反布局 */
 .contrary{
     background: linear-gradient(200deg, transparent 0%, transparent 45%, #f7f3ee 45%, #f7f3ee 100%);
@@ -146,10 +142,12 @@
 }
 .product-card .product-txt h3{
     font-size: 24px;
-    margin: 5px;
+    margin: 10px 5px;
+    font-weight:600;
+    font-style: italic;
 }
 .product-card .product-txt p{ 
-    height: 86px;
+    height: 60px;
     margin: 0 20px;
     text-overflow: ellipsis; 
     overflow: hidden;
