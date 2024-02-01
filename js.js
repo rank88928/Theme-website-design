@@ -1,18 +1,13 @@
 //是否開啟響應式選單
 let nav_menu_but = document.querySelector(".menu-but");
-// let switch_display = 0; //默認不展示
 let nav_menu = document.querySelector(".nav");
+let menu_mask = document.querySelector(".menu-mask");
 
 nav_menu_but.addEventListener("click", function(){
 
     nav_menu.classList.toggle("open");
-    // if(switch_display == 0){
-    //     switch_display +=1;
-    //     nav_menu.classList.toggle("open")
-    // }
-    // else{  
-    //     switch_display -=1;
-    // }
+    menu_mask.classList.toggle("open");
+ 
 });
 
 
