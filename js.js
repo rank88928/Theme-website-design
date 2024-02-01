@@ -1,3 +1,18 @@
+// 登入頁面開啟或關閉
+let login = document.querySelector(".login-mask");
+let loginOpen = document.querySelector(".login-open");
+let closelogin = document.querySelector(".close-login");
+
+loginOpen.addEventListener("click", function(){
+    login.style.display ="block";
+    console.log("Login button clicked");
+});
+closelogin.addEventListener("click", function(){
+    login.style.display ="none";
+    console.log("Login button clicked");
+});
+
+
 // 問答框-點擊後下展示框
 let qboxes = document.querySelectorAll(".qa-Click-box");
 let aboxes = document.querySelectorAll(".qa-a");
@@ -13,9 +28,9 @@ qboxes.forEach(function(qbox, index) {
 
 
 // 菜單切換詳細模式與簡略模式
-let detailed = document.querySelector(".detailed")//詳細
-let simple = document.querySelector(".simple")//簡略
-let mcard = document.querySelectorAll(".m-card")
+let detailed = document.querySelector(".detailed");//詳細
+let simple = document.querySelector(".simple");//簡略
+let mcard = document.querySelectorAll(".m-card");
 
 detailed.addEventListener('click', function(){
     mcard.forEach(mcard => {   //需要遍歷
@@ -39,9 +54,9 @@ simple.addEventListener('click', function(){
 
 
 //菜單購物車數量修改按鈕
-let reducebutton = document.querySelectorAll(".reduce")
-let plusbutton = document.querySelectorAll(".plus")
-let quantity = document.querySelectorAll(".quantity")
+let reducebutton = document.querySelectorAll(".reduce");
+let plusbutton = document.querySelectorAll(".plus");
+let quantity = document.querySelectorAll(".quantity");
 
 // 如果要操作的元件有多次重複 執行遍歷 就可以同時對所有元素掛載
 
@@ -71,32 +86,4 @@ plusbutton.forEach(function(plusbutton, index){
         quantity[index].value = number + 1;
     });
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// 登入頁面開啟或關閉
-
-    // let login = document.querySelector(".login-page-grey");
-    // let loginOpen = document.querySelector(".login-open");
-    // let closelogin = document.querySelector(".close-login");
-
-    // loginOpen.addEventListener("click", function(){
-    //     login.style.display ="block";
-    //     console.log("Login button clicked");
-    // });
-    // closelogin.addEventListener("click", function(){
-    //     login.style.display ="none";
-    //     console.log("Login button clicked");
-    // });
 

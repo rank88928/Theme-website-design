@@ -31,8 +31,8 @@
             </div>
             <div class="user">
                 <button class="header-but login-open"><i class="fa-solid fa-user icon"></i></button>
-                <a href=""><i class="fa-solid fa-cart-shopping icon"></i></a>
-                <a href=""><i class="fa-solid fa-magnifying-glass icon"></i></a>
+                <button class="header-but"><i class="fa-solid fa-cart-shopping icon"></i></button>
+                <button class="header-but"><i class="fa-solid fa-magnifying-glass icon"></i></i></button>
                 <div >
                     <a href="" class="yellow-button">我要訂餐</a>
                 </div>
@@ -56,6 +56,7 @@
                             <label for="password">密碼</label>
                             <input type="text" id="password" placeholder="請輸入您的密碼" required>
                         </div>
+                    
                         <a href="" class="forget">忘記密碼?</a>
                     </div>
                     <div class="login-but-group">
@@ -109,8 +110,7 @@
         <div class="introduce-box-1">
             <div class="txt-box">
                 <h3>前菜 輕食</h3>
-                <p>在悠閒的早晨 用美食展開全新的一天<br>味覺的冒險即將開始
-                </p>
+                <p>在悠閒的早晨 用美食展開全新的一天<br>味覺的冒險即將開始</p>
                 <a href="/menu.html" class="but-link-1">VIEW MORE<i class="fa-solid fa-chevron-right icon-right"></i></a>
             </div>
             <div class="img-box">
@@ -358,8 +358,6 @@
     </div>
    
 
-
-
     <div class="faq" id="faq">
         <p>常見問題</p>
         <div class="dropmenu-element">
@@ -429,19 +427,6 @@
 
     <script>
         new WOW().init();
-    
-        let login = document.querySelector(".login-mask");
-        let loginOpen = document.querySelector(".login-open");
-        let closelogin = document.querySelector(".close-login");
-
-        loginOpen.addEventListener("click", function(){
-            login.style.display ="block";
-            console.log("Login button clicked");
-        });
-        closelogin.addEventListener("click", function(){
-            login.style.display ="none";
-            console.log("Login button clicked");
-        });
     </script>
    
 </html>
