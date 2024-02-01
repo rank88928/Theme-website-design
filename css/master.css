@@ -49,7 +49,6 @@ a{
 .header .item:hover a{
     color: rgb(247, 199, 77);
 }
-
 .header .user{
     display: flex;
 }
@@ -59,6 +58,45 @@ a{
 .header .user .icon:hover{
     color: rgb(247, 199, 77);
 }
+
+/* 側欄選單按鈕 */
+.menu-but{
+    display: none;
+}
+@media screen and (max-width: 992px){
+   
+    .menu-but{
+        display: block;
+    }
+    .header .nav{
+        position: absolute;
+        flex-wrap: wrap;
+        background-color: #ffffff;
+        width: 40%;
+        height: 500%;
+        z-index: 20;
+        left: -500px; 
+        transition: left 0.5s ease;
+    }
+    .header .open{
+        left: 0px; 
+    }
+
+    .header .nav .item{
+        width: 100%;
+    }
+    .header .nav .item a{
+        color: #000;
+        
+       
+    }
+
+}
+
+
+
+
+
 
 /* 登入頁 */
 .login-mask{
@@ -328,7 +366,7 @@ a{
     content: "午晚提供";
     position: absolute;
     writing-mode: vertical-lr;
-    width: 30px;
+    width: 40px;
     height: 100px;
     color: #ff000075;
     background-color: #f9d5a659;
@@ -338,6 +376,7 @@ a{
     text-align: center;
     font-weight:800;
     z-index: 10;
+    line-height: 36px;
 }
 
 

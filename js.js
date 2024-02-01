@@ -1,3 +1,24 @@
+//是否開啟響應式選單
+let nav_menu_but = document.querySelector(".menu-but");
+// let switch_display = 0; //默認不展示
+let nav_menu = document.querySelector(".nav");
+
+nav_menu_but.addEventListener("click", function(){
+
+    nav_menu.classList.toggle("open");
+    // if(switch_display == 0){
+    //     switch_display +=1;
+    //     nav_menu.classList.toggle("open")
+    // }
+    // else{  
+    //     switch_display -=1;
+    // }
+});
+
+
+
+
+
 // 登入頁面開啟或關閉
 let login = document.querySelector(".login-mask");
 let loginOpen = document.querySelector(".login-open");
@@ -5,11 +26,11 @@ let closelogin = document.querySelector(".close-login");
 
 loginOpen.addEventListener("click", function(){
     login.style.display ="block";
-    console.log("Login button clicked");
+    // console.log("Login button clicked");
 });
 closelogin.addEventListener("click", function(){
     login.style.display ="none";
-    console.log("Login button clicked");
+    // console.log("Login button clicked");
 });
 
 

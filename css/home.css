@@ -341,10 +341,14 @@
 
 @media screen and (max-width: 768px){
 
-    .header,
+    /* .header,
+    .carousel-size{
+        display: none;
+    } */
     .carousel-size{
         display: none;
     }
+
     .video-container{
         width: 100%;
     }
@@ -382,6 +386,9 @@
     }
     .product-card .product-img{
         height: 70%;
+    }
+    .commentary-container{
+        display: none;
     }
     .address{
         width: 90%;
