@@ -12,14 +12,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <!-- 全局共通引入 -->
     <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/rwd.css">
     <!-- 該頁布局 -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>  
-    <script src="module.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script> 
 </head>
 <body>
-    <div id="header"></div>
-    <!-- 頁頭+輪撥 -->
+    <div class="header"></div>
+    <!-- 頁頭 -->
     
     <div class="main">
         <!-- 側邊欄 -->
@@ -216,7 +217,8 @@
             </div>
         </div>
     </div>
-    <div id="footer"></div>
+
+    <div class="footer"></div>
     <!-- 頁尾 -->
     
 </body>
@@ -224,19 +226,12 @@
     <script defer src="js.js"></script>
 
     <script>
+
+        $(".header").load("header.html");
+        $(".footer").load("footer.html");
+
         new WOW().init();
 
-        let login = document.querySelector(".login-mask");
-        let loginOpen = document.querySelector(".login-open");
-        let closelogin = document.querySelector(".close-login");
-
-        loginOpen.addEventListener("click", function(){
-            login.style.display ="block";
-            console.log("Login button clicked");
-        });
-        closelogin.addEventListener("click", function(){
-            login.style.display ="none";
-            console.log("Login button clicked");
-        });
     </script>
+
 </html>
