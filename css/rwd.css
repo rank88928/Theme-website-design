@@ -117,7 +117,7 @@
 
 
 /* 產品介紹 */
-@media screen and (max-width: 950px) and (min-width:769px){
+@media screen and (max-width: 1120px) and (min-width:769px){
     .product-list{
         grid-template-columns: repeat(auto-fill, 360px);
         justify-content:space-around;

@@ -112,12 +112,12 @@
 /* 產品列表 */
 .product-list{
     height: auto;
-    justify-content:space-between;   
+    justify-content:space-between; 
     background-color: #f7f3ee;
     padding: 40px 20px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(auto-fill, 290px);
+    grid-template-columns: repeat(auto-fill, 360px);
 }
 .product-card{
     width: 290px;
