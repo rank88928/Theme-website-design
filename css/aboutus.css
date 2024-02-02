@@ -15,48 +15,51 @@
 .top-m{
     margin-top:270px;
 }
-.people{
-    width: 100%;
+
+
+
+.people-container{
+    width: 1200px;
+    margin: auto;
     background-color: rgb(247,243,238);
     display: flex;
-    justify-content:center;   
+    justify-content:center;  
 }
-.people .people-txt{
+.people-container>.control-unit{
+    flex: 0 0 50% ;
+    padding: 50px 20px;
+}
+
+.control-unit .people-txt{
     color: #000000;
     text-align:center;
-    width: 30vw;
     font-size: 24px;
     letter-spacing:3px;
     line-height: 35px;
-    margin: auto 0;
+    margin: auto;
 }
-.people .people-img{
-    width: 50vw;
+.control-unit .people-img{
     height: 400px;
     padding: 30px;
-    margin-left: 7vw;
-    position: relative;
-    overflow: hidden;
 }
-.people .people-txt>h3{
+.people-txt>h3{
     margin: 24px 0;
     font-size: 40px;
     font-style: italic;
 }
+
+
 /* 主廚 團隊 */
-.people .people-img .chef-img{
+.people-img .team-img,
+.people-img .chef-img{
     background-image:url("/img/platting-4282016_1280.jpg") ;
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    width: 30vw;
-    height: 340px;
+    width: 100%;
+    height: 100%;
 }
-.people .people-img .team-img{
+.people-img .team-img{
     background-image:url("/img/people-2561634_1280.jpg") ;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    width: 40vw;
-    height: 340px;
 }
 
 
@@ -82,7 +85,7 @@
     color: #8d2828;
     margin: auto;
 }
-.control-unit{
+.idea-container>.control-unit{
     flex: 0 0 25%;
     padding: 50px 20px;
 }
