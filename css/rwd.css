@@ -161,3 +161,34 @@
     }
 }
 
+
+
+
+
+/* 關於我們 */
+
+@media screen and (max-width:1200px) { 
+
+    .idea-container{
+        max-width: 1200px;
+    }
+
+    
+}
+
+@media screen and (max-width:992px) { 
+
+    .idea-container{
+        max-width: 992px;
+    }
+
+    
+}
+@media screen and (max-width:768px) { 
+
+    .idea-container{
+        max-width: 768px;
+    }
+
+    
+}

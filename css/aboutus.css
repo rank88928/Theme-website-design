@@ -60,29 +60,58 @@
 }
 
 
+
+
+
+
+
+
+
+
 /* 概念圖標 */
-.people-icon{
-    display: flex;
+.idea-container{
     justify-content:center;   
-    color: #8d2828;
-    text-align:center;
     font-size: 24px;
+    text-align:center;
 }
-.people-icon .icon-unit{
-    margin: 50px 20px;
-    background-color: #ffd0b27a;
+/* 上面待重構 */
+.idea-container{
+    width: 1200px;
+    display: flex;
+    flex-wrap: wrap;
+    color: #8d2828;
+    margin: auto;
+}
+.control-unit{
+    flex: 0 0 25%;
+    padding: 50px 20px;
+}
+.idea-unit{
+    background-color: #ffd0b27a; 
     padding: 20px;
     border-radius:10px;
+    height: 100%;
 }
-.people-icon .icon-unit .icon-img{
+.idea-unit .idea-img{
     font-size: 40px;
     margin-bottom: 15px;
 }
-.people-icon .icon-unit:hover{
-    transform:translateY(-20px);
+.idea-unit:hover{
+    transform:translateY(-30px);
     transition: transform 0.3s ease;
-    
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
