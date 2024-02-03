@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <!-- 全局共通引入 -->
     <link rel="stylesheet" href="css/aboutus.css">
-    <link rel="stylesheet" href="css/rwd.css">
     <!-- 該頁布局 -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
@@ -92,15 +91,6 @@
        </div>
 
 
-
-        <!-- <div class="banner-star">
-            <div>
-                2020年-亞洲最佳餐廳-第3名
-            </div>
-        </div> -->
-
-
-
         <div class="contact-container">
             <div class="contact">
                 <h3>連絡我們</h3>   
@@ -124,31 +114,32 @@
                         </div>
                     </div>
                 </div>
+                <div class="form-container">
+                    <div class="contact-form">
+                        <label for="name">您的姓名:</label>
+                        <input type="text" id="name" placeholder="請輸入您的姓名" required><p class="note">*必填</p><br>
+                        
+                        <p class="form-txt">聯絡方式(信箱必填 我們收到訊息後將會盡快回覆您)</p>
 
-                <div class="contact-form">
-                    <label for="name">您的姓名:</label>
-                    <input type="text" id="name" placeholder="請輸入您的姓名" required><p class="note">*必填</p><br>
+                        <label for="phone">手機:</label>
+                        <input type="tel" id="phone" placeholder="請輸入手機或電話號碼" ><br>
+
+                        <label for="email">電子信箱:</label>
+                        <input type="email" id="email" placeholder="請輸電子信箱" required><p class="note">*必填</p><br>
                     
-                    <p class="form-txt">聯絡方式(信箱必填 我們收到訊息後將會盡快回覆您)</p>
+                        <p class="form-txt">想對我們說的話</p>
 
-                    <label for="phone">手機:</label>
-                    <input type="tel" id="phone" placeholder="請輸入手機或電話號碼" ><br>
+                        <label for="purpose">主旨:</label>
+                        <input type="text" id="purpose" placeholder="您的需求是?"><p class="note">*必填</p><br>
 
-                    <label for="email">電子信箱:</label>
-                    <input type="email" id="email" placeholder="請輸電子信箱" required><p class="note">*必填</p><br>
-                
-                    <p class="form-txt">想對我們說的話</p>
-
-                    <label for="purpose">主旨:</label>
-                    <input type="text" id="purpose" placeholder="您的需求是?"><p class="note">*必填</p><br>
-
-                    <label for="message">留言:</label>
-                    <input type="text" id="message" placeholder="請在此輸入內文" required><p class="note">*必填</p><br>
-                    
-                    <button id="form-submit-button">送出</button>
-                    
-                    驗證碼
-                </div>
+                        <label for="message">留言:</label>
+                        <input type="text" id="message" placeholder="請在此輸入內文" required><p class="note">*必填</p><br>
+                        
+                        <button id="form-submit-button">送出</button>
+                        
+                        驗證碼
+                    </div>
+                </div>    
             </div>     
         </div>
     </div>
