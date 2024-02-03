@@ -10,8 +10,6 @@
     object-fit: cover;
     margin-right: auto;
 }
-
-
 .top-m{
     margin-top:270px;
 }
@@ -62,15 +60,6 @@
     background-image:url("/img/people-2561634_1280.jpg") ;
 }
 
-
-
-
-
-
-
-
-
-
 /* 概念圖標 */
 .idea-container{
     justify-content:center;   
@@ -105,13 +94,30 @@
 }
 
 
+@media screen and (max-width:1200px) { 
+    .people-container,
+    .idea-container{
+        max-width: 1200px;
+    }
+}
+@media screen and (max-width:992px) { 
+    .people-container,
+    .idea-container{
+        max-width: 992px;
+    }
+}
+@media screen and (max-width:768px) { 
+    .people-container,
+    .idea-container{
+        max-width: 768px;
+    }
 
-
-
-
-
-
-
+    
+    .idea-container>.control-unit{
+        flex: 0 0 50%;
+        padding: 20px 20px;
+    }
+}
 
 
 
@@ -126,34 +132,47 @@
     background-position: 50% 100%;
 }
 
-.form-container{
+
+
+
+
+.contact-container{
     width: 100%;
     display: flex;
     justify-content:center;
     flex-wrap:wrap;
 }
-.form-container .contact{
+.contact-container .contact{
     width: 100%;
     text-align: center;
     padding: 20px 0;
     background-color:rgb(247,243,238);
-    margin-bottom: 20px;
-}
-.form-container .contact h3{
+    margin: 40px 0;
     font-size: 60px;
 }
-
-.form-container .recruiting{
-     width: 40%;
+.recruiting-container{
+    display: flex;
+    justify-content:space-between; 
+    flex-wrap: wrap;
+    margin: auto;
+}
+@media screen and (max-width:768px) {
+    .contact-form,
+    .recruiting{
+        width: 100%;
+    }
+    
+}
+/* 地圖 */
+.recruiting{
+     width: 49%;
      text-align: center;
 }
 .recruiting .recruiting-txt{
     font-size: 24px;
-    text-align: center;
     padding: 20px 0;
     background-color: bisque;
 } 
-
 .recruiting-map{
     display: flex;
     background-color: rgb(247,243,238);
@@ -161,23 +180,22 @@
 .recruiting-map .address{
     line-height: 40px;
 }
-
-.form-container .contact-form{
-    width: 40%;
-    margin-left: 20px;
+/* 表單 */
+.contact-form{
+    width: 50%;
 }
-/* 重置樣式 */
 .contact-form input{
-    width: 300px;
+    width: 272px;
     margin-top: 5px;
 }   
 #phone ,#purpose{
     margin-left: 40px;
 }
 #message{
-    width: 340px;
+    width: 312px;
     height: 200px;
 }
+
 .note{
     display: inline;
     color: #ff0000;
