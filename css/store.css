@@ -1,0 +1,147 @@
+
+
+.form-selection{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+.selection-txt{
+    font-size: 24px;
+    line-height: 60px;
+}
+.selection{
+    width: 25%;
+    display: flex;
+}
+
+
+
+.selection select{
+    width: 100px;
+    height: 60px;
+}
+.selection::after {
+    content: '\25BC';
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0 1em;
+    background: #a9d0ff;
+    cursor:pointer;
+    pointer-events:none;
+    transition:.25s all ease;
+ }
+ .selection:hover::after {
+    color: #ffffff;
+ }
+ select {
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    -ms-appearance:none;
+    appearance:none;
+    outline:0;
+    box-shadow:none;
+    border:0;
+    background: #a9d0ff;
+    background-image: none;
+    flex: 1;
+    padding: 0 .5em;
+    color:#000000;
+    cursor:pointer;
+    font-size: 1em;
+    font-family: 'Open Sans', sans-serif;
+ }
+ .selection{
+    position: relative;
+    display: flex;
+    line-height: 3;
+    background: #5c6664;
+    overflow: hidden;
+    border-radius: .25em;
+ }
+
+
+
+
+.list-cs{
+    margin: 20px 0;
+    text-align: center;
+}
+.list-cs .store-data-category{
+    width: 80%;
+    background-color: rgb(247, 199, 77);
+}
+.list{
+    width: 80%;
+    font-size: 20px;
+    margin: auto;
+}
+.store-data{
+    margin: auto;
+    display: flex;
+    font-size: 24px;
+}
+.store-data:nth-child(2n){
+    background-color: rgb(224, 222, 195);
+}
+.store-data p{
+    margin: 20px 0px; 
+    text-align: center;  
+}
+.store-data .id{
+    flex-basis:15%;
+}
+.store-data .mane{
+    flex-basis:15%;
+}
+.store-data .area{
+    flex-basis:20%;
+}
+.store-data .location{
+    flex-basis:25%;
+}
+.store-data .contact{
+    flex-basis:25%;
+}
+
+
+
+
+.page-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+.page-container .page-ul{
+    display: flex;
+}
+
+.page-container .page-ul li{
+    padding: 5px;
+    margin: 0 5px;
+    border: 1px solid #000000;
+}
+
+.show{
+    background-color: #fbff00;
+}
+
+.page-container button{
+    
+}
+.page-container i{
+    padding: 2px 5px;
+    color: #a9d0ff;
+    font-size: 40px;
+    border-radius:10px;
+    background-color: #f4caa33d;
+}
+
+.left i{
+    transform: rotate(270deg)
+}
+.right i{
+    transform: rotate(90deg)
+}
+ 
