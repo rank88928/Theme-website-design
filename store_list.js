@@ -14,12 +14,14 @@ let region_menu = document.querySelector('select')//地區
 
 let number_data;//篩選後總筆數
 let display_number = 10;//單頁列出筆數
+const display_page = 7; //頁碼顯示上限
 
 let page = 1; //當前頁碼
 let total = 0 //總頁碼
 let page_data = [];
 let page_left_but = document.querySelector('.left');
 let page_right_but = document.querySelector('.right');
+let page_color = 0; //顯示當頁
 
 let pac = document.querySelector('.pac');
 
@@ -45,29 +47,16 @@ async function filter_array(id){
     number_data = filter_data.length;//回傳筆總數
     pac.textContent = number_data; 
     display_quantity(1);
-    generate_page(number_data);//建立頁碼
+    generate_page(1);//建立頁碼
     page_data = page_list.querySelectorAll('*');
-    page_data[0].className = 'show';
-   
+    page_color = 0;
+    page_data[page_color].className = 'show';
 }
 
 
-//生成顯示資料
-function display_quantity(i){
-    let x = display_number * (i - 1);
-    let start = filter_data.slice(x);
-    console.log(x + '索引');
-    start.forEach((item, index) => {
-    if (index < display_number) {
-        generate(item.id, item.mane, item.city, item.address, item.telephone);
-    }
-});
-    list.innerHTML = '';
-    list.append(temporary_list);
-    // 建立列表
-}
 
-//索引的問題 按鈕下去會導致時濟到第3 按2 才會顯示1
+
+
 
 // 回調等待
 (async () => {
@@ -102,25 +91,90 @@ region_menu.addEventListener('change', function(){
     filter_array(id);
     page = 1;
     });
+
+
+
 page_left_but.addEventListener('click', function(){
-    if( 0 < page  ){
-        page -= 1;
-    }
+    page_color_removal();
+    if(page > 1) page--;
     display_quantity(page)
-    console.log(page-1 +'頁數');
 
-    page_data[page -1].className = 'show';
-    page_data[page + 1].classList.remove('show');
+    
+    // if(page_color > 0 ){
+    //     page_color --;
+    //     page_data[page_color].className = 'show';
+    // }else{
+    //     page_data[0].className = 'show';
+    // }
+
+    //先宣告數組長度 在嘗試外部呼叫
+    
+
+
+    let x =page_data.length -1;
+
+    if(page > x +1 ){
+        k = page - 7;
+    for(i=1; i < x+2 ; i++){
+        let y = document.createElement('li');
+        y.textContent = k;
+        temporary_page.append(y);
+        k++;
+        }
+        page_list.innerHTML = '';
+        page_list.append(temporary_page);
+        page_data = page_list.querySelectorAll('*');
+        page_data[x].className = 'show';
+        console.log(x);
+    }else{
+
+
+
+        if(page_color > 0 ){
+            page_color --;
+            page_data[page_color].className = 'show';
+        }else{
+            page_data[page_color].className = 'show';
+        }
+
+    }
+    
 })
-page_right_but.addEventListener('click', function(){
-    if( page < total ){
-        page += 1;
-    }
-    display_quantity(page)
-    console.log(page-1 +'頁數');
 
-    page_data[page -1].className = 'show';
-    page_data[page - 1].classList.remove('show');
+
+page_right_but.addEventListener('click', function(){
+    page_color_removal();
+    if(page < total) page++;
+    display_quantity(page)
+
+
+    let x =page_data.length -1;
+
+    if(page_color < page_data.length -1 ){
+        page_color ++;
+        console.log(page_color)
+        page_data[page_color].className = 'show';
+    }else{
+        page_data[x].className = 'show';
+    }
+
+    if(page > x + 1){
+        k = page - 6;
+    for(i=1; i < x+2 ; i++){
+        let y = document.createElement('li');
+        y.textContent = k;
+        temporary_page.append(y);
+        k++;
+        }
+        page_list.innerHTML = '';
+        page_list.append(temporary_page);
+        page_data = page_list.querySelectorAll('*');
+        page_data[x].className = 'show';
+    }
+    
+
+   
+    // 頁數大於列表時 重新渲染
 })
 
 
@@ -147,17 +201,48 @@ function generate(id, mane, city, address, telephone){
 
 
 
-// 渲染頁碼
-function generate_page(){
-    z = Math.ceil(number_data / display_number);
-    total = z;
-    for(i=1; i <= z && i < 8; i++){
-    let x = document.createElement('li');
-    x.textContent = i;
-    temporary_page.append(x);
+
+//移除頁碼標記
+function page_color_removal(){
+    page_data.forEach(function(page_data,index){
+        page_data.className = ' ';
+    });
+}
+
+
+//生成顯示資料
+function display_quantity(i){
+    let x = display_number * (i - 1);
+    let start = filter_data.slice(x);
+    console.log(x + '索引');
+    start.forEach((item, index) => {
+    if (index < display_number) {
+        generate(item.id, item.mane, item.city, item.address, item.telephone);
     }
+});
+    list.innerHTML = '';
+    list.append(temporary_list);
+    // 建立列表
+}
+
+
+// 生成頁碼數並顯示
+function generate_page(start){
+    let k = Math.ceil(number_data / display_number);//計算總頁碼
+    total = k;
+    // console.log(display_page)
+
+    for(i=1; i <= k && i <= display_page ; i++){   //小於等於頁碼總數且小於顯示數量
+    let x = document.createElement('li');
+    x.textContent = start; //計算起始
+    temporary_page.append(x);
+    start++;
+    }
+
     page_list.innerHTML = '';
     page_list.append(temporary_page);
+    page_data = page_list.querySelectorAll('*');
+
 }
 
 // 資料格式轉換
@@ -177,74 +262,51 @@ function processdata(data, index){
 function County_city(area){
     switch (area) {
         case 1:
-            return "台北市";
-            break;
+            return "台北市";  
         case 2:
-            return "新北市";
-            break;
+            return "新北市";  
         case 3:
-            return "桃園市";
-            break;
+            return "桃園市";    
         case 4:
             return "台中市";
-            break;
         case 5:
             return "台南市";
-            break;
         case 6:
             return "高雄市";
-            break;
         case 7:
             return "基隆市";
-            break;
         case 8:
-            return "新竹市";
-            break;
+            return "新竹市";  
         case 9:
-            return "嘉義市";
-            break;
+            return "嘉義市";   
         case 10:
-            return "新竹縣";
-            break;
+            return "新竹縣";  
         case 11:
-            return "苗栗縣";
-            break;
+            return "苗栗縣";  
         case 12:
-            return "彰化縣";
-            break;
+            return "彰化縣";  
         case 13:
-            return "南投縣";
-            break;
+            return "南投縣";  
         case 14:
-            return "雲林縣";
-            break;
+            return "雲林縣"; 
         case 15:
             return "嘉義縣";
-            break;
         case 16:
             return "屏東縣";
-            break;
         case 17:
-            return "宜蘭縣";
-            break;
+            return "宜蘭縣";    
         case 18:
-            return "花蓮縣";
-            break;
+            return "花蓮縣"; 
         case 19:
             return "台東縣";
-            break;
         case 20:
             return "澎湖縣";
-            break;
         case 21:
-            return "金門縣";
-            break;
+            return "金門縣";  
         case 22:
             return "連江縣";
-            break;
         default:
             return "未知";
-            break;
     }
 }
 // 電話
@@ -256,37 +318,26 @@ function road_names(road){
     switch (road) {
         case 1:
             return "民生路";
-            break;
         case 2:
             return "吳鳳路";
-            break;
         case 3:
             return "中正路";
-            break;
         case 4:
             return "福德路";
-            break;
         case 5:
             return "健康路";
-            break;
         case 6:
             return "興業路";
-            break;
         case 7:
             return "中興路";
-            break;
         case 8:
             return "西屯路";
-            break;
         case 9:
             return "健行路";
-            break;
         case 10:
             return "漢口路";
-            break;
         default:
             return "未知";
-            break;
     }
 }
 
