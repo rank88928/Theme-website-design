@@ -1,72 +1,53 @@
-const apikey = 'azynp6rii8lt554x46yf6b1gz88poh508jbc7z2v';
-const apiurl = 'https://api.json-generator.com/templates/53LtyOeR5OLG/data?';
-let store_ask;//json
-let store_data;//原始資料
 let processed_data = [];//格式後資料
 let filter_data = [];//篩選後資料
-
 let list = document.querySelector('.list'); //資料
-let temporary_list = document.createDocumentFragment();//列表暫存
 let page_list = document.querySelector('.page-ul');//頁碼
-
-let region_menu = document.querySelector('select')//地區
 
 let number_data;//篩選後總筆數
 let display_number = 10;//單頁列出筆數
 const display_page = 7; //頁碼顯示上限
-
 let page = 1; //當前頁碼
 let total = 0 //總頁碼
 let page_data = [];
 let page_color = 0; //顯示當頁
 
-
 // 頁面互動
+let region_menu = document.querySelector('select')//地區
 let page_left_but = document.querySelector('.previous_page');
 let page_right_but = document.querySelector('.next_page');
-
-let pac = document.querySelector('.pac');
-
-
+let enter = document.querySelector('.enter');
+let enter_txt = enter.value;
+let bnquire_but = document.querySelector('.bnquire-but');
 
 
 // 取得API資料
 async function check_store(){
+    const apikey = 'azynp6rii8lt554x46yf6b1gz88poh508jbc7z2v';
+    const apiurl = 'https://api.json-generator.com/templates/53LtyOeR5OLG/data?';
+    let store_ask;
+    let store_data;//原始資料
     store_ask = await fetch(apiurl + 'access_token=' + apikey);
     if(store_ask.status == 401){
-        console.log(401+'錯誤 請求失敗');
+        console.log(401+'錯誤 請求失敗');    //這裡補一個彈出
     }else{
         store_data = await store_ask.json();
     }
-}
-
-// 資料格式處理
-(async () => {
-    await check_store();
     store_data.forEach(function(data, index) {
-        let item = processdata(data, index)// 資料轉換
-        processed_data.push(item); // 新資料
-    });
-    filter_array(0);
-    // 資料準備完成直接顯示
-})();
+        processed_data.push(processdata(data, index)); 
+    });// 把原始資料處理過後 放置到新數組
+    filter_array(0);// 資料準備完成直接顯示
+}
+(async () => {await check_store();})();//頁面開始 直接呼叫資料
+
 
 // 挑出特定選擇-縣市ID
-async function filter_array(id){
+function filter_array(id){
     if(id == 0){
         filter_data = processed_data; //全地區=原資料
     }else{
         filter_data = processed_data.filter(item => item.cityid === id);// 依地區ID挑選 
     }
-    number_data = filter_data.length;//回傳當次總筆數
-    pac.textContent = number_data; //待改 *****顯示
-    // 重置判斷條件
-    page_color = 0;
-    page = 1;
-    //更新畫面
-    display_quantity(1);//資料欄
-    generate_page(1);//頁碼
-    page_data[page_color].className = 'show';
+    page_update()//呼叫畫面更新
 }
 
 
@@ -81,7 +62,7 @@ region_menu.addEventListener('change', function(){
     });
 
 
-//先宣告數組長度 在嘗試外部呼叫
+// 前一頁
 page_left_but.addEventListener('click', function(){
     page_color_removal();  //移除頁碼標記
     if(page > 1) page--;   //頁碼修改
@@ -103,7 +84,7 @@ page_left_but.addEventListener('click', function(){
     }
 })
 
-
+// 後一頁
 page_right_but.addEventListener('click', function(){
     page_color_removal(); 
     if(page < total) page++; 
@@ -124,47 +105,92 @@ page_right_but.addEventListener('click', function(){
     }
 })
 //有空在嘗試別種方式  讓頁碼居中  頁碼取餘數+商=中位數
+//按鈕要改成可以按
+
+
+
+enter.addEventListener('input', function(){
+    enter_txt = enter.value;
+})
+// 查詢框資料
+bnquire_but.addEventListener('click', function(){
+    let k = [];
+    processed_data.forEach(function(data, index){//查每個對象
+        let i = processed_data[index]; //把單個對象存起
+        //for..in 用於枚舉對象的全部屬性
+        for(var key in i ){
+            if (i.hasOwnProperty(key)){ //如果該對象有符合的屬性回傳布林
+                i[key] = String(i[key]);//把他轉換成字串
+            }
+        }
+        var jsonString = JSON.stringify(i);
+        if(jsonString.includes(enter_txt)){
+            k.push(data);
+        }
+    })
+    filter_data = k;
+    page_update()
+})
+
 
 
 // 輔助涵數
-// 生成表單結構資料列
-function generate(id, mane, city, address, telephone){
-    let li = document.createElement('li');
-    li.className = 'store-data';
 
-    function list_1(k, classmane){
-        let i = document.createElement('p');
-        i.className = classmane;
-        i.textContent = k;
-        return i;
-    }
-    // 把創建元素的辦法用函數處理起來 直接生成一組
-    li.append(list_1(id,'id'),
-              list_1(mane,'mane'),
-              list_1(city,'area'),
-              list_1(address,'location'),
-              list_1(telephone,'contact'),);
-    temporary_list.append(li);
+// 畫面更新--------------------------------------------
+function page_update(){
+
+    number_data = filter_data.length;//回傳當次總筆數
+    let reply = document.querySelector('.reply');
+    reply.textContent = number_data; //待改 *****顯示
+    // 重置判斷條件
+    page_color = 0;
+    page = 1;
+    //更新
+    display_quantity(1);//資料欄
+    generate_page(1);//頁碼
+    page_data[page_color].className = 'show';
 }
+
+//生成顯示資料
+function display_quantity(i){
+    let temporary_list = document.createDocumentFragment();//列表暫存
+    let x = display_number * (i - 1); //預設10筆 *傳入頁碼=參照起始索引
+    let start = filter_data.slice(x); //建立一個數組副本 只從參照值開始擷取
+
+    start.forEach((item, index) => {  
+        if (index < display_number) {
+            generate(item);
+        }
+    });
+    // 生成表單結構資料列
+    function generate(item){
+        let li = document.createElement('li');
+        li.className = 'store-data';
+
+        function list_1(k, item){
+            let i = document.createElement('p');
+            i.className = item;
+            i.textContent = k;
+            return i;
+        }
+        // 把創建元素的辦法用函數處理起來 直接生成一組
+        li.append(list_1(item.id,'id'),
+                list_1(item.name,'name'),
+                list_1(item.city,'area'),
+                list_1(item.address,'location'),
+                list_1(item.telephone,'contact'),);
+        temporary_list.append(li);
+    }
+    list.innerHTML = '';
+    list.append(temporary_list); //渲染頁面
+}
+
 
 //移除頁碼標記
 function page_color_removal(){
     page_data.forEach(function(page_data){
         page_data.className = ' ';
     });
-}
-
-//生成顯示資料
-function display_quantity(i){
-    let x = display_number * (i - 1); //預設10筆 *傳入頁碼=參照起始索引
-    let start = filter_data.slice(x); //建立一個數組副本 只從參照值開始擷取
-    start.forEach((item, index) => {  
-        if (index < display_number) {
-            generate(item.id, item.mane, item.city, item.address, item.telephone);
-        }
-    });
-    list.innerHTML = '';
-    list.append(temporary_list); //渲染頁面
 }
 
 // 生成頁碼數並顯示
@@ -184,11 +210,12 @@ function generate_page(start){
 }
 
 
-// 資料格式轉換-----
+
+// 資料格式轉換---------------------------------------
 function processdata(data, index){
     return {
         id: index + 1,
-        mane: data.mane,
+        name: data.name,
         cityid: data.area,
         city: County_city(data.area),
         address:  road_names(data.place) + data.lane +'弄' + data.number + '號',

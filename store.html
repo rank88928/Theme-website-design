@@ -22,49 +22,47 @@
     <!-- 頁頭 -->
     
     <div class="container">
+
         <div class="operate">
             <div class="form-selection">
-                <p class="selection-txt">地區選擇</p>
-                    <div class="selection">
-                        <select>
-                            <option value="0">所有地區</option>
-                            <option value="1">台北市</option>
-                            <option value="2">新北市</option>
-                            <option value="3">桃園市</option>
-                            <option value="4">台中市</option>
-                            <option value="5">台南市</option>
-                            <option value="6">高雄市</option>
-                            <option value="7">基隆市</option>
-                            <option value="8">新竹市</option>
-                            <option value="9">嘉義市</option>
-                            <option value="10">新竹縣</option>
-                            <option value="11">苗栗縣</option>
-                            <option value="12">彰化縣</option>
-                            <option value="13">南投縣</option>
-                            <option value="14">雲林縣</option>
-                            <option value="15">嘉義縣</option>
-                            <option value="16">屏東縣</option>
-                            <option value="17">宜蘭縣</option>
-                            <option value="18">花蓮縣</option>
-                            <option value="19">台東縣</option>
-                            <option value="20">澎湖縣</option>
-                            <option value="21">金門縣</option>
-                            <option value="21">連江縣</option>
-                        </select>
-                    </div>
-                <div>
-                    <p class="selection-txt">輸入關鍵字</p>
-                </div>
-                <div>
-                    <p class="selection-txt">查詢</p>
-                
-                </div>
-
-                <div>
-                    筆數
-                    <p class="pac" style="font-size: 40px; color: #ff0e0e;"></p>
+                <p>地區選擇</p>
+                <div class="selection">
+                    <select>
+                        <option value="0">所有地區</option>
+                        <option value="1">台北市</option>
+                        <option value="2">新北市</option>
+                        <option value="3">桃園市</option>
+                        <option value="4">台中市</option>
+                        <option value="5">台南市</option>
+                        <option value="6">高雄市</option>
+                        <option value="7">基隆市</option>
+                        <option value="8">新竹市</option>
+                        <option value="9">嘉義市</option>
+                        <option value="10">新竹縣</option>
+                        <option value="11">苗栗縣</option>
+                        <option value="12">彰化縣</option>
+                        <option value="13">南投縣</option>
+                        <option value="14">雲林縣</option>
+                        <option value="15">嘉義縣</option>
+                        <option value="16">屏東縣</option>
+                        <option value="17">宜蘭縣</option>
+                        <option value="18">花蓮縣</option>
+                        <option value="19">台東縣</option>
+                        <option value="20">澎湖縣</option>
+                        <option value="21">金門縣</option>
+                        <option value="21">連江縣</option>
+                    </select>
                 </div>
             </div>
+            <div class="inquire">
+                <input type="text" placeholder="請輸入關鍵字" class="enter">
+                <button class="bnquire-but">查詢</button>
+            </div>
+            <div class="reply-box">
+                <p class="reply-txt">符合筆數共:</p>
+                <p class="reply">0</p>
+            </div>
+        
         </div>
         <div class="page-container">
             <button class="previous_page"><i class="fa-solid fa-angle-up"></i></button>
@@ -77,16 +75,13 @@
         <div class="list-cs">
             <div class="store-data store-data-category">
                     <p class="id">門市序號</p>
-                    <p class="mane">門市名稱</p>
+                    <p class="name">門市名稱</p>
                     <p class="area">所在區域</p>
                     <p class="location">地點</p>
                     <p class="contact">連絡電話</p>   
             </div>
             <ul class="list"></ul>
-        </div>
-
-        
-        
+        </div> 
     </div>
 
 
