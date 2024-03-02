@@ -37,7 +37,9 @@ async function check_store(){
     });// 把原始資料處理過後 放置到新數組
     filter_array(0);// 資料準備完成直接顯示
 }
-(async () => {await check_store();})();//頁面開始 直接呼叫資料
+(async () => {
+    await check_store();
+})();//頁面開始 直接呼叫資料
 
 
 // 挑出特定選擇-縣市ID
