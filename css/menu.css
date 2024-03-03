@@ -1,6 +1,8 @@
 
 /* 菜單及關於我們 */
-
+/* *{
+    box-shadow: 2px 2px 2px 2px rgba(255, 0, 0, 0.1);
+} */
 .main{
     display: flex;
     background-color:rgb(247,243,238) ;
@@ -70,27 +72,23 @@
 
 
 
-/* ***************************** */
+/* ***********菜單卡片組****************** */
 
 /* 詳細模式 */
-.m-card-detailed{
+.card-detailed{
     max-width: 100%;
 }
 /* 簡略模式 */
-.m-card-simple{
+.card-simple{
     max-width: 30%;
     justify-content:center;   
 }
-
-
-
-
-.card-container1{
+.card-container{
     display: flex;
     flex-wrap:wrap;
 }
-
 .card-container .card{
+    width: 80%;
     display: flex;
     flex-wrap:wrap;
     margin: 15px;
@@ -98,32 +96,33 @@
     background-color: rgb(255, 255, 255);
     padding: 20px;
 }
-
 .card .img-control{
-    width: 20vw;
+    width: 25vw;
 }
-
-
 .card .img-control img{
     width: 100%;
-    object-fit: fill; 
+    height: 100%;
+    /* object-fit: fill;  */
+    object-fit: cover;
     border: 5px solid rgb(173, 189, 230);
 }
-
-.txt-control{
+.card .txt-control{
     padding: 15px;
-    /* height: 60%; */
     width: 60%;
     display: flex;
     flex-direction:column;
     justify-content:space-between;
 }
-
-
+.card .txt-control h3{
+    display: block;
+}
+.card .txt-control p{
+    width: 50%;
+}
 
 /* 產品操作按鈕 */
 .reduce,.plus {
-    border:0cap;
+    border:5px;
     width: 35px;
     height: 35px;
     border-radius:40px;
@@ -143,4 +142,70 @@
 }
 .shopping:hover{
     color: #2600ff;
+}
+
+
+/* ***********狀態提示框****************** */
+
+.status-box{
+    position:fixed;
+    display: flex;
+    justify-content:flex-start;
+    right: 10px;
+    bottom: 0;
+    width: 20%;
+    height: 80vh;
+    overflow: hidden;
+    flex-wrap: nowrap;
+    flex-direction: column-reverse;
+}
+
+.status{
+    display: flex;
+    flex-wrap: wrap;
+    width: 95%;
+    height: 80px;
+    background: #fff;
+    font-weight: 500;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 00 0 5px rgb(0, 43, 255, 30%);
+    display: flex;
+    align-items: center;
+    position: relative;
+    flex-shrink: 0;
+}
+.status::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 5px;
+    background: green;
+    animation: anim 3s linear forwards;
+}
+@keyframes anim{
+    100%{
+        width: 0;
+    }
+}
+
+.status div{
+    width: 100%;
+    font-size: 24px;
+    margin-left: 10px;
+}
+.status div .fa-circle-check{
+    color: #49bc6c;
+    margin-right: 10px;
+}
+.status div .fa-circle-xmark{
+    color: #f25959;
+    margin-right: 10px;
+}
+.status p{
+    font-size: 18px;
+    margin-left: 20px;
 }

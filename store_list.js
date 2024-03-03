@@ -55,7 +55,7 @@ function filter_array(id){
 
 
 
-//*************頁面互動功能*************
+//---------------頁面互動功能------------
 
 // 選擇選單地區回傳id
 region_menu.addEventListener('change', function(){

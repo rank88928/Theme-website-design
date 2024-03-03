@@ -38,13 +38,13 @@ a{
 .user .icon{
      padding: 0 20px;
 }
-.header .item:hover{
+.header> .item:hover{
     background-color: #4d4b4b4f;
     border-left: 1px solid #ffffff;
     border-right:1px solid #ffffff;
 }
-.header .item:hover a,
-.user .icon:hover{
+.header> .item:hover a,
+.user> .icon:hover{
     color: rgb(247, 199, 77);
 }
 
@@ -231,6 +231,77 @@ a{
     background-color: #ffa600;
 }
 
+
+
+
+/* 購物車 */
+
+.shopping-box{
+    display: none;
+    position: absolute;
+    right: 60px;
+    width: auto;
+    height: auto;
+    background-color: #dce6f5;
+    padding: 2px;
+}
+.shopping-box > p{
+    display: block;
+    font-size: 16px;
+    color: #000;
+    height: 20px;
+    line-height: 20px;
+}
+
+.nav-shopping:hover .shopping-box{
+    display: block;
+}
+
+ 
+.shopping-item > .item{
+    width: 300px;
+    height: 100px;
+    display: flex;
+    padding: 5px;
+    margin: 2px;
+    background-color: #ffffff;
+    color: #000;
+}
+
+.shopping-item > .item > .img-control{
+    width: 30%;
+}
+
+.shopping-item > .item > .img-control img{
+    width: 100%;
+    height: 100%;
+    object-fit: fill; 
+    border: 1px solid rgb(173, 189, 230);
+}
+
+.shopping-item > .item > .txt-box{
+    display: flex;
+    flex-wrap:wrap;
+    margin-left: 10px;
+    line-height: 50px;
+}
+.shopping-item > .item > .txt-box > .txt-name{
+    width: 100%;
+    height: 50%;
+    font-size: 24px;
+    font-weight: 600;
+    color: #7d6363;
+}
+.shopping-item > .item > .txt-box > .txt-qty{
+    width: 100%;
+    height: 50%;
+    color: #ff0000;
+}
+
+.txt-note{
+    position: absolute;
+    font-size: 16px;
+}
 
 
 
