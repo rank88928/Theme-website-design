@@ -12,6 +12,9 @@ let quantity;
 let shopping_item;
 
 
+
+
+
 async function check_store() {
     try {
         const response = await fetch(data_url);
@@ -115,7 +118,8 @@ function btn_click(){
                 data_product[index].quantity -= parseInt(quantity[index].value);
                 console.log(data_product[index].quantity+'剩');
 
-                
+                let empty_shopping = document.querySelector('.empty-shopping');
+                empty_shopping.style.display = 'none';
 
                
 
@@ -132,12 +136,13 @@ function btn_click(){
                 // 購物籃畫面
                 data_shopping = data_local.filter(item => item.order > 0);
                 
+               
                 shopping_item.innerHTML = '';
                 data_shopping.forEach(function(data,index){
                     if(index <= 4 ){
                         shopping_item_renew(data, index);
+                        
                     }
-                    
                 })
 
             
@@ -155,6 +160,8 @@ function btn_click(){
 }
 
 // console.log(data_shopping)
+
+
 
 
 
@@ -202,7 +209,7 @@ function shopping_item_renew(data, i){
     item.append(div_img, div)
     shopping_item.append(item);
 
-   
+
 }
 
 
@@ -256,7 +263,7 @@ let simple = document.querySelector(".simple");//簡略
 
 
 
-//生成卡片組件
+//卡片
 let card_container = document.querySelector('.card-container');
 function product_card(i){
 
@@ -270,9 +277,14 @@ function product_card(i){
         img.setAttribute('src', '/img/product/' + data_product[i].url + '.jpg');
         div_img.append(img);//組成    
 
+
+    let layout_div = document.createElement('div');
+        layout_div.className = 'layout-container'
+
     let div_txt = document.createElement('div');//文字框
         div_txt.className = 'txt-control';
 
+    
     let h3 = document.createElement('h3');//標題
         h3.textContent = data_product[i].name;
 
@@ -284,8 +296,8 @@ function product_card(i){
     let div_card_but = document.createElement('div');
         div_card_but.className = 'action-btn';
         
-   
-    div_card.append(div_img, div_txt, div_card_but);//組成 
+    layout_div.append(div_txt, div_card_but)
+    div_card.append(div_img, layout_div);//組成 
     card_container.append(div_card);//插入頁面
     
     let element;

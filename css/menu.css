@@ -72,52 +72,64 @@
 
 
 
-/* ***********菜單卡片組****************** */
+/* ***********卡片****************** */
 
-/* 詳細模式 */
-.card-detailed{
-    max-width: 100%;
-}
-/* 簡略模式 */
-.card-simple{
-    max-width: 30%;
-    justify-content:center;   
-}
 .card-container{
     display: flex;
     flex-wrap:wrap;
 }
-.card-container .card{
-    width: 80%;
+
+
+/* 詳細模式 */
+.card-detailed{
+    max-width: 80%;
+    height: 300px;
     display: flex;
-    flex-wrap:wrap;
+    flex-direction:row; 
+}
+/* 簡略模式 */
+.card-simple{
+    width: 45%;
+    height: 220px;
+    display: flex;
+    flex-direction: row;
+}
+
+.card-container .card{
     margin: 15px;
     box-shadow: 5px 5px 5px 5px rgb(222 168 218 / 22%);
     background-color: rgb(255, 255, 255);
     padding: 20px;
 }
 .card .img-control{
-    width: 25vw;
+    width: 40%;
+    height: 100%;
 }
 .card .img-control img{
     width: 100%;
     height: 100%;
-    /* object-fit: fill;  */
-    object-fit: cover;
+    object-fit: cover; 
     border: 5px solid rgb(173, 189, 230);
+}
+.layout-container{
+    width: 60%;
 }
 .card .txt-control{
     padding: 15px;
-    width: 60%;
+    width: 90%;
     display: flex;
     flex-direction:column;
     justify-content:space-between;
 }
 .card .txt-control h3{
     display: block;
+    font-size: 40px;
+    color: #fd8585;
 }
 .card .txt-control p{
-    width: 50%;
+    margin-top: 25px;
+    height: 100px;
+    width: 100%;
 }
 
 /* 產品操作按鈕 */

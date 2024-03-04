@@ -1,12 +1,8 @@
-
-
 .operate{
     display: flex;
     width: 100%;
     margin-top: 100px;
 }
-
-
 .form-selection{
     width: 50%;
     display: flex;
@@ -98,7 +94,7 @@
     color: #ff0000;
 }
 
-/* 顯示區表單 */
+/* 顯示 */
 .list-cs{
     margin: 20px 0;
     text-align: center;
