@@ -111,7 +111,7 @@
     object-fit: cover; 
     border: 5px solid rgb(173, 189, 230);
 }
-.layout-container{
+.illustrate-container{
     width: 60%;
 }
 .card .txt-control{
@@ -130,6 +130,17 @@
     margin-top: 25px;
     height: 100px;
     width: 100%;
+}
+
+.illustrate-container .price-btn{
+    display: flex;
+    padding-left: 15px;
+}
+.price-btn .price{
+    width: 140px;
+    line-height: 75px;
+    font-size: 30px;
+    color: #fd8585;
 }
 
 /* 產品操作按鈕 */

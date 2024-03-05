@@ -1,7 +1,7 @@
 let data_url = 'data.json'
 let data
 let data_product = [];
-let data_local = [];
+let data_local = [];//本機儲存
 let data_shopping;
 let card;
 let reduce_btn;
@@ -11,7 +11,7 @@ let quantity;
 
 let shopping_item;
 
-
+let remove_btn;
 
 
 
@@ -33,7 +33,8 @@ async function check_store() {
 
 
     data_product.forEach(function(data, index){
-        product_card(index)
+        // product_card(index);
+        card_generate(index);
     });
 
 
@@ -53,6 +54,7 @@ async function check_store() {
 
     data_product.forEach(function(data, index){
         data_local.push(processdata_local_shopping(data, index))
+        //之後要判斷本機資料有沒有 才拿取
     });
 
 
@@ -109,48 +111,53 @@ function btn_click(){
     shopping.forEach(function(shopping, index){
         shopping.addEventListener('click', function(){
             //數量存數足夠且至少為1才通過
-            if(quantity[index].value > 0 && quantity[index].value <=  data_product[index].quantity){
-                let check = '<i class="fa-solid fa-circle-check"></i>新增成功'
-
-                let txt = index +"號餐" + data_product[index].name + parseInt(quantity[index].value) + '份';
-                status_judgment(check, txt);
-
+            if(quantity[index].value > 0 && quantity[index].value <= data_product[index].quantity){
+               
+                console.log(data_product[index].quantity+'原本');
+               
                 data_product[index].quantity -= parseInt(quantity[index].value);
+                
                 console.log(data_product[index].quantity+'剩');
 
-                let empty_shopping = document.querySelector('.empty-shopping');
-                empty_shopping.style.display = 'none';
-
-               
-
-                // 本機修改儲存
                 
+                // 本機修改儲存
                 data_local[index].order += parseInt(quantity[index].value);
-                console.log(data_local[index].order +'本機訂購數');
+                console.log(data_local[index].order +'訂購數');
 
-                // 所有選擇歸0重置
-                quantity.forEach(function(input){
-                        input.value = '0';
-                })
+                
 
                 // 購物籃畫面
                 data_shopping = data_local.filter(item => item.order > 0);
                 
-               
                 shopping_item.innerHTML = '';
                 data_shopping.forEach(function(data,index){
                     if(index <= 4 ){
                         shopping_item_renew(data, index);
-                        
                     }
                 })
 
+
+                remove_btn = document.querySelectorAll(".remove-shopping");//更新集合
+                remove_click();
+
+
+
+               
             
+                let empty_shopping = document.querySelector('.empty-shopping');
+                empty_shopping.style.display = 'none';//邏輯有錯 要改 這樣取消時不會再出現 要改成判斷有無東西
 
+                let check = '<i class="fa-solid fa-circle-check"></i>新增成功'
+                let txt = index +"號餐" + data_product[index].name + parseInt(quantity[index].value) + '份';
+                status_judgment(check, txt);
 
+                 // 所有選擇歸0重置
+                quantity.forEach(function(input){
+                        input.value = '0';
+                })
             }else{
-                let check = '<i class="fa-solid fa-circle-xmark"></i>新增失敗';
 
+                let check = '<i class="fa-solid fa-circle-xmark"></i>新增失敗';
                 let txt = "剩餘不足或選擇數量異常";
                 status_judgment(check, txt);
             }
@@ -177,7 +184,8 @@ function processdata_local_shopping(data, index){
         quantity: data.quantity,
         type: data.type,
         url: data.url,
-        order: 0
+        order: 0,
+        price: data.price
     }
 }
 
@@ -186,7 +194,7 @@ function processdata_local_shopping(data, index){
 function shopping_item_renew(data, i){
     
     let item = document.createElement('div');
-        item.className = 'item'
+        item.className = 'item '
     let div_img = document.createElement('div');//圖片框
         div_img.className = 'img-control'
 
@@ -205,13 +213,63 @@ function shopping_item_renew(data, i){
     let order = document.createElement('p');//購買數
         order.className = 'txt-qty'
         order.textContent = '數量:' + data_shopping[i].order;
-    div.append(p, order)
-    item.append(div_img, div)
+
+
+    let btn =  document.createElement('button');
+        btn.className = 'remove-shopping';
+        btn.textContent = '移除';
+
+    div.append(p, order);
+    item.append(div_img, div, btn);
     shopping_item.append(item);
-
-
 }
 
+
+
+
+//第二個移除有問題 因為沒有在呼叫
+function remove_click(){
+    
+    remove_btn.forEach(function(remove_btn, index){
+        let id = index;
+        remove_btn.addEventListener("click", function(){
+            data = data_shopping[id].id;
+
+            console.log(data);
+            
+            remaining_updates(data);
+            
+        });
+    })
+}
+
+function remaining_updates(id){
+    console.log(id +'商品id'+data_product[id-1].name);
+    console.log(data_product[id-1].quantity+'原剩餘數');
+    console.log(data_local[id-1].order +'取消購買數');
+    
+    data_product[id-1].quantity += data_local[id-1].order;
+                data_local[id-1].order = 0;
+
+    console.log(data_product[id-1].quantity+'新剩餘');
+    console.log(data_local[id-1].order+'當前訂購');
+
+
+    data_shopping = data_local.filter(item => item.order > 0);
+                
+                shopping_item.innerHTML = '';
+                data_shopping.forEach(function(data,index){
+                    if(index <= 4 ){
+                        shopping_item_renew(data, index);
+                    }
+                    
+                })
+
+                remove_btn = document.querySelectorAll(".remove-shopping");//更新集合
+                remove_click();
+
+}
+ 
 
 
 
@@ -242,7 +300,6 @@ function status_judgment(check, txt){
 }
 
 
-
 let detailed = document.querySelector(".detailed");//詳細
 let simple = document.querySelector(".simple");//簡略
     // 菜單切換詳細模式與簡略模式
@@ -262,8 +319,45 @@ let simple = document.querySelector(".simple");//簡略
     });
 
 
-
 //卡片
+
+function card_generate(i){
+let h =
+    `<div class="card card-detailed">
+        <div class="img-control">
+            <img src="/img/product/${data_product[i].url}.jpg">
+        </div>
+        <div class="illustrate-container">
+            <div class="txt-control">
+                <h3>${data_product[i].name}</h3>
+                <p>${data_product[i].description}</p>
+            </div>
+            <div class="price-btn">
+                <div class="price">
+                    售價:${data_product[i].price}
+                </div>
+                <div class="action-btn">
+                    <input class="reduce" type="button" value="-">
+                    <input class="quantity" type="text">
+                    <input class="plus" type="button" value="+">
+                    <button value=" " class="shopping" type=" ">
+                        <i class="fa-solid fa-cart-shopping icon">加入購物車</i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div> `;
+    card_container.insertAdjacentHTML('beforeend', h);
+}   
+
+
+
+
+
+
+
+
+
 let card_container = document.querySelector('.card-container');
 function product_card(i){
 
@@ -273,46 +367,52 @@ function product_card(i){
     let div_img = document.createElement('div');//圖片框
         div_img.className = 'img-control'
 
-    let img = document.createElement('img')//圖片
+    let img = document.createElement('img')
         img.setAttribute('src', '/img/product/' + data_product[i].url + '.jpg');
-        div_img.append(img);//組成    
+        div_img.append(img);
 
+    let div = document.createElement('div');//文字框
+        div.className = 'illustrate-container'
 
-    let layout_div = document.createElement('div');
-        layout_div.className = 'layout-container'
-
-    let div_txt = document.createElement('div');//文字框
+    let div_txt = document.createElement('div');
         div_txt.className = 'txt-control';
 
-    
-    let h3 = document.createElement('h3');//標題
+    let h3 = document.createElement('h3');
         h3.textContent = data_product[i].name;
 
-    let p = document.createElement('p');//內文
+    let p = document.createElement('p');
         p.textContent = data_product[i].description;
-        div_txt.append(h3, p);//組成      
+        div_txt.append(h3, p);
 
+    let div_2 = document.createElement('div');//價格按鈕
+        div_2.className = 'price-btn'
 
-    let div_card_but = document.createElement('div');
-        div_card_but.className = 'action-btn';
+    let price = document.createElement('div');
+        price.className ='price';
+        price.textContent = '售價:' + data_product[i].price;
+
+    let but = document.createElement('div');
+        but.className = 'action-btn';
         
-    layout_div.append(div_txt, div_card_but)
-    div_card.append(div_img, layout_div);//組成 
+    div_2.append(price, but)
+    div.append(div_txt, div_2)
+    div_card.append(div_img, div);
     card_container.append(div_card);//插入頁面
     
+
     let element;
     btn_generation("input", '-', 'reduce', "button")
-        div_card_but.append(element);
+        but.append(element);
     btn_generation("input", '0', 'quantity', "text")
-        div_card_but.append(element);
+        but.append(element);
     btn_generation("input", '+', 'plus', "button")
-        div_card_but.append(element);
+        but.append(element);
     btn_generation("button", ' ', 'shopping', " ")
-        div_card_but.append(element);
-    let btn = element
+        but.append(element);
+    let btn1 = element
     btn_generation("i", ' ', 'fa-solid fa-cart-shopping icon', '')
         element.textContent = '加入購物車'
-        btn.append(element);
+        btn1.append(element);
         
     function btn_generation(x, y, z, k){
         element = document.createElement(x);
