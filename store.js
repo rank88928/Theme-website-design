@@ -200,7 +200,7 @@ function generate_page(start){
     let temporary_page = document.createDocumentFragment();//暫存
     let k = Math.ceil(number_data / display_number);//總頁碼
     total = k;
-    for(i=1; i <= k && i <= display_page ; i++){   //小於等於頁碼總數且小於頁碼顯示數
+    for(let i=1; i <= k && i <= display_page ; i++){   //小於等於頁碼總數且小於頁碼顯示數
     let x = document.createElement('li');
     x.textContent = start; //起始點
     temporary_page.append(x);

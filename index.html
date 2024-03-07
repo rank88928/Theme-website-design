@@ -390,35 +390,35 @@
     <div class="footer"></div>
     <!-- 頁尾 -->
 
-    <!-- 待修
-    載入動畫在不同高寬會露出來
-    門市表單篩選可以在修改-查詢框跟表單共用時會出問題 頁面按鈕可以改
-    首頁重寫
+    <!-- 
+    
 
     待開發
-    登入頁美化
-    模擬登入效果
-
-
-    購物介面
-
-    可以再補一個移除訊息成功
-    左側列表修改
-
-    商品價格
+    登入頁美化   模擬登入效果
    
-    做出一個結帳介面  可計算 判斷
-    購物車進度條介面  
-    生成定單後可查詢
+    購物車結算介面  確認餐點金額  選擇門市 時間 
+    點擊確定後  生成一筆訂單資料 購物車進度條介面  生成定單後可查詢
+    ->  訂單資料查看頁 給放大鏡
 
-
-    確認餐點金額  選擇門市 時間 ->  訂單查看頁 給放大鏡
-
+    異常-----
+        載入動畫在不同高寬會露出來 常常卡死 需要重改
+        門市表單篩選-查詢框跟表單共用時會出問題 
+        首頁部分重寫 考慮改用引入的
+        菜單頁有時樣式效果在剛剛載入會變形--改預設名稱
+        菜單頁目前樣式還沒修好
+        可以再補一個移除訊息成功
+        菜單-左側列表修改
+        當前購物籃有問題 無物品顯示
+        js畫面更新 可以換個方式重寫 更直觀
+        頁面條碼
+        rwd改版
 
     無法處理
 
-    引入頁面的元素會因為JS延遲的緣故失效
+    引入頁面的元素會因為JS延遲的緣故失效-異步問題
+
     -->
+    
 
 </body>
     <script>
@@ -429,5 +429,8 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script defer src="js.js"></script>
+
+    <script type="module" src="/shopping_updates.js"></script>
+    <script type="module" src="/shopping_box.js"></script>
 
 </html>
