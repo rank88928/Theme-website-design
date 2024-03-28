@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>餐廳</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/button.css">
+    <!-- 共通 -->
+    <link rel="stylesheet" href="css/cart_checkout.css">
+    <!-- 該頁布局 -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script> 
+</head>
+
+
+
+<body>
+   
+
+    <div class="header"> <!-- 頁頭 --></div>
+   
+    
+    <div class="main">
+        <div class="order-status">
+            <div class="form">
+                <div class="place">
+                    店面選擇:
+                    <select name="" id="place">
+                        <option value="1">台北博愛店</option>
+                        <option value="2">新竹巨城店</option>
+                        <option value="3">高雄三多店</option>
+                        <option value="4">台中中正店</option>
+                        <option value="5">桃園五福店</option>
+                        <option value="6">新北新民店</option>
+                        <option value="7">嘉義吳鳳店</option>
+                        <option value="8">台南水源店</option>
+                    </select>
+                </div>
+               
+                <div class="date">  
+                    日期選擇:
+                    <input type="date" id="date" value="2024-03-12" min="2024-03-15" max="2024-6-12">
+                </div>
+                <div class="">
+                    <fieldset id="take">
+                        <legend>請選擇取餐方式</legend>
+                        <input type="radio" id="option1" name="option" value="1" checked>
+                        <label for="option1">內用(酌收10%服務費)</label>
+                        <input type="radio" id="option2" name="option" value="2">
+                        <label for="option2">外帶</label>
+                        <input type="radio" id="option3" name="option" value="3">
+                        <label for="option3">外送(酌收100元外送費)</label>
+                    </fieldset>
+                </div>
+                <div class="">
+                    連絡電話:
+                    <input type="text">
+                </div>
+
+
+
+                 訂金為總金額的20%    
+
+            </div>
+         
+
+            <div class="procedures">
+                <div class="calculate-price-container">
+                    
+                </div>
+
+                <a href="cart_checkout-2.html"><button class="btn-step">確定生成訂單</button></a>
+                <a href="cart_1.html"><button class="btn-step">上一步</button></a>
+                
+            </div>
+        </div>
+       
+        
+    </div>
+
+    <div class="footer"></div>
+    <!-- 頁尾 -->
+    
+</body>
+    <script>
+        $(".header").load("header.html");
+        $(".footer").load("footer.html");
+        new WOW().init();
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script defer src="js.js"></script>
+
+    <script type="module" src="/data_request.js"></script>
+    <script type="module" src="/UI_shopping.js"></script>
+    <script type="module" src="/shopping_box.js"></script>
+    <script type="module" src="/order_generation.js"></script>
+ 
+</html>

@@ -1,164 +1,124 @@
-import * as shopping_renew from './shopping_updates.js';
 
-let data_url = 'data.json'
+import * as request        from './data_request.js'
+import * as ui from './shopping_box.js';
+import * as ui_shopping from './UI_shopping.js'
 
 let data_product = [];
-let data_local = JSON.parse(localStorage.getItem('shopping_storage'));
-
+let data_local = [];
 let card;
-let reduce_btn;
-let plus_btn;
-let quantity;
-let shopping;
-
-
-
-async function check_store() {
-    try {
-        const response = await fetch(data_url);
-        const data = await response.json();
-        data_product = data;
-        console.log("資料取得成功");
-    } catch (error) {
-        console.error('Error:', error);
-    }
-
-    if (data_local.length > 0) {
-        console.log('有購物車紀錄');
-    } else {
-        console.log('沒紀錄');
-        data_product.forEach(function(data, index){
-        data_local.push(processdata_local_shopping(data, index))
-        });
-    }
-}
 
 (async () => {
-    await check_store();
+    await request.check_store();
+    data_product = request.data_product;
+    data_local = request.data_local;
+
     data_product.forEach(function(data, index){
-        shopping_renew.card_generate(data_product, index);
+        ui_shopping.card_generate(data_product, index);
     });
 
-
-    card = document.querySelectorAll(".card");//抓取渲染後元素
-    reduce_btn = document.querySelectorAll(".reduce");
-    plus_btn = document.querySelectorAll(".plus");
-    quantity = document.querySelectorAll(".quantity");
-    shopping = document.querySelectorAll('.shopping');
-    // action_btn = document.querySelectorAll('action-btn');  
+    card = document.querySelectorAll(".card");
     btn_click()
-
-
 })();
 
 
-//掛載監聽 全部購物車功能按鈕
+//按鈕
 function btn_click(){
+    let action_btn = document.querySelectorAll(".action-btn");
+    action_btn.forEach(function(action_btn,i){
 
-    reduce_btn.forEach(function(reduce_btn, index){
-        reduce_btn.addEventListener("click", function(){
-            let number = parseInt(quantity[index].value); // 文本框是字串 需要先做轉型
-            if(number>0){
-                quantity[index].value = number - 1;
-            }
-            else{
-                quantity[index].value = 0;
-            }
-        });
-    });
-    plus_btn.forEach(function(plus_btn, index){
-        plus_btn.addEventListener("click", function(){
-            let number = parseInt(quantity[index].value);
-            quantity[index].value = number + 1;
-        });
-    });//有空嘗試拆分
+        let reduce_btn = action_btn.querySelector(".reduce");
+        let plus_btn = action_btn.querySelector(".plus");
+        let quantity = action_btn.querySelector(".quantity");
+        let shopping = action_btn.querySelector('.shopping'); 
+        let icon = action_btn.querySelector('.icon');
+        
+        action_btn.addEventListener('click', function(e){
+            let number = parseInt(quantity.value); // 文本框是字串 需要先做轉型
+            if(e.target === reduce_btn){
+                if(number>0){
+                    quantity.value = number - 1;
+                }
+                else{
+                    quantity.value = 0;
+                }
 
+            }else if(e.target === plus_btn){
+                quantity.value = number + 1;
 
+            }else if(e.target === shopping || e.target === icon){
+                if(quantity.value > 0 && quantity.value <= data_product[i].quantity){
+                    data_local[i].quantity -= parseInt(quantity.value);      
+                    data_local[i].order += parseInt(quantity.value);
+    
+                    localStorage.setItem('shopping_storage', JSON.stringify(data_local));
+                        
+                    let txt = i+1 +"號餐" + data_product[i].name + parseInt(quantity.value) + '份';
+                    point(1, txt);
+                    
+                    quantity.value = '0';
+                    ui.update_cart();
+                }else{
+                    let txt = "剩餘不足或選擇數量異常";
+                    point(2, txt);
 
-    // 購物車功能
-    shopping.forEach(function(shopping, index){
-        shopping.addEventListener('click', function(){
-            //數量存數足夠且至少為1才通過
-            if(quantity[index].value > 0 && quantity[index].value <= data_product[index].quantity){
-                data_product[index].quantity -= parseInt(quantity[index].value);      
-              
-                data_local[index].order += parseInt(quantity[index].value);
-
-                 // 本機修改儲存
-                localStorage.setItem('shopping_storage', JSON.stringify(data_local));
-               
-         
-            
-                let empty_shopping = document.querySelector('.empty-shopping');
-                empty_shopping.style.display = 'none';//邏輯有錯 要改 這樣取消時不會再出現 要改成判斷有無東西
-
-                let check = '<i class="fa-solid fa-circle-check"></i>新增成功'
-                let txt = index+1 +"號餐" + data_product[index].name + parseInt(quantity[index].value) + '份';
-                status_judgment(check, txt);
-
-                // 所有選擇歸0重置
-                quantity.forEach(function(input){
-                    input.value = '0';
-                })
-            }else{
-                let check = '<i class="fa-solid fa-circle-xmark"></i>新增失敗';
-                let txt = "剩餘不足或選擇數量異常";
-                status_judgment(check, txt);
+                    quantity.value = '0';
+                }
             }
         });
     });
 }
-
-
-// 輔助涵數
-
-//本機購物資料
-function processdata_local_shopping(data, index){
-    return{
-        id: data.id,
-        name: data.name,
-        quantity: data.quantity,
-        type: data.type,
-        url: data.url,
-        order: 0,
-        price: data.price
-    }
-}
-
+//用事件委派 監聽父元素
 
 
 let detailed = document.querySelector(".detailed");//詳細
+let simple = document.querySelector(".simple");//簡略    
     detailed.addEventListener('click', function(){
+        menu_styles("detailed");
+    });
+    simple.addEventListener('click', function(){
+        menu_styles("simple");
+    });
+
+function menu_styles(style){
+    if(style == "detailed"){
         card.forEach(card => {   
             card.classList.add("card-detailed");
             card.classList.remove("card-simple");
             card.querySelector("p").style.display = "block";
         });
-    });
-let simple = document.querySelector(".simple");//簡略    
-    simple.addEventListener('click', function(){
+    }else if(style == "simple"){
         card.forEach(card => {
             card.classList.add("card-simple");
             card.classList.remove("card-detailed");
             card.querySelector("p").style.display = "none";
         });
-    });
+    }
+}
 
 
-//狀態提示框
-let status_box = document.querySelector('.status-box');
+function point(check, txt){
+    /*  狀態提示框
+        check 傳入1 成功圖示 傳入2 失敗圖示
+    
+    */
+    let box = document.querySelector('.status-box');
+    let point;
+    if(check == 1){
+        point = '<i class="fa-solid fa-circle-check"></i>新增成功';
+    }else if(check == 2){
+        point = '<i class="fa-solid fa-circle-xmark"></i>新增失敗';
+    }
 
-function status_judgment(check, txt){
-let status_item = 
-    `<div class ="status">
-        <div>${check}</div>
-        <p>${txt}</p>
-    </div>`
-    status_box.insertAdjacentHTML('beforeend', status_item);
+    let item = 
+        `<div class ="status">
+            <div>${point}</div>
+            <p>${txt}</p>
+        </div>`
+    box.insertAdjacentHTML('beforeend', item);
     
     setTimeout(()=>{
-        let status_item = document.querySelector('.status');
-        status_item.remove();
+        let item = document.querySelector('.status');
+        item.remove();
     },3000);
 }
 
