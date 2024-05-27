@@ -20,6 +20,7 @@ let data_shopping = [];
 
     data_shopping = data_local.filter(item => item.order > 0);
 
+    console.log(data_local)
     UI_update_list();
 })();
 
@@ -31,12 +32,39 @@ let data_shopping = [];
 let place = document.querySelector('#place');
 let date = document.querySelector('#date');
 let take = document.querySelectorAll('#take input[type="radio"]');
-
-
 let take_meal;
+let submit_btn = document.querySelector('#submit-btn')
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+submit_btn.addEventListener('click', submit_data);
+
+function submit_data(){
+    let order = {
+        place : place.value,
+        date : date.value,
+        take : take_meal,
+        buying_list : data_shopping
+    }
+    console.log(order);
+}
+
+
+
+
+
+//判斷單選框
 take.forEach(function(radio){
     radio.addEventListener('click', check_selected);
 })
@@ -46,7 +74,6 @@ function check_selected(){
         let radio = take[i];
         if (radio.checked) {
             take_meal = radio.value;
-            console.log(take_meal)
             break;
         }
     }
@@ -54,8 +81,7 @@ function check_selected(){
 
 
 
-console.log(place.value)
-console.log(date.value)
+
 
 
 

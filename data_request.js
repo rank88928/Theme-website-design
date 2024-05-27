@@ -34,12 +34,15 @@ async function check_store(){
 //本機購物資料
 function processdata_local_shopping(data){
     return{
-        id: data.id,
-        name: data.name,
-        quantity: data.quantity,
-        type: data.type,
-        url: data.url,
-        price: data.price,
-        order: 0,
+        id : data.id,
+        name : data.name,
+        quantity : data.quantity,
+        type : data.type,
+        url : data.url,
+        price : data.price,
+        order : 1,
+        total_price : function() {
+                    return data.price + data.order;
+                  }
     }
 }
