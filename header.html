@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/css/all.css">
 </head>
+
 <body>
     <div class="header" id="header">
-        <div class="header-container">
+        <div class="header-content">
             <div class="logo">
                 <a href=""><img src="img/LOGO.png" alt=""></a>
             </div>
@@ -16,8 +19,8 @@
                 <div class="item"><a href="menu.html">菜單</a></div>
                 <div class="item"><a href="aboutus.html">關於我們</a></div>
                 <div class="item"><a href="store.html">門市</a></div>
-            </div>  
-           
+            </div>
+
             <div class="user">
                 <button class="header-but icon menu-but"><i class="fa-solid fa-bars "></i></button>
                 <button class="header-but icon login-open"><i class="fa-solid fa-user "></i></button>
@@ -29,45 +32,135 @@
                     <p>只顯示前5筆商品 完整清單請至結帳頁面</p>
                     <div class="shopping-item"></div>
                 </div>
-               
+
 
                 <button class="header-but icon"><i class="fa-solid fa-magnifying-glass "></i></i></button>
-                <div >
+                <div>
                     <a href="" class="yellow-button">我要定位</a>
-                </div>
-            </div>
-        </div> 
-        <samp class="menu-mask"></samp>
-       
-         <!-- 登入畫面 -->
-         <div class="login-mask">
-            <div class="login-page">
-                <span class="close-login "><i class="fa-solid fa-xmark"></i></span>
-                
-                <div class="style-box">
-                    <p class="login-txt-user">使用者登入</p>
-
-                    <div class="account-form">
-                        <div class="form-group">
-                             <label for="account">帳號</label>
-                            <input type="text" id="account" placeholder="請輸入您的帳號" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="password">密碼</label>
-                            <input type="text" id="password" placeholder="請輸入您的密碼" required>
-                        </div>
-                    
-                        <a href="" class="forget">忘記密碼?</a>
-                    </div>
-                    <div class="login-but-group">
-                         <button class="login">登入</button>
-                         <button class="register">立刻註冊</button>
-                         <button class="login-fb">FB登入</button>
-                         <button class="login-google">Google 登入</button>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <div class="m_login_mask">
+        <div class="m_login_box">
+            <div class="login-close-btn"><i class="fa-solid fa-x"></i></div>
+            <div class="tab-box">
+                <a href="#" class="form-tab tab-current">註冊</a>
+                <a href="#" class="form-tab">登入</a>
+            </div>
+
+            <div class="tab-content">
+                <div class="form-login-card card-show">
+                    <h3>快速註冊</h3>
+                    <form action="">
+                        <ul>
+                            <li class="name-box">
+                                <div class="surname">
+                                    <label>姓<span>*必填</span></label>
+                                    <input type="text" required autocomplete="off">
+                                </div>
+                                <div class="name">
+                                    <label>名<span>*必填</span></label>
+                                    <input type="text" required autocomplete="off" />
+                                </div>
+                            </li>
+
+                            <li>
+                                <label>電子信箱<span>*必填</span></label>
+                                <input type="email" required autocomplete="off" />
+                            </li>
+                            <li>
+                                <label>設定密碼<span>*必填</span></label>
+                                <input type="password" required autocomplete="off" />
+                            </li>
+                        </ul>
+
+                        <button class="submit-btn">開始使用</button>
+                    </form>
+                </div>
+
+                <div class="form-login-card">
+                    <h3>歡迎回來</h3>
+                    <form action="">
+                        <ul>
+                            <li>
+                                <label>請輸入電子信箱</label>
+                                <input type="email" required autocomplete="off" />
+                            </li>
+                            <li>
+                                <label>請輸入密碼</label>
+                                <input type="password" required autocomplete="off" />
+                            </li>
+                        </ul>
+
+                        <div class="forgot"><a href="#">忘記密碼?</a></div>
+                        <button class="submit-btn">登入</button>
+
+                        <div class="m_third_party">
+                            <a href="#" class="login-fb">使用Facebook帳號登入</a>
+                            <a href="#" class="login-line">使用Line帳號登入</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+        // 登入開關
+        let login_close_btn = document.querySelector(".login-close-btn");
+        let login_open_btn = document.querySelector(".login-open");
+        let m_login_mask = document.querySelector(".m_login_mask");
+
+        login_close_btn.addEventListener("click", function () {
+            m_login_mask.style.display = "none";
+        });
+        login_open_btn.addEventListener("click", function () {
+            m_login_mask.style.display = "block";
+        });
+
+        // 切換註冊登入
+        let form_tab_btn = document.querySelectorAll(".form-tab");
+        let form_card = document.querySelectorAll(".form-login-card");
+
+        form_tab_btn.forEach(function (btn, i) {
+            btn.addEventListener("click", function () {
+
+                form_tab_btn.forEach(function (btn) {
+                    btn.classList.remove("tab-current");
+                });
+                form_card.forEach(function (card) {
+                    card.classList.remove("card-show");
+                });
+
+                form_tab_btn[i].classList.add("tab-current");
+                form_card[i].classList.add("card-show");
+            });
+        });
+
+
+        // 輸入框輸入時效果
+        form_input = document.querySelectorAll(".m_login_box input");
+        form_label = document.querySelectorAll(".m_login_box label");
+
+        form_input.forEach(function (input, i) {
+            input.addEventListener("input", function () {
+
+                if (input.value === "") {
+                    form_label[i].classList.remove("has-content");
+                } else {
+                    form_label[i].classList.add("has-content");
+                };
+            })
+        });
+
+
+
+    </script>
+
 </body>
+
 </html>

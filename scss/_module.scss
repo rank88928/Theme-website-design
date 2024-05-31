@@ -1,0 +1,439 @@
+//共用模組
+
+
+
+
+
+/* 共通組件 */
+
+/* 圖標 */
+.icon-right {
+    padding-left: 10%;
+}
+
+.product-card:nth-child(1) .product-img::before,
+.product-card:nth-child(3) .product-img::before,
+.product-card:nth-child(5) .product-img::before,
+.product-card:nth-child(6) .product-img::before {
+    content: "";
+    position: absolute;
+    background-image: url("/img/icon-2.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 80px;
+    top: 0px;
+    left: -20px;
+    transform: rotate(-23deg);
+    z-index: 10;
+}
+
+.product-card:nth-child(3) .product-img::after,
+.product-card:nth-child(4) .product-img::after,
+.product-card:nth-child(6) .product-img::after,
+.product-card:nth-child(7) .product-img::after {
+    content: "午晚提供";
+    position: absolute;
+    writing-mode: vertical-lr;
+    width: 40px;
+    height: 100px;
+    color: #ff000075;
+    background-color: #f9d5a659;
+    top: 110px;
+    right: 25px;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: 800;
+    z-index: 10;
+    line-height: 36px;
+}
+
+
+/* 按鈕-1  選中後有動畫黑底*/
+.but-link-1 {
+    display: block;
+    width: 100%;
+    height: 70px;
+    border: 1px solid #000;
+    text-align: center;
+    line-height: 70px;
+    color: #000;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    margin: 100px 0;
+
+}
+
+.but-link-1::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    transition: transform ease .3s;
+    transform: translateX(-100%);
+    z-index: -1;
+    border-right: 60px solid transparent;
+    border-bottom: 70px solid #000;
+}
+
+.but-link-1:hover {
+    color: #fff;
+}
+
+.but-link-1:hover::before {
+    background-color: #000;
+    transform: translateX(0%);
+}
+
+
+/* 黃色按鈕 */
+.yellow-button {
+    background-color: rgb(247, 199, 77);
+    border-radius: 30px;
+    /* height: 36px; */
+    padding: 10px 30px;
+}
+
+.yellow-button:hover {
+    color: rgb(13, 0, 255);
+}
+
+
+// 樣式-購物車按鈕
+.shopping-i-btn-1 {
+    background-color: #fcde1d;
+    border-radius: 30px;
+    padding: 10px 30px;
+    color: #ffffff;
+    text-align: center;
+
+    &:hover {
+        color: #5f95ff;
+        background-color: #ffed79;
+    }
+}
+
+
+
+
+
+// 登入框
+.m_login_mask {
+    width: 100vw;
+    height: 100vh;
+    background-color: #2C2C2C80;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    display: none;
+}
+
+.m_login_box {
+    max-width: 600px;
+    margin: 60px auto;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 40px;
+    color: #fff;
+    position: relative;
+
+    .tab-box {
+        display: flex;
+        height: 50px;
+        background-color: #84adfc;
+        line-height: 50px;
+
+        .form-tab {
+            width: 50%;
+            font-size: 30px;
+            text-align: center;
+
+            &:hover {
+                background-color: #7295da;
+            }
+        }
+    }
+
+    // 顯示狀態
+    .tab-current {
+        background-color: #3b7af3;
+    }
+}
+
+.login-close-btn {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: -5px;
+    right: -5px;
+    border-radius: 50%;
+    background-color: #84adfc;
+    color: #000000;
+    line-height: 40px;
+    text-align: center;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.tab-content {
+    color: #000;
+    font-size: 24px;
+}
+
+.form-login-card {
+    height: 0px;
+    opacity: 0;
+    overflow: hidden;
+
+    h3 {
+        font-size: 40px;
+        text-align: center;
+        padding: 20px 0;
+        margin: 20px 0;
+        background-color: #d6e2f8;
+    }
+
+    li {
+        margin-bottom: 30px;
+        position: relative;
+
+        label {
+            position: absolute;
+            top: 8px;
+            left: 10px;
+            transition: all 0.5s ease;
+
+            span {
+                font-size: 14px;
+                color: #ff0000;
+            }
+        }
+
+        .has-content {
+            top: 45px;
+            left: 0px;
+            font-size: 14px;
+        }
+
+        input {
+            width: 100%;
+            height: 40px;
+            border: 1px solid #84adfc;
+            outline: none;
+            cursor: text;
+
+            &:focus {
+                box-shadow: 1px 1px 10px 3px #84adfc6e;
+            }
+        }
+    }
+
+    .name-box {
+        display: flex;
+        justify-content: space-between;
+
+        .surname,
+        .name {
+            position: relative;
+            width: 48%;
+        }
+    }
+
+    .submit-btn {
+        width: 100%;
+        height: 40px;
+        background-color: #84adfc;
+
+        &:hover {
+            background-color: #3b7af3;
+        }
+    }
+
+}
+
+// 顯示狀態
+.card-show {
+    height: auto;
+    opacity: 1;
+    transition: all 1s ease;
+}
+
+.forgot {
+    text-align: end;
+    margin: 10px 0;
+
+    a {
+        color: #000;
+
+        &:hover {
+            color: #f0a54f;
+        }
+    }
+}
+
+
+
+
+//第三方連結
+.m_third_party {
+    margin-top: 20px;
+    border-top: 1px solid #000000;
+    position: relative;
+    display: flex;
+
+    &::after {
+        position: absolute;
+        top: 0%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        content: "OR";
+        font-size: 16px;
+        width: 50px;
+        background-color: #f8f9fa;
+        text-align: center;
+    }
+}
+
+// 第三方按鈕
+.login-fb,
+.login-line {
+    display: block;
+    width: 100%;
+    height: 40px;
+    text-align: center;
+    color: #fff;
+    margin: 20px 5px;
+    line-height: 40px;
+
+    &:hover {
+        color: #fff;
+        box-shadow: 0px 0px 15px 0px rgba(4, 4, 4, 0.5);
+        transition: transform 0.5s ease;
+        transform: translateY(-5px);
+    }
+}
+
+.login-fb {
+    background-color: #3b5781;
+}
+
+.login-line {
+    background-color: #00b900;
+}
+
+
+
+
+
+
+
+
+
+
+/* 顧客回饋 */
+.feedback-content {
+    max-width: 1200px;
+    // height: 400px;
+    margin: 40px auto;
+    overflow: hidden;
+    background-color: #fff;
+    padding: 80px 0;
+    // background-image: url("../img/bk-5.jpg");
+    // background-repeat: no-repeat;
+    // background-size: 100% 100%;
+}
+
+.feedback-list {
+    width: 500%;
+    height: 280px;
+    padding: 40px 0;
+    margin: auto 0;
+    display: flex;
+    border-top: 2px double rgba(0, 0, 0, 0.405);
+    border-bottom: 2px double rgba(0, 0, 0, 0.405);
+    border-width: 5px;
+}
+
+.m_feedback_card {
+    width: 300px;
+    height: 100%;
+    margin: 0px 30px;
+    padding: 15px;
+    border: 2px double rgba(0, 0, 0, 0.405);
+    border-width: 10px;
+    position: relative;
+    // background: #FFB75E;
+    // /* fallback for old browsers */
+    // background: -webkit-linear-gradient(to right, #ED8F03, #FFB75E);
+    // /* Chrome 10-25, Safari 5.1-6 */
+    // background: linear-gradient(to right, #ED8F03, #FFB75E);
+    // /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    // 名片裝飾
+    &::after,
+    &::before {
+        content: '';
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        border-top: 3px solid rgba(0, 0, 0, 0.405);
+        background-color: #fff;
+        z-index: 0;
+        transform: rotate(135deg);
+        top: -35px;
+        left: -35px;
+        top: -20%;
+        left: -13%;
+    }
+
+    &::before {
+        transform: rotate(315deg);
+        top: 158px;
+        left: 267px;
+    }
+
+    //格式
+    .details {
+        width: 100%;
+        display: flex;
+
+        .user-img {
+            width: 40%;
+
+            img {
+                max-width: 100%;
+                border-radius: 50%;
+            }
+        }
+
+        .info {
+            margin: 10px 0 0 10px;
+            width: 60%;
+
+            .user-name {
+                font-size: 36px;
+                margin: 0 0 10px 10px;
+            }
+
+            .user-feedback {
+                font-size: 20px;
+                font-style: italic;
+            }
+        }
+    }
+
+    .star {
+        width: 230px;
+        height: 40px;
+        background-image: url("/img/star-rating-1.png");
+        background-repeat: no-repeat;
+        background-size: 200% 650%;
+        position: absolute;
+        top: 145px;
+        left: 5px;
+        background-position: 0% 0%;
+    }
+}

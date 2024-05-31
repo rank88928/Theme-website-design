@@ -1,0 +1,428 @@
+/* 首頁樣式 */
+body {
+    // overflow: hidden;
+}
+
+// 給預載器用的暫時消失下拉
+
+// 預載動畫
+.preload-container {
+    width: 100%;
+    height: 50vw;
+    background-color: #eaf7fc;
+    z-index: 1000;
+    position: relative;
+
+    .schedule {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 500px;
+        padding: 5px;
+        border-radius: 50px;
+
+        .percent {
+            position: relative;
+            display: block;
+            width: 0%;
+            height: 15px;
+            background-color: #03a9f4;
+            border-radius: 20px;
+
+            .number {
+                position: absolute;
+                top: -60px;
+                right: -60px;
+                padding: 10px 15px;
+                color: #03a9f4;
+                border-radius: 50px;
+            }
+
+        }
+    }
+
+    h2 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        visibility: hidden;
+        font-size: 4em;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.5em;
+        transition: 0.5s;
+        color: #fff;
+    }
+
+}
+
+.schedule,
+.number {
+    box-shadow: inset 0 5px 5px rgba(176, 176, 176, 0.75),
+        0 5px 8px rgb(0, 0, 0, 0.5),
+        0 12px 10px rgb(0, 0, 0, 0.5);
+}
+
+// 待改
+
+
+
+
+
+
+
+/* 影片 */
+.top-video {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 0;
+    display: flex;
+}
+
+.video-container {
+    width: 70%;
+}
+
+.video-container .video-1 {
+    width: 100%;
+    height: 615px;
+    object-fit: cover;
+    margin-right: auto;
+}
+
+/* 輪播大小 */
+
+.carousel-size {
+    width: 30%;
+    margin-top: 270px;
+}
+
+.carousel-indicators {
+    /* width: 30%; */
+    /* margin: 270px; */
+    margin-left: 70%;
+    margin-right: 0;
+    margin-bottom: 55px;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    /* max-height: 400px; */
+    opacity: 0.9;
+}
+
+/* 768不顯示 */
+@media screen and (max-width: 768px) {
+    .carousel-size {
+        display: none;
+    }
+
+    .video-container {
+        width: 100%;
+    }
+
+    .video-container .video-1 {
+        width: 100%;
+        height: 300px;
+    }
+}
+
+
+// 以上待改
+
+
+
+
+
+
+
+// 菜單介紹
+
+.introduce-content {
+    max-width: 1200px;
+    margin: 550px auto 0 auto;
+    // overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+// 背景塊
+.introduce-box:nth-child(1) {
+    background: linear-gradient(160deg, transparent 0%, transparent 45%, #f7f3ee 45%, #f7f3ee 100%);
+}
+
+.introduce-box:nth-child(2) {
+    background: linear-gradient(200deg, transparent 0%, transparent 45%, #f7f3ee 45%, #f7f3ee 100%);
+}
+
+.introduce-box {
+    height: 600px;
+    padding: 0 80px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 80px 0;
+
+    .txt-box {
+        width: 40%;
+        padding: 0px 60px;
+        text-align: center;
+        font-size: 24px;
+        line-height: 36px;
+
+        h3 {
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+    }
+
+    .img-box {
+        width: 60%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+
+        .one,
+        .two {
+            width: 50%;
+            height: 80%;
+
+            img {
+                object-fit: cover;
+            }
+        }
+
+        .one {
+            padding: 30px 10px;
+
+            img {
+                height: 100%;
+            }
+        }
+
+        .two {
+            img {
+                width: 100%;
+                height: 50%;
+                padding: 10px;
+            }
+        }
+    }
+}
+
+/* 品牌介紹 */
+// @media screen and (max-width: 768px) {
+//     .introduce-box {
+//         margin-top: 250px;
+//     }
+
+//     .introduce-box-1 {
+//         height: 650px;
+//         padding: 10px;
+//     }
+
+//     .but-link-1 {
+//         margin: 10px 0;
+//     }
+
+//     .introduce-box-1 .txt-box {
+//         padding: 0px 0px;
+//     }
+
+//     .introduce-box-1 .img-box {
+//         height: 75%;
+//         margin-bottom: 30px;
+//     }
+
+//     .introduce-box-1 .txt-box,
+//     .introduce-box-1 .img-box {
+//         width: 100%;
+//     }
+// }
+
+
+
+// 商品列表
+.product-content {
+    max-width: 1200px;
+    margin: auto;
+
+    ul {
+        justify-content: space-between;
+        background-color: #f7f3ee;
+        padding: 40px 20px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 360px);
+    }
+}
+
+.product-card {
+    // width: 290px;
+    height: 430px;
+    background-color: #ffffff;
+    color: #000;
+    margin: 15px auto;
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+    grid-gap: 20px;
+
+    .img {
+        height: 60%;
+
+        img {
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+    }
+
+    .txt {
+        height: 40%;
+
+        h3 {
+            font-size: 24px;
+            margin: 10px 15px;
+            font-weight: 600;
+            font-style: italic;
+        }
+
+        p {
+            font-size: 16px;
+            margin: 0 20px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+        }
+
+        .price {
+            display: flex;
+            justify-content: space-between;
+            margin: 15px 20px 0 20px;
+            line-height: 40px;
+
+            span {
+                font-size: 24px;
+                color: #fe8383;
+                font-style: italic;
+            }
+
+            a {
+                padding: 0;
+                width: 40px;
+                height: 40px;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+// 地址
+.store-map {
+    background-image: url("/img/background-wall-1.gif");
+    background-repeat: repeat;
+    padding: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.index-address {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 60px;
+    width: 30%;
+
+    .a-row {
+        display: flex;
+        padding: 20px 0;
+        border-top: 1px solid rgb(255, 205, 41);
+        font-size: 20px;
+        align-items: center;
+
+        &:nth-child(5) {
+            border-bottom: 1px solid rgb(255, 205, 41);
+        }
+
+        .data-name {
+            text-align: center;
+            width: 100%;
+            font-size: 24px;
+        }
+
+        .item {
+            width: 25%;
+        }
+
+        .data {
+            width: 60%;
+        }
+    }
+}
+
+
+
+// 問答手風琴
+.accordion-faq {
+    background-color: #ffe8cb;
+    width: 70%;
+    border-radius: 30px;
+    margin: 30px auto;
+    padding: 30px;
+
+    h3 {
+        font-size: 40px;
+        margin-bottom: 16px;
+    }
+
+    .accordion-item {
+        background-color: rgb(250, 250, 247);
+        border-radius: 30px;
+        padding: 20px;
+        margin-bottom: 20px;
+
+        .question {
+            display: flex;
+            cursor: pointer;
+            height: 40px;
+            font-size: 24px;
+            display: inline;
+
+            i {
+                color: rgb(0, 0, 0);
+                font-size: 30px;
+                margin-left: 5px;
+                margin-top: 3px;
+            }
+        }
+
+        .answer {
+            overflow: hidden;
+            transition: max-height 0.7s;
+            height: 0;
+        }
+    }
+}
+
+.h-auto {
+    height: auto;
+}
+
+.down-rotate {
+    transform: rotate(180deg);
+}

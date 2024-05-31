@@ -1,68 +1,76 @@
-
 /* 菜單及關於我們 */
 /* *{
     box-shadow: 2px 2px 2px 2px rgba(255, 0, 0, 0.1);
 } */
-.main{
+.main {
     display: flex;
-    background-color:rgb(247,243,238) ;
+    background-color: rgb(247, 243, 238);
 }
 
 
 /*  */
-.main .dropmenu{
+.main .dropmenu {
     display: flex;
-    justify-content:space-around;
-    flex-wrap:wrap;
+    justify-content: space-around;
+    flex-wrap: wrap;
     background-color: rgb(255, 214, 92);
     width: 200px;
     font-size: 36px;
     text-align: center;
 }
-.main .dropmenu .column{
-    box-sizing:border-box;
+
+.main .dropmenu .column {
+    box-sizing: border-box;
     padding: 10px 0;
     width: 175px;
 
 }
-.main .dropmenu .column:hover{
+
+.main .dropmenu .column:hover {
     transition: border 0.3s ease;
 }
-.main .dropmenu .column .dropmenu{
+
+.main .dropmenu .column .dropmenu {
     display: none;
     width: 175px;
-    background-color: rgb(255, 255, 255 ,0.5) ;
-    border-radius:20px
+    background-color: rgb(255, 255, 255, 0.5);
+    border-radius: 20px
 }
-.main .dropmenu .column:hover .dropmenu{
-    display:block
+
+.main .dropmenu .column:hover .dropmenu {
+    display: block
 }
-.main .dropmenu .column .dropmenu .item{
+
+.main .dropmenu .column .dropmenu .item {
     font-size: 24px;
 }
 
 
 /*  */
-.container{
+.container {
     margin: 15px;
 }
-.container .switch{
+
+.container .switch {
     display: flex;
-    justify-content:flex-start;
+    justify-content: flex-start;
     margin: 15px;
     color: #ff6000;
     font-size: 25px;
 }
-.container .switch i{
-    margin:  0 5px;
+
+.container .switch i {
+    margin: 0 5px;
 }
-.container .switch .detailed:hover{
+
+.container .switch .detailed:hover {
     background-color: rgb(169, 205, 236);
-    border-radius:10px;
+    border-radius: 10px;
 }
-.container .switch .simple:hover{
+
+.container .switch .simple:hover {
     background-color: rgb(169, 205, 236);
-    border-radius:10px;
+    border-radius: 10px;
 }
 
 
@@ -74,69 +82,77 @@
 
 /* ***********卡片****************** */
 
-.card-container{
+.card-container {
     display: flex;
-    flex-wrap:wrap;
+    flex-wrap: wrap;
 }
 
 
 /* 詳細模式 */
-.card-detailed{
+.card-detailed {
     max-width: 80%;
     height: 300px;
     display: flex;
-    flex-direction:row; 
+    flex-direction: row;
 }
+
 /* 簡略模式 */
-.card-simple{
+.card-simple {
     width: 45%;
     height: 220px;
     display: flex;
     flex-direction: row;
 }
 
-.card-container .card{
+.card-container .card {
     margin: 15px;
     box-shadow: 5px 5px 5px 5px rgb(222 168 218 / 22%);
     background-color: rgb(255, 255, 255);
     padding: 20px;
 }
-.card .img-control{
+
+.card .img-control {
     width: 40%;
     height: 100%;
 }
-.card .img-control img{
+
+.card .img-control img {
     width: 100%;
     height: 100%;
-    object-fit: cover; 
+    object-fit: cover;
     border: 5px solid rgb(173, 189, 230);
 }
-.illustrate-container{
+
+.illustrate-container {
     width: 60%;
 }
-.card .txt-control{
+
+.card .txt-control {
     padding: 15px;
     width: 90%;
     display: flex;
-    flex-direction:column;
-    justify-content:space-between;
+    flex-direction: column;
+    justify-content: space-between;
 }
-.card .txt-control h3{
+
+.card .txt-control h3 {
     display: block;
     font-size: 40px;
     color: #fd8585;
 }
-.card .txt-control p{
+
+.card .txt-control p {
     margin-top: 25px;
     height: 100px;
     width: 100%;
 }
 
-.illustrate-container .price-btn{
+.illustrate-container .price-btn {
     display: flex;
     padding-left: 15px;
 }
-.price-btn .price{
+
+.price-btn .price {
     width: 140px;
     line-height: 75px;
     font-size: 30px;
@@ -144,36 +160,40 @@
 }
 
 /* 產品操作按鈕 */
-.reduce,.plus {
-    border:5px;
+.reduce,
+.plus {
+    border: 5px;
     width: 35px;
     height: 35px;
-    border-radius:40px;
+    border-radius: 40px;
     margin: 0 5px;
     background-color: rgb(231, 228, 228);
 }
-.quantity{
+
+.quantity {
     width: 50px;
 }
-.shopping{
+
+.shopping {
     background-color: #ff6000;
     border: 1px solid #ff6000;
-    border-radius:10px;
+    border-radius: 10px;
     color: #ffffff;
     padding: 12px 14px;
     margin-top: 15px;
 }
-.shopping:hover{
+
+.shopping:hover {
     color: #2600ff;
 }
 
 
 /* ***********狀態提示框****************** */
 
-.status-box{
-    position:fixed;
+.status-box {
+    position: fixed;
     display: flex;
-    justify-content:flex-start;
+    justify-content: flex-start;
     right: 10px;
     bottom: 0;
     width: 20%;
@@ -183,7 +203,7 @@
     flex-direction: column-reverse;
 }
 
-.status{
+.status {
     display: flex;
     flex-wrap: wrap;
     width: 95%;
@@ -199,7 +219,8 @@
     position: relative;
     flex-shrink: 0;
 }
-.status::after{
+
+.status::after {
     content: '';
     position: absolute;
     left: 0;
@@ -209,26 +230,30 @@
     background: green;
     animation: anim 3s linear forwards;
 }
-@keyframes anim{
-    100%{
+
+@keyframes anim {
+    100% {
         width: 0;
     }
 }
 
-.status div{
+.status div {
     width: 100%;
     font-size: 24px;
     margin-left: 10px;
 }
-.status div .fa-circle-check{
+
+.status div .fa-circle-check {
     color: #49bc6c;
     margin-right: 10px;
 }
-.status div .fa-circle-xmark{
+
+.status div .fa-circle-xmark {
     color: #f25959;
     margin-right: 10px;
 }
-.status p{
+
+.status p {
     font-size: 18px;
     margin-left: 20px;
 }
