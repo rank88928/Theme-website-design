@@ -361,20 +361,19 @@ body {
   background-repeat: repeat;
 }
 
-.header {
-  height: 100px;
-  margin: auto;
-}
-
 .header-content {
   width: 100%;
   display: flex;
-  line-height: 100px;
+  line-height: 80px;
   justify-content: space-around;
   background-color: rgba(0, 0, 0, 0.3607843137);
   font-size: 24px;
   position: fixed;
+  top: 0;
   z-index: 10;
+}
+.header-content .logo {
+  height: 80px;
 }
 .header-content .logo img {
   width: 160px;
@@ -1041,7 +1040,6 @@ body {
   position: relative;
 }
 
-/* 首頁樣式 */
 .preload-container {
   width: 100%;
   height: 50vw;
@@ -1094,64 +1092,59 @@ body {
   box-shadow: inset 0 5px 5px rgba(176, 176, 176, 0.75), 0 5px 8px rgba(0, 0, 0, 0.5), 0 12px 10px rgba(0, 0, 0, 0.5);
 }
 
-/* 影片 */
 .top-video {
+  max-width: 1200px;
+  margin: 80px auto 60px auto;
+}
+
+.carousel-content {
+  max-width: 1200px;
+  height: 600px;
+  margin: 0px auto 0 auto;
+  position: relative;
+}
+
+.scaling-container {
+  height: 600px;
+}
+.scaling-container img {
+  object-fit: fill;
+}
+
+.distant {
+  animation-name: distant;
+  animation-duration: 4s;
+}
+
+@keyframes distant {
+  0% {
+    transform: scale(1.3);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.countdown-progress {
   width: 100%;
-  height: auto;
+  height: 5px;
+  background-color: #03a9f4;
   position: absolute;
-  top: 0;
-  display: flex;
+  bottom: -5px;
+  animation-name: countdown-progress;
+  animation-duration: 7s;
 }
 
-.video-container {
-  width: 70%;
-}
-
-.video-container .video-1 {
-  width: 100%;
-  height: 615px;
-  object-fit: cover;
-  margin-right: auto;
-}
-
-/* 輪播大小 */
-.carousel-size {
-  width: 30%;
-  margin-top: 270px;
-}
-
-.carousel-indicators {
-  /* width: 30%; */
-  /* margin: 270px; */
-  margin-left: 70%;
-  margin-right: 0;
-  margin-bottom: 55px;
-}
-
-.carousel-item img {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  /* max-height: 400px; */
-  opacity: 0.9;
-}
-
-/* 768不顯示 */
-@media screen and (max-width: 768px) {
-  .carousel-size {
-    display: none;
+@keyframes countdown-progress {
+  0% {
+    width: 0%;
   }
-  .video-container {
+  100% {
     width: 100%;
-  }
-  .video-container .video-1 {
-    width: 100%;
-    height: 300px;
   }
 }
 .introduce-content {
   max-width: 1200px;
-  margin: 550px auto 0 auto;
+  margin: auto;
   display: flex;
   flex-wrap: wrap;
 }
@@ -1210,7 +1203,6 @@ body {
   padding: 10px;
 }
 
-/* 品牌介紹 */
 .product-content {
   max-width: 1200px;
   margin: auto;

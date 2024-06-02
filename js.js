@@ -1,14 +1,47 @@
-let nav_menu_but = document.querySelector(".menu-but");
-let nav_menu = document.querySelector(".nav");
-let menu_mask = document.querySelector(".menu-mask");
 
-if (nav_menu_but) {
-    nav_menu_but.addEventListener("click", function () {
-        nav_menu.classList.toggle("open");
-        menu_mask.classList.toggle("open");
+// 首頁輪播
+$(document).ready(function () {
+    $('.carousel-index').slick({
+        dots: true,
+        infinite: true,
+        speed: 4000,
+        fade: true,
+        cssEase: 'linear',
+        arrows: false,
+        autoplay: true,
+        pauseOnFocus: false,
+        pauseOnHover: false,
     });
-}
 
+    // 立刻啟動切換
+    setTimeout(function () {
+        $('.carousel-index').slick('slickGoTo', 1);
+    }, 0);
+
+    // 切換時掛載效果
+    $('.carousel-index').on('beforeChange', function (event, slick, currentSlide, nextSlide) {
+        slick.$slides.eq(nextSlide).find('img').addClass('distant');
+
+        countdown_animation()
+    });
+
+    // 結束後移除
+    $('.carousel-index').on('afterChange', function (event, slick, currentSlide) {
+        slick.$slides.eq(currentSlide).find('img').removeClass('distant');
+    });
+});
+
+
+// 計時條動畫
+let countdown = document.querySelector("#countdown");
+
+function countdown_animation() {
+    countdown.classList.add("countdown-progress");
+
+    setTimeout(function () {
+        countdown.classList.remove("countdown-progress");
+    }, 7000);
+}
 
 
 
