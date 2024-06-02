@@ -1,0 +1,38 @@
+[
+    {
+        "name": "Tingting",
+        "img_url": "1",
+        "evaluate": "Delicious food, excellent service!",
+        "star": "4"
+    },
+    {
+        "name": "Weihao",
+        "img_url": "2",
+        "evaluate": "Comfortable environment, rich variety of dishes!",
+        "star": "5"
+    },
+    {
+        "name": "Daming",
+        "img_url": "3",
+        "evaluate": "Amazing gastronomic feast!",
+        "star": "4"
+    },
+    {
+        "name": "Boxiang",
+        "img_url": "4",
+        "evaluate": "Friendly service, reasonable prices.",
+        "star": "5"
+    },
+    {
+        "name": "Zhang",
+        "img_url": "5",
+        "evaluate": "Excellent taste, will come again next time.",
+        "star": "5"
+    },
+    {
+        "name": "JC",
+        "img_url": "6",
+        "evaluate": "Unique dishes, impressive.",
+        "star": "4"
+    }
+]

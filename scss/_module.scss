@@ -336,21 +336,16 @@
 /* 顧客回饋 */
 .feedback-content {
     max-width: 1200px;
-    // height: 400px;
     margin: 40px auto;
     overflow: hidden;
     background-color: #fff;
-    padding: 80px 0;
-    // background-image: url("../img/bk-5.jpg");
-    // background-repeat: no-repeat;
-    // background-size: 100% 100%;
+    background-image: url(/img/bk-6.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .feedback-list {
-    width: 500%;
     height: 280px;
-    padding: 40px 0;
-    margin: auto 0;
     display: flex;
     border-top: 2px double rgba(0, 0, 0, 0.405);
     border-bottom: 2px double rgba(0, 0, 0, 0.405);
@@ -358,46 +353,48 @@
 }
 
 .m_feedback_card {
-    width: 300px;
-    height: 100%;
-    margin: 0px 30px;
+    flex-shrink: 0;
+    width: 330px !important;
+    height: 190px !important;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 40px 20px;
     padding: 15px;
     border: 2px double rgba(0, 0, 0, 0.405);
     border-width: 10px;
     position: relative;
-    // background: #FFB75E;
-    // /* fallback for old browsers */
-    // background: -webkit-linear-gradient(to right, #ED8F03, #FFB75E);
-    // /* Chrome 10-25, Safari 5.1-6 */
-    // background: linear-gradient(to right, #ED8F03, #FFB75E);
-    // /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    clip-path: path('M 0 200 L 0 40 L 40 0 L 340 0 L 340 160 L 300 200 L 0 200 ');
+    background-color: #fff;
 
     // 名片裝飾
     &::after,
     &::before {
         content: '';
-        width: 50px;
-        height: 50px;
         position: absolute;
-        border-top: 3px solid rgba(0, 0, 0, 0.405);
-        background-color: #fff;
-        z-index: 0;
+        border-top: 5px solid rgba(0, 0, 0, 0.405);
+        z-index: 10;
+    }
+
+    &::after {
+        width: 80px;
+        height: 0px;
         transform: rotate(135deg);
-        top: -35px;
-        left: -35px;
-        top: -20%;
-        left: -13%;
+        top: 5%;
+        left: -10%;
     }
 
     &::before {
+        width: 50px;
+        height: 0px;
         transform: rotate(315deg);
-        top: 158px;
-        left: 267px;
+        top: 98%;
+        left: 92%;
     }
 
     //格式
     .details {
         width: 100%;
+        height: 80%;
         display: flex;
 
         .user-img {
@@ -421,19 +418,21 @@
             .user-feedback {
                 font-size: 20px;
                 font-style: italic;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
             }
         }
     }
 
     .star {
-        width: 230px;
-        height: 40px;
-        background-image: url("/img/star-rating-1.png");
-        background-repeat: no-repeat;
-        background-size: 200% 650%;
-        position: absolute;
-        top: 145px;
-        left: 5px;
-        background-position: 0% 0%;
+        margin-top: 5px;
+        font-size: 24px;
+        color: #ffea00;
+
+        position: relative;
+
     }
 }

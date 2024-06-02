@@ -66,41 +66,11 @@
 
     <div class="top-video">
         <!-- 影片 -->
-        <div class="video-container">
+        <!-- <div class="video-container">
             <video class="video-1" src="/img/production_id_1.mp4" autoplay loop muted></video>
-        </div>
+        </div> -->
         <!-- 輪播套件 -->
-        <div class="carousel-size">
-            <div id="carouselExampleIndicators" class="carousel-fade" data-bs-ride="carousel">
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
-                        class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                        aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                        aria-label="Slide 3"></button>
-                </div>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="/img/0001.jpg" class="d-block img-size " alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="/img/0002.jpg" class="d-block img-size " alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="/img/0003.jpg" class="d-block img-size" alt="...">
-                    </div>
-                </div>
-                <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-                </button> -->
-            </div>
-        </div>
+
     </div>
 
 
@@ -293,66 +263,6 @@
     <div class="feedback-content">
         <div class="feedback-list">
 
-            <div class="m_feedback_card">
-                <div class="details">
-                    <div class="user-img">
-                        <img src="https://picsum.photos/seed/1/400/400" alt="">
-                    </div>
-                    <div class="info">
-                        <p class="user-name">婷婷</p>
-                        <p class="user-feedback">
-                            美味的食物，服務一流！
-                        </p>
-                    </div>
-                </div>
-                <div class="star"></div>
-            </div>
-
-            <div class="m_feedback_card">
-                <div class="details">
-                    <div class="user-img">
-                        <img src="https://picsum.photos/seed/2/400/400" alt="">
-                    </div>
-                    <div class="info">
-                        <p class="user-name">衛皓</p>
-                        <p class="user-feedback">
-                            環境舒適，菜色豐富。！
-                        </p>
-                    </div>
-                </div>
-                <div class="star" style="background-position: 0% 21%;"></div>
-            </div>
-
-            <div class="m_feedback_card">
-                <div class="details">
-                    <div class="user-img">
-                        <img src="https://picsum.photos/seed/3/400/400" alt="">
-                    </div>
-                    <div class="info">
-                        <p class="user-name">大明</p>
-                        <p class="user-feedback">
-                            驚艷的味覺饗宴！
-                        </p>
-                    </div>
-                </div>
-                <div class="star" style="background-position: 0% 0%;"></div>
-            </div>
-
-            <div class="m_feedback_card">
-                <div class="details">
-                    <div class="user-img">
-                        <img src="https://picsum.photos/seed/40/400/400" alt="">
-                    </div>
-                    <div class="info">
-                        <p class="user-name">柏翔</p>
-                        <p class="user-feedback">
-                            服務親切，價格實在。
-                        </p>
-                    </div>
-                </div>
-                <div class="star" style="background-position: 0% 42%;"></div>
-            </div>
-
         </div>
     </div>
 
@@ -445,9 +355,9 @@
 
     <!-- 
     待開發
-    登入頁美化   模擬登入效果
+    模擬登入效果
    
-    購物車結算介面  確認餐點金額  選擇門市 時間 
+        選擇門市 時間 
     點擊確定後  生成一筆訂單資料 購物車進度條介面  生成定單後可查詢
     ->  訂單資料查看頁 給放大鏡
 
@@ -459,7 +369,6 @@
         菜單頁目前樣式還沒修好
         可以再補一個移除訊息成功
         菜單-左側列表修改
-        js畫面更新 可以換個方式重寫 更直觀
         頁面條碼
         rwd改版
 
@@ -480,9 +389,14 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"></script>
+<script src="/slick/slick.min.js"></script>
 <script defer src="js.js"></script>
+
+
 <script type="module" src="/data_request.js"></script>
 <script type="module" src="/UI_shopping.js"></script>
 <script type="module" src="/shopping_box.js"></script>
+
+<script src="js/feedback.js"></script>
 
 </html>
