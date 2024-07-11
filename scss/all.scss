@@ -1,5 +1,6 @@
 // 全部共用
 @import "common/reset";
+@import "common/rwd_utilities";
 
 // 專案共享
 // 輪播
@@ -12,5 +13,5 @@
 @import "layout";
 @import "module";
 
-// 各頁面
+// 頁面
 @import "index";

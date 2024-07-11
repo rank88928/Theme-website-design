@@ -6,69 +6,67 @@ body {
 // 給預載器用的暫時消失下拉
 
 // 預載動畫
-.preload-container {
-    width: 100%;
-    height: 50vw;
-    background-color: #eaf7fc;
-    z-index: 1000;
-    position: relative;
+// .preload-container {
+//     width: 100%;
+//     height: 50vw;
+//     background-color: #eaf7fc;
+//     z-index: 1000;
+//     position: relative;
 
-    .schedule {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 500px;
-        padding: 5px;
-        border-radius: 50px;
+//     .schedule {
+//         position: absolute;
+//         top: 50%;
+//         left: 50%;
+//         transform: translate(-50%, -50%);
+//         width: 500px;
+//         padding: 5px;
+//         border-radius: 50px;
 
-        .percent {
-            position: relative;
-            display: block;
-            width: 0%;
-            height: 15px;
-            background-color: #03a9f4;
-            border-radius: 20px;
+//         .percent {
+//             position: relative;
+//             display: block;
+//             width: 0%;
+//             height: 15px;
+//             background-color: #03a9f4;
+//             border-radius: 20px;
 
-            .number {
-                position: absolute;
-                top: -60px;
-                right: -60px;
-                padding: 10px 15px;
-                color: #03a9f4;
-                border-radius: 50px;
-            }
+//             .number {
+//                 position: absolute;
+//                 top: -60px;
+//                 right: -60px;
+//                 padding: 10px 15px;
+//                 color: #03a9f4;
+//                 border-radius: 50px;
+//             }
 
-        }
-    }
+//         }
+//     }
 
-    h2 {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        opacity: 0;
-        visibility: hidden;
-        font-size: 4em;
-        font-weight: 500;
-        text-transform: uppercase;
-        letter-spacing: 0.5em;
-        transition: 0.5s;
-        color: #fff;
-    }
+//     h2 {
+//         position: absolute;
+//         top: 50%;
+//         left: 50%;
+//         transform: translate(-50%, -50%);
+//         opacity: 0;
+//         visibility: hidden;
+//         font-size: 4em;
+//         font-weight: 500;
+//         text-transform: uppercase;
+//         letter-spacing: 0.5em;
+//         transition: 0.5s;
+//         color: #fff;
+//     }
 
-}
+// }
 
-.schedule,
-.number {
-    box-shadow: inset 0 5px 5px rgba(176, 176, 176, 0.75),
-        0 5px 8px rgb(0, 0, 0, 0.5),
-        0 12px 10px rgb(0, 0, 0, 0.5);
-}
+// .schedule,
+// .number {
+//     box-shadow: inset 0 5px 5px rgba(176, 176, 176, 0.75),
+//         0 5px 8px rgb(0, 0, 0, 0.5),
+//         0 12px 10px rgb(0, 0, 0, 0.5);
+// }
 
-// 待改
-
-
+// 預載動畫-----
 
 
 .top-video {
@@ -87,35 +85,38 @@ body {
 //     }
 // }
 
+
+
+
 // 輪撥
 .carousel-content {
     max-width: 1200px;
-    height: 600px;
+    max-height: 600px;
     margin: 0px auto 0 auto;
     position: relative;
 }
 
 .scaling-container {
-    height: 600px;
+    max-height: 600px;
 
     img {
         object-fit: fill;
     }
 }
 
-// 縮放效果
+// 圖片縮放效果
 .distant {
     animation-name: distant;
     animation-duration: 4s;
-}
 
-@keyframes distant {
-    0% {
-        transform: scale(1.3);
-    }
+    @keyframes distant {
+        0% {
+            transform: scale(1.3);
+        }
 
-    100% {
-        transform: scale(1.0);
+        100% {
+            transform: scale(1.0);
+        }
     }
 }
 
@@ -128,29 +129,22 @@ body {
     bottom: -5px;
     animation-name: countdown-progress;
     animation-duration: 7s;
+
+    @keyframes countdown-progress {
+        0% {
+            width: 0%;
+        }
+
+        100% {
+            width: 100%;
+        }
+    }
 }
 
-@keyframes countdown-progress {
-    0% {
-        width: 0%;
-    }
-
-    100% {
-        width: 100%;
-    }
-}
 
 
 
 // 菜單介紹
-
-.introduce-content {
-    max-width: 1200px;
-    margin: auto;
-    display: flex;
-    flex-wrap: wrap;
-}
-
 // 背景塊
 .introduce-box:nth-child(1) {
     background: linear-gradient(160deg, transparent 0%, transparent 45%, #f7f3ee 45%, #f7f3ee 100%);
@@ -160,13 +154,19 @@ body {
     background: linear-gradient(200deg, transparent 0%, transparent 45%, #f7f3ee 45%, #f7f3ee 100%);
 }
 
+.introduce-content {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .introduce-box {
-    height: 600px;
-    padding: 0 80px;
+    padding: 40px 80px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    margin: 80px 0;
+    margin: 60px auto;
 
     .txt-box {
         width: 40%;
@@ -183,35 +183,129 @@ body {
 
     .img-box {
         width: 60%;
-        height: 100%;
+        height: 500px;
         display: flex;
+        flex-direction: column;
         align-items: center;
+        flex-wrap: wrap;
 
-        .one,
-        .two {
-            width: 50%;
-            height: 80%;
+        >img {
+            object-fit: cover;
 
-            img {
-                object-fit: cover;
+            &:nth-child(1),
+            &:nth-child(2),
+            &:nth-child(3) {
+                margin: auto;
+                width: 50%;
             }
-        }
 
-        .one {
-            padding: 30px 10px;
-
-            img {
-                height: 100%;
+            &:nth-child(1) {
+                height: 70%;
+                padding-right: 10px;
             }
-        }
 
-        .two img {
-            width: 100%;
-            height: 50%;
-            padding: 10px;
+            &:nth-child(2),
+            &:nth-child(3) {
+                height: 48%;
+            }
         }
     }
 }
+
+// 反轉-圖文位子
+.introduce-box:nth-child(2) {
+    flex-direction: row-reverse;
+
+    >img:nth-child(1) {
+        order: 1;
+        padding-right: 0px;
+        padding-left: 10px;
+    }
+}
+
+// 輪播
+.img-box-carousel {
+    display: none;
+    max-width: 100%;
+    max-height: 400px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.carousel-box {
+    // max-width: 100%;
+}
+
+.carousel-box img {
+    max-width: 100%;
+    // height: 300px;
+    aspect-ratio: 12 / 9;
+}
+
+@include rwd_992_below {
+    .introduce-box {
+        margin: 10px auto;
+
+        .txt-box {
+            height: 50%;
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            padding: 40px 60px;
+
+            h3 {
+                display: block;
+                width: 50%;
+                height: 35%;
+                margin-bottom: 0px;
+            }
+
+            p {
+                width: 50%;
+                height: 65%;
+            }
+
+            a {
+                width: 50%;
+                margin-left: 30px;
+                margin: auto 20px;
+            }
+        }
+    }
+
+    .introduce-content .introduce-box .img-box {
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+
+        img {
+            width: 33%;
+            padding: 5px;
+            aspect-ratio: 12 / 9;
+        }
+    }
+}
+
+@include rwd_768_below {
+    .introduce-box {
+        width: 100%;
+        margin: 10px 0;
+
+        .img-box {
+            display: none;
+        }
+
+        .img-box-carousel {
+            display: block;
+        }
+    }
+}
+
+
+
+
+
 
 
 // 商品列表
@@ -295,8 +389,6 @@ body {
 
 
 
-
-
 // 地址
 .store-map {
     background-image: url("/img/background-wall-1.gif");
@@ -362,30 +454,32 @@ body {
         margin-bottom: 20px;
 
         .question {
-            display: flex;
             cursor: pointer;
-            height: 40px;
             font-size: 24px;
-            display: inline;
+            display: flex;
+            justify-content: space-between;
+            font-style: italic;
+            font-weight: 600;
 
             i {
                 color: rgb(0, 0, 0);
                 font-size: 30px;
-                margin-left: 5px;
-                margin-top: 3px;
             }
         }
 
         .answer {
+            margin: 10px 0 0 40px;
+            font-size: 20px;
+            line-height: 30px;
             overflow: hidden;
-            transition: max-height 0.7s;
-            height: 0;
+            transition: max-height 0.7s ease-in-out;
+            max-height: 0px;
+        }
+
+        .an-auto {
+            max-height: 300px !important;
         }
     }
-}
-
-.h-auto {
-    height: auto;
 }
 
 .down-rotate {

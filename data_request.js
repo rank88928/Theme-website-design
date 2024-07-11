@@ -1,10 +1,10 @@
 
-export { check_store, data_product, data_local};
+export { check_store, data_product, data_local };
 
 let data_product = [];
 let data_local = [];
 
-async function check_store(){
+async function check_store() {
     //目標
     let data_url = 'data.json';
 
@@ -23,8 +23,8 @@ async function check_store(){
         console.log('有本地紀錄');
     } else {
         console.log('沒本地紀錄');
-        data_product.forEach(function(data, index){
-        data_local.push(processdata_local_shopping(data, index))
+        data_product.forEach(function (data, index) {
+            // data_local.push(processdata_local_shopping(data, index))
         });
     }
 }
@@ -32,17 +32,17 @@ async function check_store(){
 
 
 //本機購物資料
-function processdata_local_shopping(data){
-    return{
-        id : data.id,
-        name : data.name,
-        quantity : data.quantity,
-        type : data.type,
-        url : data.url,
-        price : data.price,
-        order : 1,
-        total_price : function() {
-                    return data.price + data.order;
-                  }
+function processdata_local_shopping(data) {
+    return {
+        id: data.id,
+        name: data.name,
+        quantity: data.quantity,
+        type: data.type,
+        url: data.url,
+        price: data.price,
+        order: data.order,
+        total_price: function () {
+            return data.price + data.order;
+        }
     }
 }

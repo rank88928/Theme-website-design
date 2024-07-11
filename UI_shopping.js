@@ -1,10 +1,11 @@
 
-export { card_generate, shopping_item_create, shopping_list, calculate_price};
+export { card_generate, shopping_item_create, shopping_list, calculate_price };
 
 
+// 頁面沒有元素 但因為引入 全部呼叫 待改
 let card_container = document.querySelector('.card-container');
 //菜單頁面列表
-function card_generate(data_product, i){
+function card_generate(data_product, i) {
     let html =
         `<div class="card card-detailed">
             <div class="img-control">
@@ -31,9 +32,9 @@ function card_generate(data_product, i){
             </div>
         </div> `;
     card_container.insertAdjacentHTML('beforeend', html);
-}  
+}
 // 使用者購物車
-function shopping_item_create(data_shopping, i){
+function shopping_item_create(data_shopping, i) {
     let shopping_item = document.querySelector('.shopping-item');
     let html =
         `<div class="item ">
@@ -54,7 +55,7 @@ function shopping_item_create(data_shopping, i){
 
 //購物車-1 結帳頁 商品清單
 let order_data = document.querySelector('.order-data');
-function shopping_list(data_shopping){
+function shopping_list(data_shopping) {
     let html =
         `<div class="list">
             <div class="container">
@@ -91,7 +92,7 @@ function shopping_list(data_shopping){
                 </button>
             </div>
         </div>`;
-    order_data.insertAdjacentHTML('beforeend', html);    
+    order_data.insertAdjacentHTML('beforeend', html);
 };
 
 
@@ -99,7 +100,7 @@ function shopping_list(data_shopping){
 
 //購物車-1 結帳頁 金額
 let price_container = document.querySelector('.calculate-price-container');
-function calculate_price(data){
+function calculate_price(data) {
     let item =
         `<div class="price-container">
             <div class="price-name">
@@ -109,5 +110,5 @@ function calculate_price(data){
                共${data.order * data.price}元
             </div>
         </div>`;
-    price_container.insertAdjacentHTML('beforeend', item);  
+    price_container.insertAdjacentHTML('beforeend', item);
 };

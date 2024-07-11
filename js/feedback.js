@@ -1,4 +1,4 @@
-
+// 回饋卡片生成
 
 let data_url = "./data/feedback.json";
 let data_feedback = [];
@@ -22,6 +22,7 @@ async function feedback_produce() {
 
     feedback_list.insertAdjacentHTML('beforeend', temp_html);
 }
+feedback_produce();
 
 function feedback_html(data) {
     let item =
@@ -50,9 +51,6 @@ function stars_number(star) {
     }
     return temp_html;
 }
-
-
-feedback_produce();
 
 // 輪播
 (async function () {
