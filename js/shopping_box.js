@@ -1,6 +1,6 @@
 
 import * as ui_shopping from '../UI_shopping.js'
-import * as shopping_operations from "./shopping_operations.js"
+import * as shopping_cart_function from "./shopping_operations.js"
 export { update_cart };
 
 
@@ -12,8 +12,7 @@ update_cart();
 // 更新購物欄
 function update_cart() {
 
-    let data_local = JSON.parse(localStorage.getItem('shopping_storage')) || [];
-
+    let data_local = shopping_cart_function.get_shopping_storage();
     shopping_box.innerHTML = '';
 
     if (data_local.length == 0) {
@@ -30,7 +29,7 @@ function update_cart() {
 
     remove_btn.forEach(function (remove_btn, i) {
         remove_btn.addEventListener("click", function () {
-            shopping_operations.clear_order_quantity(i);
+            shopping_cart_function.clear_order_quantity(i);
             update_cart();//重繪
         });
     });

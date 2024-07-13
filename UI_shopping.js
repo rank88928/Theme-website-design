@@ -75,7 +75,7 @@ function shopping_list(data_shopping) {
                         <img src="/img/product/${data_shopping.url}.jpg">
                     </div>
                     <div> 
-                        <div class="btn-container">
+                        <div class="action-btn">
                             <input class="reduce" type="button" value="-">
                             <input class="quantity" type="text" value="${data_shopping.order}">
                             <input class="plus" type="button" value="+">
@@ -87,7 +87,7 @@ function shopping_list(data_shopping) {
                 </div> 
             </div> 
             <div class="cancel">
-                <button value=" " class="cancel-btn" type=" ">
+                <button value=" " class="clear-btn" type=" ">
                     <i class="fa-solid fa-rectangle-xmark">整筆移除</i>
                 </button>
             </div>

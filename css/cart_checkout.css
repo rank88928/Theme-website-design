@@ -1,18 +1,18 @@
-
-
-.order-status{
+.order-status {
     display: flex;
     align-items: flex-start;
     margin: 20px;
     padding: 15px;
 }
-.details-container{
+
+.details-container {
     width: 80%;
     background-color: #faf2ff;
     margin: 10px;
     padding: 15px;
 }
-.details-container h3{
+
+.details-container h3 {
     font-size: 40px;
     font-style: italic;
     background-color: #efdcba;
@@ -23,7 +23,7 @@
 }
 
 
-.list{
+.list {
     display: flex;
     height: 160px;
     margin: 10px 30px;
@@ -31,30 +31,34 @@
     font-weight: 600;
     justify-content: center;
 }
-.list .container{
+
+.list .container {
     width: 70%;
     height: 100%;
     margin-left: 5%;
 }
 
 
-.list .container .txt{
+.list .container .txt {
     display: flex;
     width: 100%;
     height: 40px;
 }
-.list .name{
+
+.list .name {
     width: 40%;
 }
-.list .qty{
+
+.list .qty {
     width: 15%;
 }
-.list .price{
+
+.list .price {
     width: 15%;
-} 
+}
 
 
-.container .control-flex{
+.container .control-flex {
     display: flex;
     height: 90px;
 }
@@ -62,7 +66,7 @@
 
 
 
-.list .container .btn{
+.list .container .btn {
     display: flex;
     height: 130px;
 }
@@ -73,66 +77,74 @@
 
 
 
-.img-control{
+.img-control {
     width: 15%;
     margin: 10px;
 }
-.img-control>img{
+
+.img-control>img {
     width: 100%;
     height: 100%;
-    object-fit: cover; 
+    object-fit: cover;
     border: 1px solid rgb(173, 189, 230);
 }
 
 
 
 /* 移除按鈕 */
-.cancel{
-     width: 20%;
-     margin-right: 5%;
+.cancel {
+    width: 20%;
+    margin-right: 5%;
 }
 
-.cancel-btn{
+.clear-btn {
     width: 100%;
     padding: 0;
     background-color: #faf2ff;
 }
-.fa-rectangle-xmark{
+
+.fa-rectangle-xmark {
     color: #919191;
     font-size: 24PX;
 }
-.fa-rectangle-xmark:hover{
+
+.fa-rectangle-xmark:hover {
     color: #000;
 }
 
 
 
-.btn-container{
+.btn-container {
     margin-left: 150px;
 }
+
 /* 產品操作按鈕 */
-.reduce,.plus {
-    border:5px;
+.reduce,
+.plus {
+    border: 5px;
     width: 35px;
     height: 35px;
-    border-radius:40px;
+    border-radius: 40px;
     margin: 0 5px;
     background-color: rgb(231, 228, 228);
 }
-.quantity{
+
+.quantity {
     width: 50px;
 }
+
 .revise,
-.btn-step{
+.btn-step {
     background-color: #ff6000;
     border: 1px solid #ff6000;
-    border-radius:10px;
+    border-radius: 10px;
     color: #ffffff;
     padding: 12px 14px;
     margin-top: 15px;
 }
+
 .revise:hover,
-.btn-step:hover{
+.btn-step:hover {
     color: #2600ff;
 }
 
@@ -144,12 +156,12 @@
 
 
 
-.procedures{
+.procedures {
     width: 30%;
 }
 
 /* 計算價格 */
-.calculate-price-container{
+.calculate-price-container {
     width: 100%;
     height: auto;
     background-color: #faf2ff;
@@ -158,12 +170,14 @@
     font-weight: 500;
     font-style: italic;
 }
-.price-container{
+
+.price-container {
     display: flex;
-    justify-content:space-between;
+    justify-content: space-between;
     margin: 10px;
 }
-.calculate-price-container .sum{
+
+.calculate-price-container .sum {
     color: #ff0000;
     margin-top: 50px;
     font-size: 30px;
@@ -181,10 +195,10 @@
 
 
 
-.order-status .form{
+.order-status .form {
     width: 40%;
     margin-left: 200px;
     font-size: 24px;
     line-height: 40px;
-   
+
 }
