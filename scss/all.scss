@@ -1,17 +1,31 @@
-// 全部共用
+//common(全部共用)
 @import "common/reset";
 @import "common/rwd_utilities";
 
-// 專案共享
+//shared(專案共享資源) 
 // 輪播
-@import "shared/slick";
-@import "shared/slick_theme";
+// @import "shared/slick";
+// @import "shared/slick_theme";
 
+//Base(基礎) 
+
+
+//Layout(佈局) 
+@import "layout/header";
+@import "layout/nav";
+@import "layout/footer";
+@import "layout/layout_animation";
+@import "layout/anchor";
+
+//Module(模組) 
+@import "module/carousel";
+@import "module/nav_shopping_box";
+@import "module/login_box";
+//Theme(主題) 
 
 // 該專案
 @import "base";
-@import "layout";
 @import "module";
 
-// 頁面
+// // 頁面
 @import "index";

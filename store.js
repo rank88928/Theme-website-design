@@ -3,7 +3,7 @@ let filter_data = [];//篩選後資料
 
 let number_data;//篩選後總筆數
 let page = 1; //當前頁碼
-let limit = 30;//限制顯示筆數
+let limit = 10;//限制顯示筆數
 let all_page//總頁數
 let page_data = [];//存放頁碼數組
 
