@@ -1248,16 +1248,38 @@ body {
 .product-content {
   max-width: 1200px;
   margin: auto;
+  background-color: rgba(247, 243, 238, 0.6901960784);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-blend-mode: overlay;
+  transition: background-color 1s ease, background-image 1s ease;
 }
 .product-content ul {
   justify-content: space-between;
-  background-color: #f7f3ee;
   padding: 40px 20px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fill, 360px);
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 20px;
+  z-index: 5;
+  justify-content: center;
 }
 
+@media screen and (max-width: 992px) {
+  .product-content ul {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+@media screen and (max-width: 768px) {
+  .product-content ul {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media screen and (max-width: 576px) {
+  .product-content ul {
+    grid-template-columns: 80%;
+  }
+}
 .product-card {
   height: 430px;
   background-color: #ffffff;
@@ -1265,7 +1287,6 @@ body {
   margin: 15px auto;
   padding: 20px;
   border-radius: 10px;
-  position: relative;
   grid-gap: 20px;
 }
 .product-card .img {
@@ -1310,6 +1331,54 @@ body {
   padding: 0;
   width: 40px;
   height: 40px;
+}
+
+.product-card .img {
+  position: relative;
+  overflow: hidden;
+}
+.product-card .img::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  transition: all 0.5s ease;
+  z-index: 1;
+}
+.product-card .img:hover::before {
+  opacity: 0.5;
+}
+.product-card .img:hover img {
+  transform: scale(1.1);
+  transition: all 0.5s ease;
+}
+.product-card .img span {
+  color: #fff;
+  display: block;
+  position: absolute;
+  top: 0%;
+  left: 10%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  border: 2px solid #fff;
+  line-height: 40px;
+  text-align: center;
+  opacity: 0;
+  border-radius: 50%;
+  transition: all 0.5s ease;
+  z-index: 2;
+}
+.product-card .img span:hover {
+  color: #fe8383;
+  border: 2px solid #fe8383;
+}
+.product-card .img:hover span {
+  top: 15%;
+  opacity: 1;
 }
 
 .store-map {

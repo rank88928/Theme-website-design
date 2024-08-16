@@ -339,30 +339,47 @@ body {
 }
 
 
-
-
-
-
-
-
-
-
-
 // 商品列表
 .product-content {
     max-width: 1200px;
     margin: auto;
+    background-color: #f7f3eeb0;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-blend-mode: overlay;
+    transition: background-color 1s ease, background-image 1s ease;
 
     ul {
         justify-content: space-between;
-        background-color: #f7f3ee;
         padding: 40px 20px;
         margin: 0 auto;
         display: grid;
-        grid-template-columns: repeat(auto-fill, 360px);
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 20px;
+        z-index: 5;
+        justify-content: center;
     }
 }
 
+@include rwd_992_below {
+    .product-content ul {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@include rwd_768_below {
+    .product-content ul {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@include rwd_576_below {
+    .product-content ul {
+        grid-template-columns: 80%;
+    }
+}
+
+// 卡片
 .product-card {
     // width: 290px;
     height: 430px;
@@ -371,7 +388,6 @@ body {
     margin: 15px auto;
     padding: 20px;
     border-radius: 10px;
-    position: relative;
     grid-gap: 20px;
 
     .img {
@@ -423,6 +439,68 @@ body {
                 height: 40px;
             }
         }
+    }
+}
+
+
+
+
+// 效果
+.product-card .img {
+    position: relative;
+    overflow: hidden;
+
+    // 卡片蒙層
+    &::before {
+        content: "";
+        width: 100%;
+        height: 100%;
+        background-color: #000;
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        transition: all 0.5s ease;
+        z-index: 1;
+    }
+
+    &:hover::before {
+        opacity: 0.5;
+    }
+
+    //卡片圖片縮放  
+    &:hover img {
+        transform: scale(1.1);
+        transition: all 0.5s ease;
+    }
+
+
+    //標記愛心
+    span {
+        color: #fff;
+        display: block;
+        position: absolute;
+        top: 0%;
+        left: 10%;
+        transform: translate(-50%, -50%);
+        width: 40px;
+        height: 40px;
+        border: 2px solid #fff;
+        line-height: 40px;
+        text-align: center;
+        opacity: 0;
+        border-radius: 50%;
+        transition: all 0.5s ease;
+        z-index: 2;
+
+        &:hover {
+            color: #fe8383;
+            border: 2px solid #fe8383;
+        }
+    }
+
+    &:hover span {
+        top: 15%;
+        opacity: 1;
     }
 }
 
