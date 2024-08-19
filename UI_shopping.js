@@ -1,36 +1,44 @@
 
-export { card_generate, shopping_item_create, shopping_list, calculate_price };
+export {
+    card_generate,
+    shopping_item_create,
+    shopping_list, calculate_price
+};
 
 
 // 頁面沒有元素 但因為引入 全部呼叫 待改
 let card_container = document.querySelector('.card-container');
 //菜單頁面列表
-function card_generate(data_product, i) {
+function card_generate(item) {
     let html =
-        `<div class="card card-detailed">
-            <div class="img-control">
-                <img src="/img/product/${data_product[i].url}.jpg">
+        `<li class="card card-detailed">
+            <div class="img-box">
+                <img src="/img/product/${item.url}.jpg">
             </div>
-            <div class="illustrate-container">
-                <div class="txt-control">
-                    <h3>${data_product[i].name}</h3>
-                    <p>${data_product[i].description}</p>
-                </div>
-                <div class="price-btn">
-                    <div class="price">
-                        售價:${data_product[i].price}
+            <div class="illustrate-box">
+                <div class="txt-box">
+                    <h3>${item.name}</h3>
+                    <p>${item.description}</p>
+                    <div class="data-box">
+                        <i class="fa-solid fa-fire"></i>月銷量${item.sales_volume}
                     </div>
-                    <div class="action-btn">
-                        <input class="reduce" type="button" value="-">
-                        <input class="quantity" type="text" value="0">
-                        <input class="plus" type="button" value="+">
-                        <button class="shopping">
-                            <i class="fa-solid fa-cart-shopping icon">加入購物車</i>
-                        </button>
+                    <div class="price-box">
+                        <div class="price">
+                            售價:${item.price}
+                        </div>
+                        <div class="m-quantity-selector-box">
+                            <input class="reduce-btn" type="button" value="-">
+                            <input class="quantity-box" type="text" value="0">
+                            <input class="plus-btn" type="button" value="+">
+                            <button class="shopping-btn">
+                                <i class="fa-solid fa-cart-shopping icon">加入購物車</i>
+                            </button>
                     </div>
                 </div>
+                </div>
+                
             </div>
-        </div> `;
+        </li> `;
     card_container.insertAdjacentHTML('beforeend', html);
 }
 // 使用者購物車
