@@ -1,11 +1,12 @@
-// 全局樣式
+// 全域共通
 
-* {
-    scroll-behavior: smooth;
-}
 
 // * {
 //     border: 1px solid #ff0000 !important;
+// }
+
+// * {
+//     scroll-behavior: smooth;
 // }
 
 *,
@@ -14,8 +15,16 @@
     box-sizing: border-box;
 }
 
+// * {
+//     transition: all 0.3s ease;
+// }
+
 html {
     font-size: 16px;
+}
+
+body {
+    font-size: 1rem;
 }
 
 img {
@@ -23,14 +32,29 @@ img {
     height: auto;
 }
 
+button,
+a {
+    cursor: pointer;
+}
+
 button {
-    background-color: rgb(255, 255, 255);
     border: none;
-    color: #ffffff;
+
 }
 
 a {
     text-decoration: none;
+}
+
+//專案自定義
+
+
+button {
+    background-color: rgb(255, 255, 255);
+    color: #ffffff;
+}
+
+a {
     color: #ffffff;
 }
 

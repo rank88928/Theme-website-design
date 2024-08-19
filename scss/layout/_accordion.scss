@@ -1,0 +1,66 @@
+// 問答手風琴
+.l-accordion {
+    background-color: #ffe8cb;
+    width: 70%;
+    border-radius: 30px;
+    margin: 30px auto;
+    padding: 30px;
+
+    h3 {
+        font-size: 40px;
+        margin-bottom: 16px;
+    }
+
+    ul .item {
+        background-color: rgb(250, 250, 247);
+        border-radius: 30px;
+        padding: 20px;
+        margin-bottom: 20px;
+        font-size: 24px;
+
+        .question {
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            font-style: italic;
+            font-weight: 600;
+            margin-bottom: 5px;
+
+            i {
+                color: rgb(0, 0, 0);
+            }
+        }
+
+        .answer {
+            font-size: 20px;
+            line-height: 20px;
+            overflow: hidden;
+            transition: max-height 0.7s ease-in-out;
+            max-height: 0px;
+            padding: 0 0 0 20px;
+        }
+    }
+}
+
+
+@include rwd_992_below {
+    .l-accordion {
+        width: 90%;
+
+        h3 {
+            font-size: 32px;
+        }
+
+        .question {
+            font-size: 20px;
+        }
+
+        ul .item .answer {
+            font-size: 16px;
+        }
+    }
+}
+
+.down-rotate {
+    transform: rotate(180deg);
+}

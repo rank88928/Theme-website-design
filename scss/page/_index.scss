@@ -74,16 +74,6 @@ body {
     margin: 80px auto 60px auto;
 }
 
-// .video-container {
-//     width: 70%;
-
-//     .video-1 {
-//         width: 100%;
-//         height: 615px;
-//         object-fit: cover;
-//         margin-right: auto;
-//     }
-// }
 
 
 
@@ -159,6 +149,7 @@ body {
     margin: auto;
     display: flex;
     flex-wrap: wrap;
+
 }
 
 .introduce-box {
@@ -442,9 +433,6 @@ body {
     }
 }
 
-
-
-
 // 效果
 .product-card .img {
     position: relative;
@@ -507,6 +495,7 @@ body {
 
 
 
+
 // 地址
 .store-map {
     background-image: url("/img/background-wall-1.gif");
@@ -551,55 +540,21 @@ body {
     }
 }
 
-
-// 問答手風琴
-.accordion-faq {
-    background-color: #ffe8cb;
-    width: 70%;
-    border-radius: 30px;
-    margin: 30px auto;
-    padding: 30px;
-
-    h3 {
-        font-size: 40px;
-        margin-bottom: 16px;
-    }
-
-    .accordion-item {
-        background-color: rgb(250, 250, 247);
-        border-radius: 30px;
-        padding: 20px;
-        margin-bottom: 20px;
-
-        .question {
-            cursor: pointer;
-            font-size: 24px;
-            display: flex;
-            justify-content: space-between;
-            font-style: italic;
-            font-weight: 600;
-
-            i {
-                color: rgb(0, 0, 0);
-                font-size: 30px;
-            }
-        }
-
-        .answer {
-            margin: 10px 0 0 40px;
-            font-size: 20px;
-            line-height: 30px;
-            overflow: hidden;
-            transition: max-height 0.7s ease-in-out;
-            max-height: 0px;
-        }
-
-        .an-auto {
-            max-height: 300px !important;
-        }
+@include rwd_992_below {
+    .index-address {
+        width: 70%;
+        margin: auto;
     }
 }
 
-.down-rotate {
-    transform: rotate(180deg);
+@include rwd_576_below {
+    .index-address {
+        width: 95%;
+
+        .a-row {
+            .item {
+                width: 40%;
+            }
+        }
+    }
 }

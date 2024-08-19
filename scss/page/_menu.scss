@@ -1,0 +1,473 @@
+/* *{
+    box-shadow: 2px 2px 2px 2px rgba(255, 0, 0, 0.1);
+} */
+.main {
+    display: flex;
+    margin-top: 80px;
+    align-items: flex-start
+}
+
+// 側邊欄
+.product-sidebar {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 15%;
+    max-height: 80vh;
+    overflow-y: auto;
+    background-color: #F5F5F5;
+
+    /* 整體滾動條寬度 */
+    &::-webkit-scrollbar {
+        width: 12px;
+        height: 12px;
+    }
+
+    /* 滾動條軌道 */
+    &::-webkit-scrollbar-track {
+        background: #f0f0f0;
+        border-radius: 10px;
+    }
+
+    /* 滾動條滑塊 */
+    &::-webkit-scrollbar-thumb {
+        background-color: #99c4fb;
+        border: 2px solid #e0e0e0;
+    }
+
+    a {
+        color: #000;
+    }
+}
+
+.cat-dropmenu {
+    width: 100%;
+    font-size: 36px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    text-align: center;
+    background-color: #ffe8cb;
+
+    .all-cat {
+        padding: 20px 0 10px 0;
+        width: 100%;
+
+        &:hover {
+            background-color: #ffd097;
+        }
+    }
+
+    .main-cat,
+    .sub-cat {
+        //效果通用配置
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        outline: none;
+        border: none;
+        padding: 6px;
+    }
+
+    .main-cat {
+        width: 100%;
+        background-color: #CBE2FF;
+
+        &:hover {
+            color: #cbffe8;
+            box-shadow: none;
+            background-color: #8bbcf8;
+
+            &:before,
+            &:after {
+                width: 100%;
+                transition: 800ms ease all;
+            }
+        }
+
+        &:before,
+        &:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 4px;
+            width: 0;
+            background: #fd8585;
+            box-shadow:
+                -1px -1px 5px 0px #fff,
+                7px 7px 20px 0px #0003,
+                4px 4px 5px 0px #0002;
+            transition: 400ms ease all;
+        }
+
+        &:after {
+            right: inherit;
+            top: inherit;
+            left: 0;
+            bottom: 0;
+        }
+    }
+
+    .cat-box {
+        width: 100%;
+        padding: 5px 0;
+        font-size: 30px;
+        background-color: #e3efff;
+        max-height: 0px;
+        overflow: hidden;
+        transition: max-height 0.7s ease-in-out;
+
+        .sub-cat {
+            font-size: 24px;
+            z-index: 1;
+
+            &:hover {
+                background-color: #CBE2FF;
+
+                a {
+                    color: #ffe8cb;
+                }
+
+                &:after {
+                    left: 0;
+                    width: 100%;
+                }
+            }
+
+            &:after {
+                position: absolute;
+                content: "";
+                width: 0;
+                height: 100%;
+                top: 0;
+                right: 0;
+                z-index: -1;
+                background-color: #b3a2ef;
+                transition: all 0.3s ease;
+            }
+        }
+    }
+}
+
+
+// 商品區域
+.product-container {
+    width: 85%;
+    margin-left: 15%;
+}
+
+// 模式盒子
+.display-mode-box {
+    display: flex;
+    justify-content: flex-start;
+    margin: 15px;
+    color: #ff6000;
+    font-size: 24px;
+
+    i {
+        margin: 0 5px;
+    }
+
+    .detailed,
+    .simple {
+        &:hover {
+            background-color: rgb(169, 205, 236);
+            border-radius: 10px;
+        }
+    }
+}
+
+//卡片
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card-detailed,
+.card-simple {
+    display: flex;
+    flex-direction: row;
+    margin: 20px;
+    box-shadow: 5px 5px 5px 5px rgb(222 168 218 / 22%);
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+
+    .img-box {
+        width: 40%;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border: 5px solid rgb(173, 189, 230);
+        }
+    }
+
+    .illustrate-box {
+        width: 60%;
+        display: flex;
+
+        .txt-box {
+            display: flex;
+            flex-direction: column;
+            // justify-content: space-between;
+
+            h3 {
+                color: #fd8585;
+            }
+
+            p {
+                flex-grow: 1;
+            }
+
+            .data-box {
+                background: linear-gradient(0deg,
+                        #ff0000,
+                        #ff4500,
+                        #ff7f00,
+                        #ffbf00,
+                        #ffff00);
+                -webkit-background-clip: text;
+                /* 適用於 Chrome 和 Safari */
+                -webkit-text-fill-color: transparent;
+
+                /* 使字體透明，僅顯示背景漸層 */
+            }
+        }
+
+        .price-box {
+            display: flex;
+            flex-wrap: wrap;
+
+            .price {
+                color: #fd8585;
+                line-height: 45px;
+            }
+        }
+    }
+}
+
+
+
+/* 詳細模式 */
+.card-detailed {
+    width: 80%;
+    max-height: 300px;
+
+    .img-box {
+        height: 250px;
+    }
+
+    .txt-box {
+        padding: 15px;
+
+        h3 {
+            font-size: 40px;
+        }
+
+        p {
+            padding: 15px 0;
+            width: 90%;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            -webkit-line-clamp: 3;
+            /* 限制顯示的最大行數 */
+            line-height: 1.5;
+            /* 調整行高以確保顯示行數 */
+            max-height: calc(1.5em * 3);
+            /* 確保最大高度為 3 行的高度 */
+        }
+
+        .data-box {
+            font-size: 24px;
+        }
+
+        .price-box {
+            padding-top: 15px;
+
+            .price {
+                font-size: 30px;
+            }
+        }
+    }
+}
+
+@include rwd_1200_below {
+
+    .card-detailed {
+        width: 100%;
+    }
+}
+
+@include rwd_768_below {
+    .product-container {
+        width: 100%;
+        margin-left: 0%;
+    }
+
+    .product-sidebar {
+        display: none;
+    }
+}
+
+@include rwd_576_below {
+    .card-detailed {
+        max-height: 300px;
+
+        .txt-box {
+
+            h3 {
+                font-size: 32px;
+            }
+
+            .data-box {
+                font-size: 16px;
+            }
+
+            .price-box {
+                padding-top: 15px;
+
+                .price {
+                    font-size: 24px;
+                }
+            }
+
+            .m-quantity-selector-box {
+
+                .reduce-btn,
+                .plus-btn {
+                    margin: 0;
+                }
+            }
+        }
+    }
+}
+
+/* 簡略模式 */
+.card-simple {
+    width: 45%;
+    // height: 220px;
+
+    .txt-box {
+        padding: 15px;
+        width: 90%;
+        height: 60%;
+
+        h3 {
+            font-size: 40px;
+            white-space: nowrap;
+            /* 防止文本換行 */
+            overflow: hidden;
+            /* 隱藏超出容器的內容 */
+            text-overflow: ellipsis;
+
+            /* 超出容器時顯示省略號 */
+        }
+
+        p {
+            margin-top: 25px;
+            height: 50%;
+            width: 100%;
+        }
+
+        .data-box {
+            font-size: 24px;
+        }
+    }
+
+    .price-box {
+        padding-left: 15px;
+        flex-wrap: wrap;
+
+        .price {
+            width: 100%;
+            font-size: 24px;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ***********狀態提示框****************** */
+
+.status-box {
+    position: fixed;
+    display: flex;
+    justify-content: flex-start;
+    right: 10px;
+    bottom: 0;
+    width: 20%;
+    height: 80vh;
+    overflow: hidden;
+    flex-wrap: nowrap;
+    flex-direction: column-reverse;
+}
+
+.status {
+    display: flex;
+    flex-wrap: wrap;
+    width: 95%;
+    height: 80px;
+    background: #fff;
+    font-weight: 500;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 00 0 5px rgb(0, 43, 255, 30%);
+    display: flex;
+    align-items: center;
+    position: relative;
+    flex-shrink: 0;
+
+    p {
+        font-size: 18px;
+        margin-left: 20px;
+    }
+}
+
+.status::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 5px;
+    background: green;
+    animation: anim 3s linear forwards;
+}
+
+@keyframes anim {
+    100% {
+        width: 0;
+    }
+}
+
+.status div {
+    width: 100%;
+    font-size: 24px;
+    margin-left: 10px;
+
+    .fa-circle-check {
+        color: #49bc6c;
+        margin-right: 10px;
+    }
+
+    .fa-circle-xmark {
+        color: #f25959;
+        margin-right: 10px;
+    }
+}

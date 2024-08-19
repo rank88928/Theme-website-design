@@ -1,0 +1,111 @@
+// 按鈕 圖標 
+
+
+//首頁 指向後有黑底動畫
+.but-link-1 {
+    display: block;
+    width: 100%;
+    height: 70px;
+    border: 1px solid #000;
+    text-align: center;
+    line-height: 70px;
+    color: #000;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    margin: 100px 0;
+
+    &::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0px;
+        transition: transform ease .3s;
+        transform: translateX(-100%);
+        z-index: -1;
+        border-right: 60px solid transparent;
+        border-bottom: 70px solid #000;
+    }
+
+    &:hover {
+        color: #fff;
+
+        &::before {
+            background-color: #000;
+            transform: translateX(0%);
+        }
+    }
+}
+
+//首頁 導航定位
+.yellow-button {
+    background-color: rgb(247, 199, 77);
+    border-radius: 30px;
+    padding: 10px 30px;
+
+    &:hover {
+        color: rgb(13, 0, 255);
+    }
+}
+
+
+// 首頁 商品列購物車
+.shopping-i-btn-1 {
+    background-color: #fcde1d;
+    border-radius: 30px;
+    padding: 10px 30px;
+    color: #ffffff;
+    text-align: center;
+
+    &:hover {
+        color: #5f95ff;
+        background-color: #ffed79;
+    }
+}
+
+
+
+//圖標
+.icon-right {
+    padding-left: 10%;
+}
+
+
+// 棄用
+// .product-card:nth-child(1) .product-img::before,
+// .product-card:nth-child(3) .product-img::before,
+// .product-card:nth-child(5) .product-img::before,
+// .product-card:nth-child(6) .product-img::before {
+//     content: "";
+//     position: absolute;
+//     background-image: url("/img/icon-2.png");
+//     background-size: contain;
+//     background-repeat: no-repeat;
+//     width: 100px;
+//     height: 80px;
+//     top: 0px;
+//     left: -20px;
+//     transform: rotate(-23deg);
+//     z-index: 10;
+// }
+
+// .product-card:nth-child(3) .product-img::after,
+// .product-card:nth-child(4) .product-img::after,
+// .product-card:nth-child(6) .product-img::after,
+// .product-card:nth-child(7) .product-img::after {
+//     content: "午晚提供";
+//     position: absolute;
+//     writing-mode: vertical-lr;
+//     width: 40px;
+//     height: 100px;
+//     color: #ff000075;
+//     background-color: #f9d5a659;
+//     top: 110px;
+//     right: 25px;
+//     border-radius: 10px;
+//     text-align: center;
+//     font-weight: 800;
+//     z-index: 10;
+//     line-height: 36px;
+// }
