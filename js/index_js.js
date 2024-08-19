@@ -1,5 +1,5 @@
 import * as get_data from './get_data.js';
-
+import * as feedback from './feedback.js';
 
 // 首頁背景輪播
 $(document).ready(function () {
@@ -78,23 +78,21 @@ function slick_viewport_response() {
 // 懸停卡片 放大產品圖片成為容器背景圖
 let product_content = document.querySelector(".product-content");
 
-product_content.addEventListener("mouseover", function (event) {
+product_content.addEventListener("mouseover", function (e) {
     let img;
-    let target = event.target;
+    let target = e.target;
     let element = target.closest('li');// 找到指向目的最近的li
 
     if (element) {
         img = element.querySelector('img');
-        specify_background_image(img)
+        let url = new URL(img.src);
+        product_content.style.backgroundImage = `url(${url.pathname})`;
+
     } else {
         product_content.style.backgroundImage = `url(/img/bk2.JPG)`
     }
 });
 
-function specify_background_image(img) {
-    let url = new URL(img.src);
-    product_content.style.backgroundImage = `url(${url.pathname})`;
-}
 
 
 
@@ -109,20 +107,14 @@ async function render_html_index_card() {
         buffer_html += index_card_html(data);
     });
     card_content.innerHTML = buffer_html;
-    console.log(card_content)
 }
 render_html_index_card();
-
-
-
-
-
 
 //推薦商品-篩選排序
 async function select_recommendations_id() {
 
-    let recommend_id = [9, 10, 12, 6, 5, 7, 8, 4];//推薦順序
-    let data = await get_data.get_product_information();//取得全部商品資料
+    let recommend_id = [9, 10, 12, 6, 5, 7, 8, 4];//推薦展示順序
+    let data = await get_data.get_product_data();//取得全部商品資料
 
     let recommend_list = data.filter(itme => recommend_id.includes(itme.id))//篩選
     let sorted_data_id = recommend_list.sort((a, b) => recommend_id.indexOf(a.id) - recommend_id.indexOf(b.id)); // 重新排序
@@ -151,32 +143,46 @@ function index_card_html(data) {
 }
 
 
+// 回饋卡片
+let feedback_list = document.querySelector(".feedback-list");
 
-// 問答手風琴
-let accordion_item = document.querySelectorAll(".accordion-item");
-let question = document.querySelectorAll(".question");
-let question_i = document.querySelectorAll(".question i");
-let answer = document.querySelectorAll(".answer");
+// 輪播
+(async function () {
+    let feedback_list_buffer_html = await feedback.feedback_produce();
 
-if (accordion_item) {
-    accordion_item.forEach(function (question, i) {
-        question.addEventListener("click", function () {
+    feedback_list.insertAdjacentHTML('beforeend', feedback_list_buffer_html);
 
-            let state = answer[i].classList.contains("an-auto");
-
-            for (let i = 0; i < answer.length; i++) {
-                answer[i].classList.remove("an-auto");
-                question_i[i].classList.remove("down-rotate");
-            };
-            // 每次只顯示一個 如果要個別打開收合 只需留下面toggle判斷狀態 不需要if
-
-            if (!state) {
-                answer[i].classList.toggle("an-auto");
-                question_i[i].classList.toggle("down-rotate");
-            }
-            // 一開始沒有顯示才新增標籤
+    $(document).ready(function () {
+        $('.feedback-list').slick({
+            centerMode: true,
+            centerPadding: '60px',
+            slidesToShow: 3,
+            arrows: false,
+            autoplay: true
         });
     });
-};
+})();
+
+
+
+// 問答手風琴
+let l_accordion = document.querySelector(".l-accordion")
+
+if (l_accordion) {
+    l_accordion.addEventListener('click', function (e) {
+        let target = e.target;
+
+        if (target.closest('li')) {
+            let li = target.closest('li');
+            let answer = li.querySelector('.answer');
+
+            answer.classList.toggle('h-auto-3');
+        }
+    })
+}
+
+
+
+
 
 

@@ -1,8 +1,8 @@
-// 回饋卡片生成
+// 回饋卡片
+export { feedback_produce }
 
 let data_url = "./data/feedback.json";
 let data_feedback = [];
-let feedback_list = document.querySelector(".feedback-list");// 放置位子
 
 async function feedback_produce() {
     try {
@@ -13,17 +13,15 @@ async function feedback_produce() {
         console.error('Error:', error);
     }
 
-
-    let temp_html = "";
+    let html = "";
 
     data_feedback.forEach(function (data) {
-        temp_html += feedback_html(data);
+        html += feedback_html(data);
     });
 
-    feedback_list.insertAdjacentHTML('beforeend', temp_html);
+    return html
 }
-feedback_produce();
-
+//人物照片是外部傳來的
 function feedback_html(data) {
     let item =
         ` <div class="m_feedback_card">
@@ -45,25 +43,13 @@ function feedback_html(data) {
 
 // 星星數量
 function stars_number(star) {
-    temp_html = "";
+    let html = "";
     for (let i = 0; star > i; i++) {
-        temp_html += '<i class="fa-solid fa-star"></i>';
+        html += '<i class="fa-solid fa-star"></i>';
     }
-    return temp_html;
+    return html;
 }
 
-// 輪播
-(async function () {
-    await feedback_produce();
-    $(document).ready(function () {
-        $('.feedback-list').slick({
-            centerMode: true,
-            centerPadding: '60px',
-            slidesToShow: 3,
-            arrows: false,
-            autoplay: true
-        });
-    });
-})();
+
 
 

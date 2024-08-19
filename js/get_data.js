@@ -1,7 +1,7 @@
+export { get_product_data };
 
-export { get_product_information };
-
-async function get_product_information() {
+//商品資料
+async function get_product_data() {
     const data_url = './data/product_data.json';
 
     try {
@@ -12,7 +12,7 @@ async function get_product_information() {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
 
-        const data = await response.json();  //解析JSON 
+        let data = await response.json();
         return data
 
     } catch (error) {
