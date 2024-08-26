@@ -1,21 +1,22 @@
-export { get_product_data };
+export { fetch_data };
 
-//商品資料
-async function get_product_data() {
-    const data_url = './data/product_data.json';
+//解析
+function parse_data_array(data) {
+    return data.json()
+}
 
+//拿取資料
+async function fetch_data(url) {
     try {
-        const response = await fetch(data_url);
+        const response = await fetch(url);
 
         // 檢查響應狀態是否為 200（成功）
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
-
-        let data = await response.json();
-        return data
+        return await parse_data_array(response);//返回解析後數組
 
     } catch (error) {
-        console.error('Error fetching product information:', error);
+        console.error('Error fetching  information:', error);
     }
 }

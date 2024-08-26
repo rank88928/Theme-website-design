@@ -107,15 +107,17 @@ async function render_html_index_card() {
         buffer_html += index_card_html(data);
     });
     card_content.innerHTML = buffer_html;
+
+
 }
 render_html_index_card();
 
-//推薦商品-篩選排序
+//商品-篩選排序
 async function select_recommendations_id() {
 
     let recommend_id = [9, 10, 12, 6, 5, 7, 8, 4];//推薦展示順序
-    let data = await get_data.get_product_data();//取得全部商品資料
-
+    let data_url = './data/product_data.json';
+    let data = await get_data.fetch_data(data_url);//取得全部商品資料
     let recommend_list = data.filter(itme => recommend_id.includes(itme.id))//篩選
     let sorted_data_id = recommend_list.sort((a, b) => recommend_id.indexOf(a.id) - recommend_id.indexOf(b.id)); // 重新排序
     return sorted_data_id;

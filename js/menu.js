@@ -8,7 +8,8 @@ import * as ui_shopping from '../UI_shopping.js'
 
 //渲染產品項目
 async function render_html_menu_card() {
-    let data = await get_data.get_product_data();
+    let data_url = './data/product_data-11.json';
+    let data = await get_data.fetch_data(data_url);
 
     data.forEach(function (item, i) {
         ui_shopping.card_generate(item);
@@ -45,9 +46,6 @@ function btn_click() {
     })
 }
 
-// export {
-//     data_product
-// }
 
 
 // 商品顯示方式切換
@@ -65,20 +63,20 @@ function display_mode_btn() {
 
         if (class_name === 'detailed') {
             card.forEach(function (item) {
-                item.classList.replace('simple', 'detailed')
+                item.classList.replace('card-simple', 'card-detailed')
                 item.querySelector('p').style.display = '-webkit-box';
             })
 
         } else if (class_name === 'simple') {
             card.forEach(function (item) {
-                item.classList.replace('detailed', 'simple')
+                item.classList.replace('card-detailed', 'card-simple')
                 item.querySelector('p').style.display = 'none';
             })
         }
     })
 }
 
-// 側邊欄縮放
+// 側邊欄上下縮放
 let cat_dropmenu = document.querySelector('.cat-dropmenu');
 
 function expand_effect(parent_e, triggering_e, dropmenu_e) {

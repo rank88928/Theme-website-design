@@ -1,21 +1,13 @@
 // 回饋卡片
+import * as get_data from './get_data.js';
 export { feedback_produce }
 
-let data_url = "./data/feedback.json";
-let data_feedback = [];
-
 async function feedback_produce() {
-    try {
-        const response = await fetch(data_url);
-        data_feedback = await response.json();
-
-    } catch (error) {
-        console.error('Error:', error);
-    }
-
+    let feedback_url = "./data/feedback.json";
+    let data = await get_data.fetch_data(feedback_url);
     let html = "";
 
-    data_feedback.forEach(function (data) {
+    data.forEach(function (data) {
         html += feedback_html(data);
     });
 
@@ -35,9 +27,10 @@ function feedback_html(data) {
                 </div>
             </div>
             <div class="star">
-            ${stars_number(data.star)}
+                ${stars_number(data.star)}
             </div>
         </div>`;
+
     return item;
 };
 
