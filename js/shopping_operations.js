@@ -1,5 +1,6 @@
 // // 購物車操作
-import * as shopping from "./shopping.js";
+import * as main from "./menu.js";
+import * as m_prompt_message from "./m_prompt_message.js"
 export {
     get_shopping_storage,
     shopping_update_order_quantity,
@@ -8,7 +9,10 @@ export {
     increase_quantity,
     revise_order_quantity,
     clear_order_quantity,
-    check_index
+    check_index,
+    Product_object,
+    execute_add_to_cart,
+    execute_remove_to_cart
 };
 
 
@@ -27,11 +31,11 @@ function get_shopping_storage() {
 }
 
 // 商品是否存在於資料表
-function database_check_product_id(id) {
-    return shopping.data_product.find(function (data) {
-        return id === data.id;
-    });
-}
+// function database_check_product_id(id) {
+//     return shopping.data_product.find(function (data) {
+//         return id === data.id;
+//     });
+// }
 
 // 商品是否存在選購紀錄
 function shopping_record_check(data, id) {
@@ -170,3 +174,75 @@ function prompt_message(state, txt = "") {
     }, 3000);
 }
 
+
+function execute_add_to_cart(i, num) {
+    let state = main.data_1[i].add_to_cart(num);
+    m_prompt_message.prompt_message1(state);
+}
+
+function execute_remove_to_cart(i) {
+
+    let state = main.data_1[i].remove_to_cart();
+    m_prompt_message.prompt_message1(state);
+}
+
+
+
+// "id": 1,
+// "name": "草莓奶油鬆餅",
+// "quantity": 10,
+// "order": 0,
+// "description": "口感鬆軟，口味甜美，撒上新鮮的草莓，再淋上香濃的奶油 每一口都是甜蜜的享受",
+// "type": "甜點",
+// "url": "0001",
+// "price": "200",
+// "sales_volume": "168"
+
+function Product_object(item) {
+
+    //新增訂購
+    item.add_to_cart = function (num) {
+        let state = {
+            respond: 0,
+            txt: ""
+        }
+
+        if (num <= 0) {
+            state.respond = 201;
+            return state
+        }
+        if (this.stock < num) {
+            state.respond = 202;
+            return state
+        }
+
+        this.stock -= num;
+        this.order += num;
+        state.txt = this.name + num + "份已加入購物車~";
+        state.respond = 301;
+        return state
+    };
+
+    //全部清除
+    item.remove_to_cart = function () {
+        let state = {
+            respond: 0,
+            txt: ""
+        }
+
+        this.stock += this.order;
+        this.order = 0;
+        state.respond = 302;
+        state.txt = "清除成功" + "該商品" + this.name + "已移除";
+        return state
+    }
+
+    //訂單總價格
+    item.price_calculation = function () {
+        let total = this.order * this.price;
+        console.log("當前訂單總價" + total);
+        return total
+    }
+
+    return item;
+}
