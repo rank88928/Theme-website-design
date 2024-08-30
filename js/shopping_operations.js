@@ -1,18 +1,13 @@
 // // 購物車操作
-import * as main from "./menu.js";
+import * as utils from "./utils.js"
+import * as get_data from "./get_data.js";
 import * as m_prompt_message from "./m_prompt_message.js"
 export {
-    get_shopping_storage,
-    shopping_update_order_quantity,
-    shopping_clear_specific_order,
-    reduce_quantity,
-    increase_quantity,
-    revise_order_quantity,
-    clear_order_quantity,
     check_index,
-    Product_object,
+    Product_object_fun,
     execute_add_to_cart,
-    execute_remove_to_cart
+    execute_remove_to_cart,
+    execute_modify_to_cart
 };
 
 
@@ -23,219 +18,148 @@ function check_index(Class_name, click) {
     return Array.from(elements).indexOf(click);
 }
 
+let shopping_records = utils.get_local_records('shopping_records');
+// btn功能
+//商品添加
+function execute_add_to_cart(id, num) {
 
-// 取得最新本地選購紀錄
-function get_shopping_storage() {
-    return JSON.parse(localStorage.getItem('shopping_storage')) || [];
-
-}
-
-// 商品是否存在於資料表
-// function database_check_product_id(id) {
-//     return shopping.data_product.find(function (data) {
-//         return id === data.id;
-//     });
-// }
-
-// 商品是否存在選購紀錄
-function shopping_record_check(data, id) {
-    return data.find(function (data) {
-        return id === data.id;
-    });
-}
-
-// 檢查購物列表是否已有商品
-function shopping_list_check(data_local, id) {
-    let item = data_local.find(function (data) {
-        return id === data.id;
-    });
-
-    if (!item) {
-        item = database_check_product_id(id);
-        if (item) {
-            data_local.push(item);
-        } else {
-            console.log("商品id不存在");
-        }
-    }
-    return item;
-}
-
-// 修改訂購數
-function shopping_update_order_quantity(id, num) {
-    let state = "未找到id";
-    let data_local = get_shopping_storage();
-
-    let item = shopping_list_check(data_local, id);
-
-    if (item) {
-        if (0 < num && num <= item.quantity) {
-            item.order += num;
-            item.quantity -= num;
-            localStorage.setItem('shopping_storage', JSON.stringify(data_local));
-            state = "修改成功";
-        } else {
-            state = "修改失敗";
-        }
-    }
-    return state;
-}
-
-// 清空訂購數
-function shopping_clear_specific_order(id) {
-    let state = "未找到id";
-    let data_local = get_shopping_storage();
-
-    let itemIndex = data_local.findIndex(function (data) {
-        return data.id === id;
-    });
-
-    if (itemIndex !== -1) {
-        data_local.splice(itemIndex, 1);
-        localStorage.setItem('shopping_storage', JSON.stringify(data_local));
-        state = "移除成功";
-    } else {
-        state = "未找到id";
-    }
-    return state;
-}
-
-// 減少選擇數量
-function reduce_quantity(quantity) {
-    let number = parseInt(quantity.value);
-    if (number > 0) {
-        quantity.value = number - 1;
-    }
-}
-
-// 增加選擇數量
-function increase_quantity(quantity) {
-    let number = parseInt(quantity.value);
-    quantity.value = number + 1;
-}
-
-// 修改訂購數量按鈕功能
-function revise_order_quantity(id, quantity, name) {
-    let num = parseInt(quantity.value);
-    let state;
-    let txt;
-
-    if (0 < num) {
-        state = shopping_update_order_quantity(id, num);
-    }
-    if (state === "修改成功") {
-        txt = name + num + '份';
-    } else if (state === "修改失敗") {
-        txt = "剩餘不足或選擇數量異常";
-    }
-    prompt_message(state, txt);
-}
-
-// 清除單筆訂購資料按鈕功能
-function clear_order_quantity(i) {
-    let state;
-    let data_local = get_shopping_storage();
-    let id = data_local[i].id;
-
-    if (id) {
-        state = shopping_clear_specific_order(id);
-    }
-
-    prompt_message(state);
-}
-
-// 提示訊息
-function prompt_message(state, txt = "") {
-    let box = document.querySelector('.status-box');
-    let point;
-
-    if (state === "修改成功") {
-        point = '<i class="fa-solid fa-circle-check"></i>新增成功';
-    } else if (state === "修改失敗") {
-        point = '<i class="fa-solid fa-circle-xmark"></i>新增失敗';
-    } else if (state === "移除成功") {
-        point = '<i class="fa-solid fa-circle-check"></i>移除成功';
-    } else {
-        point = '<i class="fa-solid fa-circle-xmark"></i>異常錯誤';
-    }
-
-    let item =
-        `<div class="status">
-            <div>${point}</div>
-            <p>${txt}</p>
-        </div>`;
-    box.insertAdjacentHTML('beforeend', item);
-
-    setTimeout(() => {
-        let item = document.querySelector('.status');
-        if (item) {
-            item.remove();
-        }
-    }, 3000);
-}
-
-
-function execute_add_to_cart(i, num) {
-    let state = main.data_1[i].add_to_cart(num);
+    let product = id_find_product_object(id)//取得指定商品指向
+    let state = product.add_to_cart(num);
+    utils.store_local_records('shopping_records', shopping_records)
     m_prompt_message.prompt_message1(state);
 }
+//商品清除
+function execute_remove_to_cart(id) {
 
-function execute_remove_to_cart(i) {
+    let product = id_find_product_object(id)
+    let state = product.remove_to_cart();
+    m_prompt_message.prompt_message1(state);
 
-    let state = main.data_1[i].remove_to_cart();
+    let remove = remove_specified_products(id)
+    // console.log(remove)
+
+    utils.store_local_records('shopping_records', shopping_records)
+}
+
+//修改數量
+function execute_modify_to_cart(id, num) {
+
+    let product = id_find_product_object(id)//取得指定商品指向
+    let state = product.modify_quantity(num);
+    utils.store_local_records('shopping_records', shopping_records)
     m_prompt_message.prompt_message1(state);
 }
 
 
 
-// "id": 1,
-// "name": "草莓奶油鬆餅",
-// "quantity": 10,
-// "order": 0,
-// "description": "口感鬆軟，口味甜美，撒上新鮮的草莓，再淋上香濃的奶油 每一口都是甜蜜的享受",
-// "type": "甜點",
-// "url": "0001",
-// "price": "200",
-// "sales_volume": "168"
 
-function Product_object(item) {
+let data_url = './data/product_data-11.json';
+let data = await get_data.fetch_data(data_url);
+//用id在購物紀錄尋找商品對象
+function id_find_product_object(id) {
+
+    shopping_records = utils.get_local_records('shopping_records')
+    //先在購物紀錄找
+    let obj = shopping_records.find(function (item) {
+        return item.id === id;
+    });
+
+    if (obj) {
+        Product_object_fun(obj)//重新掛載方法
+        return obj
+
+    } else {
+
+        //購物紀錄不存在 在找全商品內找並新增
+        obj = data.find(function (item) {
+            return item.id === id;
+        });
+        if (obj) {
+
+            let copy = structuredClone(obj);
+            shopping_records.push(copy);//新增至購物紀錄
+            Product_object_fun(copy)
+            return copy
+        } else {
+            console.log('沒有該項商品編號')
+        }
+    }
+}
+
+//移除指定商品
+function remove_specified_products(id) {
+    shopping_records = utils.get_local_records('shopping_records')
+
+    let index = shopping_records.findIndex(function (item) {
+        return item.id === id;
+    });
+    return shopping_records.splice(index, 1)
+}
+
+
+function Product_object_fun(item) {
+
+    item.state = {
+        respond: 0,
+        txt: ""
+    }
+
+    //輸入數量檢查
+    item.examine_quantity = function (num) {
+        // 數量為0或小於零為異常
+        if (num <= 0) {
+            this.state.respond = 201;
+            this.state.txt = "數量不合法!";
+            return false
+        }
+        return true
+    }
+    //庫存檢查
+    item.examine_stock = function (num) {
+        // 不能大於庫存+已確認數量  
+        if (num > this.stock + this.order) {
+            this.state.respond = 202;
+            this.state.txt = "庫存不足";
+            return false
+        }
+        return true
+    }
 
     //新增訂購
     item.add_to_cart = function (num) {
-        let state = {
-            respond: 0,
-            txt: ""
-        }
 
-        if (num <= 0) {
-            state.respond = 201;
-            return state
-        }
-        if (this.stock < num) {
-            state.respond = 202;
-            return state
-        }
+        if (this.examine_quantity(num) && this.examine_stock(num)) {
 
-        this.stock -= num;
-        this.order += num;
-        state.txt = this.name + num + "份已加入購物車~";
-        state.respond = 301;
-        return state
+            this.stock -= num;
+            this.order += num;
+            this.state.txt = this.name + num + "份已加入購物車~";
+            this.state.respond = 301;
+        }
+        return this.state
     };
 
     //全部清除
     item.remove_to_cart = function () {
-        let state = {
-            respond: 0,
-            txt: ""
-        }
-
         this.stock += this.order;
         this.order = 0;
-        state.respond = 302;
-        state.txt = "清除成功" + "該商品" + this.name + "已移除";
-        return state
+        this.state.respond = 302;
+        this.state.txt = "清除成功" + "該商品" + this.name + "已移除";
+        return this.state
     }
+
+    // 修改數量
+    item.modify_quantity = function (num) {
+
+        if (this.examine_quantity(num) && this.examine_stock(num)) {
+
+            this.stock += this.order - num;
+            this.order = num;
+            this.state.txt = this.name + "已成功修改~";
+            this.state.respond = 301;
+        }
+        return this.state
+    }
+
 
     //訂單總價格
     item.price_calculation = function () {
@@ -246,3 +170,5 @@ function Product_object(item) {
 
     return item;
 }
+
+
