@@ -1,0 +1,19 @@
+// 文本處理
+
+// 文本超出隱藏 省略號替代
+@mixin txt_multi_line_ellipsis($lines: 3, $line-height: 1.5) {
+    display: -webkit-box; // 修改盒子特性
+    -webkit-box-orient: vertical; // 垂直排列元素
+    overflow: hidden; // 超出隱藏 內容可以顯示在padding上 要使用margin才能罩住
+    text-overflow: ellipsis; // 文字溢位用省略號替代
+    -webkit-line-clamp: $lines; // 最大顯示行數
+    line-height: $line-height;
+    max-height: calc(#{$lines} * #{$line-height}em); // 盒子最大高度
+}
+
+// 單行超出隱藏 省略號替代
+@mixin txt_line_ellipsis {
+    white-space: nowrap; //文本不換行  
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

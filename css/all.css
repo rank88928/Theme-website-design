@@ -139,6 +139,52 @@ a {
   color: #000;
 }
 
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-size: 1rem;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+button,
+a {
+  cursor: pointer;
+}
+
+button {
+  border: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  background-color: rgb(255, 255, 255);
+  color: #ffffff;
+}
+
+a {
+  color: #ffffff;
+}
+
+body {
+  background-image: url("/img/background-wall-1.gif");
+  background-repeat: repeat;
+}
+
 .h-auto-3 {
   max-height: 300px !important;
 }
@@ -691,12 +737,12 @@ a {
 .shopping-box {
   display: none;
   position: absolute;
-  top: 100px;
+  top: 80px;
   right: 120px;
   width: auto;
   height: auto;
   background-color: #dce6f5;
-  padding: 20px 2px 2px 2px;
+  padding: 15px 2px 2px 2px;
 }
 .shopping-box p {
   display: block;
@@ -969,7 +1015,7 @@ a {
   border: 1px solid #ff6000;
   border-radius: 10px;
   color: #ffffff;
-  padding: 12px 14px;
+  padding: 10px;
 }
 .m-quantity-selector-box .shopping-btn:hover {
   color: #2600ff;
@@ -1605,6 +1651,11 @@ a {
   border-radius: 10px;
 }
 
+@media screen and (max-width: 768px) {
+  .product-sidebar {
+    display: none;
+  }
+}
 .card-container {
   display: flex;
   flex-wrap: wrap;
@@ -1614,10 +1665,8 @@ a {
 .card-simple {
   display: flex;
   flex-direction: row;
-  margin: 20px;
   box-shadow: 5px 5px 5px 5px rgba(222, 168, 218, 0.22);
   background-color: rgb(255, 255, 255);
-  padding: 20px;
 }
 .card-detailed .img-box,
 .card-simple .img-box {
@@ -1630,79 +1679,73 @@ a {
   object-fit: cover;
   border: 5px solid rgb(173, 189, 230);
 }
-.card-detailed .illustrate-box,
-.card-simple .illustrate-box {
+.card-detailed .txt-box,
+.card-simple .txt-box {
   width: 60%;
   display: flex;
-}
-.card-detailed .illustrate-box .txt-box,
-.card-simple .illustrate-box .txt-box {
-  display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
-.card-detailed .illustrate-box .txt-box h3,
-.card-simple .illustrate-box .txt-box h3 {
-  color: #fd8585;
-}
-.card-detailed .illustrate-box .txt-box p,
-.card-simple .illustrate-box .txt-box p {
-  flex-grow: 1;
-}
-.card-detailed .illustrate-box .txt-box .data-box,
-.card-simple .illustrate-box .txt-box .data-box {
-  background: linear-gradient(0deg, #ff0000, #ff4500, #ff7f00, #ffbf00, #ffff00);
-  -webkit-background-clip: text;
-  /* 適用於 Chrome 和 Safari */
-  -webkit-text-fill-color: transparent;
-  /* 使字體透明，僅顯示背景漸層 */
-}
-.card-detailed .illustrate-box .price-box,
-.card-simple .illustrate-box .price-box {
-  display: flex;
-  flex-wrap: wrap;
-}
-.card-detailed .illustrate-box .price-box .price,
-.card-simple .illustrate-box .price-box .price {
-  color: #fd8585;
-  line-height: 45px;
-}
-
-/* 詳細模式 */
-.card-detailed {
-  width: 80%;
-  max-height: 300px;
-}
-.card-detailed .img-box {
-  height: 250px;
-}
-.card-detailed .txt-box {
-  padding: 15px;
-}
-.card-detailed .txt-box h3 {
+.card-detailed .txt-box h3,
+.card-simple .txt-box h3 {
   font-size: 40px;
+  color: #fd8585;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 1;
+  line-height: 1;
+  max-height: calc(1 * 1em);
 }
-.card-detailed .txt-box p {
-  padding: 15px 0;
-  width: 90%;
+.card-detailed .txt-box p,
+.card-simple .txt-box p {
+  flex-grow: 1;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
   -webkit-line-clamp: 3;
-  /* 限制顯示的最大行數 */
   line-height: 1.5;
-  /* 調整行高以確保顯示行數 */
-  max-height: 4.5em;
-  /* 確保最大高度為 3 行的高度 */
+  max-height: calc(3 * 1.5em);
 }
-.card-detailed .txt-box .data-box {
+.card-detailed .txt-box .data-box,
+.card-simple .txt-box .data-box {
   font-size: 24px;
+  background: linear-gradient(0deg, #ff0000, #ff4500, #ff7f00, #ffbf00, #ffff00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.card-detailed .txt-box .price-box,
+.card-simple .txt-box .price-box {
+  display: flex;
+  flex-wrap: wrap;
+}
+.card-detailed .txt-box .price-box .price,
+.card-simple .txt-box .price-box .price {
+  font-size: 30px;
+  color: #fd8585;
+  line-height: 45px;
+}
+
+.card-detailed {
+  width: 80%;
+  max-height: 300px;
+  margin: 20px;
+  padding: 20px;
+}
+.card-detailed .img-box {
+  height: 250px;
+}
+.card-detailed .txt-box {
+  padding: 0 15px;
+}
+.card-detailed .txt-box p {
+  margin: 10px 0;
+  width: 90%;
 }
 .card-detailed .txt-box .price-box {
-  padding-top: 15px;
-}
-.card-detailed .txt-box .price-box .price {
-  font-size: 30px;
+  padding-top: 5px;
 }
 
 @media screen and (max-width: 1200px) {
@@ -1715,13 +1758,27 @@ a {
     width: 100%;
     margin-left: 0%;
   }
-  .product-sidebar {
-    display: none;
+  .card-detailed .price-box {
+    padding-top: 0;
+  }
+  .card-detailed .m-quantity-selector-box .reduce-btn,
+  .card-detailed .m-quantity-selector-box .plus-btn {
+    margin: 0;
   }
 }
 @media screen and (max-width: 576px) {
   .card-detailed {
-    max-height: 300px;
+    max-height: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px 0 0 0;
+  }
+  .card-detailed .img-box,
+  .card-detailed .txt-box {
+    width: 90%;
+  }
+  .card-detailed .txt-box {
+    padding: 10px 0;
   }
   .card-detailed .txt-box h3 {
     font-size: 32px;
@@ -1730,51 +1787,64 @@ a {
     font-size: 16px;
   }
   .card-detailed .txt-box .price-box {
-    padding-top: 15px;
-  }
-  .card-detailed .txt-box .price-box .price {
-    font-size: 24px;
-  }
-  .card-detailed .txt-box .m-quantity-selector-box .reduce-btn,
-  .card-detailed .txt-box .m-quantity-selector-box .plus-btn {
-    margin: 0;
+    justify-content: space-between;
   }
 }
-/* 簡略模式 */
 .card-simple {
-  width: 45%;
+  margin: 5px;
+  padding: 5px;
+  flex: 1 1 calc(50% - 20px);
+}
+.card-simple .img-box {
+  height: 200px;
 }
 .card-simple .txt-box {
-  padding: 15px;
-  width: 90%;
-  height: 60%;
-}
-.card-simple .txt-box h3 {
-  font-size: 40px;
-  white-space: nowrap;
-  /* 防止文本換行 */
-  overflow: hidden;
-  /* 隱藏超出容器的內容 */
-  text-overflow: ellipsis;
-  /* 超出容器時顯示省略號 */
-}
-.card-simple .txt-box p {
-  margin-top: 25px;
-  height: 50%;
-  width: 100%;
-}
-.card-simple .txt-box .data-box {
-  font-size: 24px;
+  padding: 15px 0 15px 5px;
 }
 .card-simple .price-box {
-  padding-left: 15px;
   flex-wrap: wrap;
 }
-.card-simple .price-box .price {
+.card-simple .price-box .m-quantity-selector-box {
   width: 100%;
-  font-size: 24px;
+  display: flex;
+  align-items: center;
+}
+.card-simple .price-box .m-quantity-selector-box .quantity-box {
+  height: 24px;
+}
+.card-simple .price-box .m-quantity-selector-box .shopping-btn {
+  margin-right: 10px;
+  margin-left: auto;
 }
 
+@media screen and (max-width: 1200px) {
+  .card-simple .shopping-btn {
+    border-radius: 50%;
+  }
+  .card-simple .shopping-btn i {
+    font-size: 0;
+  }
+  .card-simple .shopping-btn i::before {
+    content: "\f07a";
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 992px) {
+  .card-simple {
+    flex: 1 1 100%;
+  }
+}
+@media screen and (max-width: 414px) {
+  .card-simple {
+    flex-wrap: wrap;
+    padding-top: 15px;
+  }
+  .card-simple .img-box,
+  .card-simple .txt-box {
+    width: 90%;
+    margin: auto;
+  }
+}
 /* ***********狀態提示框****************** */
 .status-box {
   position: fixed;
@@ -2264,171 +2334,122 @@ select {
 }
 
 .order-status {
+  width: 90%;
   display: flex;
   align-items: flex-start;
-  margin: 20px;
-  padding: 15px;
+  margin: 15px auto;
 }
 
-.details-container {
-  width: 80%;
-  background-color: #faf2ff;
+.order-details-container,
+.price-details-container {
+  background-color: #dbe7ff;
   margin: 10px;
-  padding: 15px;
 }
-
-.details-container h3 {
+.order-details-container .title,
+.price-details-container .title {
   font-size: 40px;
   font-style: italic;
   background-color: #efdcba;
   text-align: center;
   padding: 5px;
-  border-radius: 10px;
-  margin-bottom: 30px;
 }
-
-.list {
+.order-details-container .order-list,
+.order-details-container .price-list,
+.price-details-container .order-list,
+.price-details-container .price-list {
+  padding: 15px;
+}
+.order-details-container .item,
+.price-details-container .item {
   display: flex;
-  height: 160px;
-  margin: 10px 30px;
+  margin: 0px auto 10px;
   font-size: 24px;
   font-weight: 600;
-  justify-content: center;
 }
 
-.list .container {
-  width: 70%;
+.order-details-container {
+  width: 80%;
+}
+.order-details-container .item {
+  height: 160px;
+  flex-wrap: wrap;
+  flex-direction: column;
+  background-color: rgb(255, 255, 255);
+}
+.order-details-container .item .img-box {
+  width: 30%;
   height: 100%;
-  margin-left: 5%;
+  padding: 10px;
 }
-
-.list .container .txt {
-  display: flex;
-  width: 100%;
-  height: 40px;
-}
-
-.list .name {
-  width: 40%;
-}
-
-.list .qty {
-  width: 15%;
-}
-
-.list .price {
-  width: 15%;
-}
-
-.container .control-flex {
-  display: flex;
-  height: 90px;
-}
-
-.list .container .btn {
-  display: flex;
-  height: 130px;
-}
-
-.img-control {
-  width: 15%;
-  margin: 10px;
-}
-
-.img-control > img {
+.order-details-container .item .img-box img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   border: 1px solid rgb(173, 189, 230);
-}
-
-/* 移除按鈕 */
-.cancel {
-  width: 20%;
-  margin-right: 5%;
-}
-
-.clear-btn {
-  width: 100%;
-  padding: 0;
-  background-color: #faf2ff;
-}
-
-.fa-rectangle-xmark {
-  color: #919191;
-  font-size: 24PX;
-}
-
-.fa-rectangle-xmark:hover {
-  color: #000;
-}
-
-.btn-container {
-  margin-left: 150px;
-}
-
-/* 產品操作按鈕 */
-.reduce,
-.plus {
-  border: 5px;
-  width: 35px;
-  height: 35px;
-  border-radius: 40px;
-  margin: 0 5px;
-  background-color: rgb(231, 228, 228);
-}
-
-.quantity {
-  width: 50px;
-}
-
-.revise,
-.btn-step {
-  background-color: #ff6000;
-  border: 1px solid #ff6000;
   border-radius: 10px;
-  color: #ffffff;
-  padding: 12px 14px;
-  margin-top: 15px;
+}
+.order-details-container .item .txt-box,
+.order-details-container .item .m-quantity-selector-box {
+  width: 70%;
+  height: 50%;
+}
+.order-details-container .item .txt-box {
+  display: flex;
+  align-items: center;
+}
+.order-details-container .item .txt-box .name {
+  width: 60%;
+}
+.order-details-container .item .txt-box .qty,
+.order-details-container .item .txt-box .price {
+  width: 20%;
 }
 
-.revise:hover,
-.btn-step:hover {
-  color: #2600ff;
-}
-
-.procedures {
+.price-details-container {
   width: 30%;
 }
-
-/* 計算價格 */
-.calculate-price-container {
-  width: 100%;
-  height: auto;
-  background-color: #faf2ff;
-  margin: 10px;
-  padding: 15px;
-  font-weight: 500;
-  font-style: italic;
+.price-details-container .price-list {
+  background-color: #ffffff;
+  margin: 15px 5px;
+}
+.price-details-container .item .price-name,
+.price-details-container .item .price {
+  width: 50%;
+}
+.price-details-container .item .price-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.price-details-container .item .price {
+  text-align: end;
 }
 
-.price-container {
-  display: flex;
-  justify-content: space-between;
-  margin: 10px;
-}
-
-.calculate-price-container .sum {
+.total-price {
   color: #ff0000;
-  margin-top: 50px;
+  margin: 20px 10px;
   font-size: 30px;
   font-weight: 600;
   font-style: italic;
 }
 
-.order-status .form {
-  width: 40%;
-  margin-left: 200px;
+.clear-btn,
+.step-btn,
+.revise-btn {
+  background-color: #ff6000;
+  border: 1px solid #ff6000;
+  border-radius: 10px;
+  color: #ffffff;
+  padding: 10px;
+}
+.clear-btn:hover,
+.step-btn:hover,
+.revise-btn:hover {
+  color: #2600ff;
+}
+
+.step-btn {
   font-size: 24px;
-  line-height: 40px;
+  font-weight: 600;
+  margin: 0 10px 10px 15px;
 }/*# sourceMappingURL=all.css.map */

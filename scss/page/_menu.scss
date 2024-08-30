@@ -178,6 +178,12 @@
     }
 }
 
+@include rwd_768_below {
+    .product-sidebar {
+        display: none;
+    }
+}
+
 //卡片
 .card-container {
     display: flex;
@@ -188,10 +194,8 @@
 .card-simple {
     display: flex;
     flex-direction: row;
-    margin: 20px;
     box-shadow: 5px 5px 5px 5px rgb(222 168 218 / 22%);
     background-color: rgb(255, 255, 255);
-    padding: 20px;
 
     .img-box {
         width: 40%;
@@ -204,36 +208,33 @@
         }
     }
 
-    .illustrate-box {
+    .txt-box {
         width: 60%;
         display: flex;
+        flex-direction: column;
+        justify-content: space-between;
 
-        .txt-box {
-            display: flex;
-            flex-direction: column;
-            // justify-content: space-between;
+        h3 {
+            font-size: 40px;
+            color: #fd8585;
+            @include txt_multi_line_ellipsis(1, 1);
+        }
 
-            h3 {
-                color: #fd8585;
-            }
+        p {
+            flex-grow: 1;
+            @include txt_multi_line_ellipsis(3, 1.5);
+        }
 
-            p {
-                flex-grow: 1;
-            }
-
-            .data-box {
-                background: linear-gradient(0deg,
-                        #ff0000,
-                        #ff4500,
-                        #ff7f00,
-                        #ffbf00,
-                        #ffff00);
-                -webkit-background-clip: text;
-                /* 適用於 Chrome 和 Safari */
-                -webkit-text-fill-color: transparent;
-
-                /* 使字體透明，僅顯示背景漸層 */
-            }
+        .data-box {
+            font-size: 24px;
+            background: linear-gradient(0deg,
+                    #ff0000,
+                    #ff4500,
+                    #ff7f00,
+                    #ffbf00,
+                    #ffff00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .price-box {
@@ -241,6 +242,7 @@
             flex-wrap: wrap;
 
             .price {
+                font-size: 30px;
                 color: #fd8585;
                 line-height: 45px;
             }
@@ -249,48 +251,28 @@
 }
 
 
-
-/* 詳細模式 */
+// 詳細
 .card-detailed {
     width: 80%;
     max-height: 300px;
+    margin: 20px;
+    padding: 20px;
 
     .img-box {
         height: 250px;
     }
 
     .txt-box {
-        padding: 15px;
-
-        h3 {
-            font-size: 40px;
-        }
+        padding: 0 15px;
 
         p {
-            padding: 15px 0;
+            margin: 10px 0;
             width: 90%;
-            display: -webkit-box;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            -webkit-line-clamp: 3;
-            /* 限制顯示的最大行數 */
-            line-height: 1.5;
-            /* 調整行高以確保顯示行數 */
-            max-height: calc(1.5em * 3);
-            /* 確保最大高度為 3 行的高度 */
-        }
-
-        .data-box {
-            font-size: 24px;
         }
 
         .price-box {
-            padding-top: 15px;
+            padding-top: 5px;
 
-            .price {
-                font-size: 30px;
-            }
         }
     }
 }
@@ -308,16 +290,36 @@
         margin-left: 0%;
     }
 
-    .product-sidebar {
-        display: none;
+    .card-detailed {
+
+        .price-box {
+            padding-top: 0;
+        }
+
+        .m-quantity-selector-box {
+
+            .reduce-btn,
+            .plus-btn {
+                margin: 0;
+            }
+        }
     }
 }
 
 @include rwd_576_below {
     .card-detailed {
-        max-height: 300px;
+        max-height: none;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 10px 0 0 0;
+
+        .img-box,
+        .txt-box {
+            width: 90%;
+        }
 
         .txt-box {
+            padding: 10px 0;
 
             h3 {
                 font-size: 32px;
@@ -328,70 +330,84 @@
             }
 
             .price-box {
-                padding-top: 15px;
-
-                .price {
-                    font-size: 24px;
-                }
-            }
-
-            .m-quantity-selector-box {
-
-                .reduce-btn,
-                .plus-btn {
-                    margin: 0;
-                }
+                justify-content: space-between;
             }
         }
     }
 }
 
-/* 簡略模式 */
+
+
+// 簡略
 .card-simple {
-    width: 45%;
-    // height: 220px;
+
+    margin: 5px;
+    padding: 5px;
+    flex: 1 1 calc(50% - 20px);
+
+    .img-box {
+        height: 200px;
+    }
 
     .txt-box {
-        padding: 15px;
-        width: 90%;
-        height: 60%;
-
-        h3 {
-            font-size: 40px;
-            white-space: nowrap;
-            /* 防止文本換行 */
-            overflow: hidden;
-            /* 隱藏超出容器的內容 */
-            text-overflow: ellipsis;
-
-            /* 超出容器時顯示省略號 */
-        }
-
-        p {
-            margin-top: 25px;
-            height: 50%;
-            width: 100%;
-        }
-
-        .data-box {
-            font-size: 24px;
-        }
+        padding: 15px 0 15px 5px;
     }
 
     .price-box {
-        padding-left: 15px;
         flex-wrap: wrap;
 
-        .price {
+        .m-quantity-selector-box {
             width: 100%;
-            font-size: 24px;
+            display: flex;
+            align-items: center;
+
+            .quantity-box {
+                height: 24px;
+
+            }
+
+            .shopping-btn {
+                margin-right: 10px;
+                margin-left: auto;
+            }
+        }
+    }
+}
+
+@include rwd_1200_below {
+    .card-simple .shopping-btn {
+        border-radius: 50%;
+
+        i {
+            font-size: 0;
+
+            &::before {
+                content: "\f07a";
+                font-size: 16px;
+            }
         }
     }
 }
 
 
+@include rwd_992_below {
+    .card-simple {
+        flex: 1 1 100%;
+    }
+}
 
+@include rwd_414_below {
+    .card-simple {
+        flex-wrap: wrap;
+        padding-top: 15px;
 
+        .img-box,
+        .txt-box {
+            width: 90%;
+            margin: auto;
+        }
+    }
+}
 
 
 

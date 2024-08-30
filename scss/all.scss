@@ -2,9 +2,12 @@
 
 //Base(基礎) 
 @import "base/reset";
+@import "base/base";
 @import "base/rwd_utilities";
 @import "base/animation_utilities";
+@import "base/mixins_utilities";
 @import "base/button";
+
 //Layout(佈局) 
 @import "layout/header";
 @import "layout/footer";
