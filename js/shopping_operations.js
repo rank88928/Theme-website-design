@@ -28,9 +28,9 @@ function execute_cart_action(action, id, num = 0,) {
             state = product.add_to_cart(num);//新增
         } else if (action === 'remove_to_cart') {
             state = product.remove_to_cart();//只是要拿到狀態碼
-            remove_specified_products(id);//修改
+            remove_specified_products(id);//真實刪除
         } else if (action === 'revise_quantity') {
-            state = product.revise_quantity(num);//刪除
+            state = product.revise_quantity(num);//修改
         } else {
             console.error('unrecognized');
             return;

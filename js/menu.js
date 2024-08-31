@@ -10,7 +10,7 @@ let data;// 完整索引
 
 //渲染產品項目
 async function render_html_menu_card() {
-    let data_url = './data/product_data-11.json';
+    let data_url = './data/product_data.json';
     data = await get_data.fetch_data(data_url);
     utils.rendering_ui_template_strings(data, utils.menu_card, '.card-container')
 
