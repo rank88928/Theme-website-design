@@ -2433,7 +2433,7 @@ select {
   font-style: italic;
 }
 
-.clear-btn,
+.remove-btn,
 .step-btn,
 .revise-btn {
   background-color: #ff6000;
@@ -2442,7 +2442,7 @@ select {
   color: #ffffff;
   padding: 10px;
 }
-.clear-btn:hover,
+.remove-btn:hover,
 .step-btn:hover,
 .revise-btn:hover {
   color: #2600ff;
