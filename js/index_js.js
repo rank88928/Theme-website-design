@@ -1,6 +1,8 @@
 import * as get_data from './get_data.js';
 import * as feedback from './feedback.js';
 
+import './header.js';
+
 // 首頁背景輪播
 $(document).ready(function () {
     $('.carousel-index').slick({

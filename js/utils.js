@@ -133,7 +133,7 @@ function cart_checkout_card(item) {
             <button class="revise-btn">
                 <i class="fa-solid fa-cart-shopping icon">修改數量</i>
             </button>
-            <button class="clear-btn">
+            <button class="remove-btn">
                 <i class="fa-solid fa-rectangle-xmark">商品移除</i>
             </button>
         </div>

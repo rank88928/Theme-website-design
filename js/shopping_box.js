@@ -1,40 +1,37 @@
+import * as utils from './utils.js'
+import * as shopping_fun from "./shopping_operations.js"
 
-import * as ui_shopping from '../UI_shopping.js'
-import * as shopping_cart_function from "./shopping_operations.js"
-export { update_cart };
+export { update_cart_box }
 
+update_cart_box();
+let shopping_item_box = document.querySelector(".shopping-item");
 
-let shopping_box = document.querySelector('.shopping-item');
-update_cart();
+shopping_item_box.addEventListener('click', function (e) {
+    let target = e.target;
 
+    if (target.classList.contains('remove-shopping')) {
 
+        let i = shopping_fun.check_index('.remove-shopping', e.target.closest('.remove-shopping'));
+        let shopping_records = utils.get_local_records('shopping_records');
+        let id = shopping_records[i].id;
 
+        shopping_fun.execute_cart_action('remove_to_cart', id)
+    }
+})
 // 更新購物欄
-function update_cart() {
+function update_cart_box() {
+    let shopping_records = utils.get_local_records('shopping_records');
 
-    let data_local = shopping_cart_function.get_shopping_storage();
+    let shopping_box = document.querySelector('.shopping-item');
     shopping_box.innerHTML = '';
 
-    if (data_local.length == 0) {
+    if (shopping_records.length == 0) {
         let item = `<div class="empty-shopping">當前購物車是空的!~~~</div>`
         shopping_box.insertAdjacentHTML('beforeend', item);
     } else {
-        //有商品 最多顯示5筆
-        for (let i = 0; i <= 4 && i < data_local.length; i++) {
-            ui_shopping.shopping_item_create(data_local, i);
-        }
+        utils.rendering_ui_template_strings(shopping_records, utils.shopping_box_card, '.shopping-item')
     }
 
-    let remove_btn = document.querySelectorAll(".remove-shopping");
-
-    remove_btn.forEach(function (remove_btn, i) {
-        remove_btn.addEventListener("click", function () {
-            shopping_cart_function.clear_order_quantity(i);
-            update_cart();//重繪
-        });
-    });
 }
-
-
 
 
