@@ -18,68 +18,68 @@
 <body>
     <header></header>
 
-    <div class="container">
-        <div class="operate">
-            <div class="form-selection">
-                <p>地區選擇</p>
-                <div class="selection">
-                    <select>
-                        <option value="0">所有地區</option>
-                        <option value="1">台北市</option>
-                        <option value="2">新北市</option>
-                        <option value="3">桃園市</option>
-                        <option value="4">台中市</option>
-                        <option value="5">台南市</option>
-                        <option value="6">高雄市</option>
-                        <option value="7">基隆市</option>
-                        <option value="8">新竹市</option>
-                        <option value="9">嘉義市</option>
-                        <option value="10">新竹縣</option>
-                        <option value="11">苗栗縣</option>
-                        <option value="12">彰化縣</option>
-                        <option value="13">南投縣</option>
-                        <option value="14">雲林縣</option>
-                        <option value="15">嘉義縣</option>
-                        <option value="16">屏東縣</option>
-                        <option value="17">宜蘭縣</option>
-                        <option value="18">花蓮縣</option>
-                        <option value="19">台東縣</option>
-                        <option value="20">澎湖縣</option>
-                        <option value="21">金門縣</option>
-                        <option value="21">連江縣</option>
-                    </select>
+    <div class="query-data-container">
+        <div class="controls-container">
+            <div class="config">
+                <div class="area-selection">
+                    <p>地區選擇</p>
+                    <div class="selection-box">
+                        <select>
+                            <option value="0">所有地區</option>
+                            <option value="1">台北市</option>
+                            <option value="2">新北市</option>
+                            <option value="3">桃園市</option>
+                            <option value="4">台中市</option>
+                            <option value="5">台南市</option>
+                            <option value="6">高雄市</option>
+                            <option value="7">基隆市</option>
+                            <option value="8">新竹市</option>
+                            <option value="9">嘉義市</option>
+                            <option value="10">新竹縣</option>
+                            <option value="11">苗栗縣</option>
+                            <option value="12">彰化縣</option>
+                            <option value="13">南投縣</option>
+                            <option value="14">雲林縣</option>
+                            <option value="15">嘉義縣</option>
+                            <option value="16">屏東縣</option>
+                            <option value="17">宜蘭縣</option>
+                            <option value="18">花蓮縣</option>
+                            <option value="19">台東縣</option>
+                            <option value="20">澎湖縣</option>
+                            <option value="21">金門縣</option>
+                            <option value="21">連江縣</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="query-box">
+                    <button class="query-btn">查詢</button>
+                    <input type="text" placeholder="請輸入關鍵字" class="input-box">
+                </div>
+
+                <div class="reply-box">
+                    <p class="reply-txt">符合筆數共:0</p>
                 </div>
             </div>
 
-            <div class="inquire">
-                <input type="text" placeholder="請輸入關鍵字" class="enter">
-                <button class="bnquire-but">查詢</button>
+            <!-- 頁碼 -->
+            <div class="page-container">
+                <a class="previous-page"><i class="fa-solid fa-angle-up"></i>Previous</a>
+                <ul class="page-ul"></ul>
+                <a class="next-page">Next<i class="fa-solid fa-angle-up"></i></a>
             </div>
-
-            <div class="reply-box">
-                <p class="reply-txt">符合筆數共:</p>
-                <p class="reply">0</p>
-            </div>
-
         </div>
 
-        <!-- 頁碼 -->
-        <div class="page-container">
-            <button class="previous_page"><i class="fa-solid fa-angle-up"></i></button>
-            <ul class="page-ul"></ul>
-            <button class="next_page"><i class="fa-solid fa-angle-up"></i></button>
-        </div>
-
-        <div class="list-cs">
-            <div class="store-data store-data-category">
-                <p class="id">門市序號</p>
-                <p class="name">門市名稱</p>
-                <p class="area">所在區域</p>
-                <p class="location">地點</p>
-                <p class="contact">連絡電話</p>
+        <div class="data-container">
+            <div class="column-title">
+                <p class="id-column">門市序號</p>
+                <p class="name-column">門市名稱</p>
+                <p class="area-column">所在區域</p>
+                <p class="location-column">地點</p>
+                <p class="contact-column">連絡電話</p>
             </div>
             <!-- 列表 -->
-            <ul class="list"></ul>
+            <ul class="data-list"></ul>
         </div>
     </div>
 
@@ -93,9 +93,6 @@
     new WOW().init();
 
 </script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-    crossorigin="anonymous"></script>
-<script type="module" src="store.js"></script>
+<script type="module" src="./js/store.js"></script>
 
 </html>
