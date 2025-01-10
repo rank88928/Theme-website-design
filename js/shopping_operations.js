@@ -41,7 +41,7 @@ function execute_cart_action(action, id, num = 0,) {
     }
 }
 
-let data = await get_data.fetch_data('./data/product_data-11.json');
+let data = await get_data.fetch_data('./data/product_data.json');
 //用id在購物紀錄尋找商品對象
 function id_find_product_object(id) {
     shopping_records = utils.get_local_records('shopping_records')

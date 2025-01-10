@@ -75,8 +75,6 @@ function slick_viewport_response() {
     }
 }
 
-
-
 // 懸停卡片 放大產品圖片成為容器背景圖
 let product_content = document.querySelector(".product-content");
 
@@ -116,10 +114,8 @@ render_html_index_card();
 
 //商品-篩選排序
 async function select_recommendations_id() {
-
-    let recommend_id = [9, 10, 12, 6, 5, 7, 8, 4];//推薦展示順序
-    let data_url = './data/product_data.json';
-    let data = await get_data.fetch_data(data_url);//取得全部商品資料
+    let data = await get_data.fetch_data('./data/product_data.json');//取得全部商品資料
+    let recommend_id = [9, 10, 12, 6, 5, 7, 8, 4];//推薦展示順序s
     let recommend_list = data.filter(itme => recommend_id.includes(itme.id))//篩選
     let sorted_data_id = recommend_list.sort((a, b) => recommend_id.indexOf(a.id) - recommend_id.indexOf(b.id)); // 重新排序
     return sorted_data_id;
@@ -179,8 +175,10 @@ if (l_accordion) {
         if (target.closest('li')) {
             let li = target.closest('li');
             let answer = li.querySelector('.answer');
+            let arrow = li.querySelector('.fa-solid');
 
             answer.classList.toggle('h-auto-3');
+            arrow.classList.toggle('down-rotate');
         }
     })
 }
