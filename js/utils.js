@@ -45,7 +45,13 @@ function increase_qty_btm(qty) {
  * @returns 
  */
 function get_local_records(key) {
-    return JSON.parse(localStorage.getItem(key));
+    let data = JSON.parse(localStorage.getItem(key))
+
+    if (data) {
+        return data
+    } else {
+        return []
+    }
 }
 
 /**
