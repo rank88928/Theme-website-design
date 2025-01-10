@@ -3,11 +3,10 @@
 //Base(基礎) 
 @import "base/reset";
 @import "base/base";
-@import "base/rwd_utilities";
 @import "base/animation_utilities";
 @import "base/mixins_utilities";
 @import "base/button";
-
+@import "base/rwd_utilities";
 //Layout(佈局) 
 @import "layout/header";
 @import "layout/footer";
@@ -23,10 +22,11 @@
 @import "module/feedback";
 //Theme(主題) 
 
-
 // 頁面
 @import "page/index";
 @import "page/menu";
 @import "page/aboutus";
 @import "page/store";
 @import "page/cart_checkout";
+
+//權重處理

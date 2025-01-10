@@ -1,231 +1,796 @@
-/* 關於我們 */
-.video-container {
-    position: absolute;
+.banner-container {
+    width: 100%;
+    height: 600px;
+    margin-top: 80px;
+    position: relative;
+}
+
+.banner-box {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    .banner-img {
+        width: 100%;
+        height: 100%;
+        background-size: 100% 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: all 0.5s ease;
+    }
+
+    .banner-1 {
+        background-image: url('/img/banner-bk-1.jpg');
+        z-index: 5;
+    }
+
+    .banner-2 {
+        background-image: url('/img/banner-bk-2.jpg');
+        z-index: 4;
+    }
+
+    .banner-3 {
+        background-image: url('/img/banner-bk-3.jpg');
+        z-index: 3;
+    }
+}
+
+.banner-img .txt-box {
+    width: 60%;
+    height: 100%;
     top: 0;
-    width: 100%;
-}
+    left: 0;
+    position: absolute;
 
-.video-container .video-1 {
-    width: 100%;
-    height: 350px;
-    object-fit: cover;
-    margin-right: auto;
-}
+    .title-first,
+    .title-second {
+        color: #ffffffc7;
+        font-size: 140px;
+        position: absolute;
+        font-weight: 600;
+        text-shadow: -10px 0px 5px #69777e96;
+    }
 
-.top-m {
-    margin-top: 270px;
-}
+    .title-first {
+        top: 20%;
+        left: 30%;
+    }
 
-
-
-.people-container {
-    width: 1200px;
-    margin: auto;
-    background-color: rgb(247, 243, 238);
-    display: flex;
-    justify-content: center;
-}
-
-.people-container>.control-unit {
-    flex: 0 0 50%;
-    padding: 50px 20px;
-}
-
-.control-unit .people-txt {
-    color: #000000;
-    text-align: center;
-    font-size: 24px;
-    letter-spacing: 3px;
-    line-height: 35px;
-    margin: auto;
-}
-
-.control-unit .people-img {
-    height: 400px;
-    padding: 30px;
-}
-
-.people-txt>h3 {
-    margin: 24px 0;
-    font-size: 40px;
-    font-style: italic;
-}
-
-
-/* 主廚 團隊 */
-.people-img .team-img,
-.people-img .chef-img {
-    background-image: url("/img/platting-4282016_1280.jpg");
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    width: 100%;
-    height: 100%;
-}
-
-.people-img .team-img {
-    background-image: url("/img/people-2561634_1280.jpg");
-}
-
-/* 概念圖標 */
-.idea-container {
-    justify-content: center;
-    font-size: 24px;
-    text-align: center;
-}
-
-/* 上面待重構 */
-.idea-container {
-    width: 1200px;
-    display: flex;
-    flex-wrap: wrap;
-    color: #8d2828;
-    margin: auto;
-}
-
-.idea-container>.control-unit {
-    flex: 0 0 25%;
-    padding: 50px 20px;
-}
-
-.idea-unit {
-    background-color: #ffd0b27a;
-    padding: 20px;
-    border-radius: 10px;
-    height: 100%;
-}
-
-.idea-unit .idea-img {
-    font-size: 40px;
-    margin-bottom: 15px;
-}
-
-.idea-unit:hover {
-    transform: translateY(-30px);
-    transition: transform 0.3s ease;
-}
-
-
-@media screen and (max-width:1200px) {
-
-    .people-container,
-    .idea-container {
-        max-width: 100VW;
+    .title-second {
+        top: 40%;
+        left: 40%;
     }
 }
 
-@media screen and (max-width:768px) {
+.banner-btn-box {
+    position: absolute;
+    width: 60%;
+    bottom: 0%;
+    right: 0%;
+    z-index: 10;
+    display: flex;
+    align-items: flex-end;
 
-    .people-container,
-    .idea-container {
+    .banner-btn {
+        cursor: pointer;
+        background-color: rgba(208, 206, 204, 0.32);
+        border: 0;
+        padding: 1.5rem 2rem;
+        transition: 0.25s ease-in-out;
+        outline: 0;
+        font-size: 18px;
+        flex-grow: 1;
+
+        &:hover {
+            background-color: #fff;
+            color: #000;
+        }
+    }
+
+    .active {
+        cursor: default;
+        font-weight: 700;
+        background-color: #3b3e45;
+        padding: 2rem 2rem;
+    }
+}
+
+@include rwd_768_below {
+    .banner-container {
+        height: 100vh;
+        margin-top: 0;
+    }
+
+    .banner-img .txt-box {
+
+        .title-first,
+        .title-second {
+            font-size: 60px;
+        }
+    }
+
+    .banner-btn-box {
+        bottom: 35%;
         flex-wrap: wrap;
-    }
+        width: 30%;
 
-    .idea-container>.control-unit {
-        flex: 0 0 50%;
-        padding: 20px 20px;
+        .banner-btn {
+            width: 100%;
+            padding: 1rem 1rem;
+        }
     }
-
-    .people-container>.control-unit {
-        flex: 0 0 100%;
-        padding: 50px 20px;
-    }
-
 }
 
-
-
-
-.contact-container {
+//統一標題效果
+.title {
     width: 100%;
+    height: 120px;
+    position: sticky;
+    top: 80px;
+    z-index: 5;
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    margin: 50px auto;
+
+    svg {
+        width: 80%;
+        margin: auto;
+    }
+
+    path {
+        fill: #00000000;
+        stroke-width: 0.5px;
+        stroke: #fd8585;
+    }
 }
 
-.contact-container .contact {
+.area-title {
     width: 100%;
-    text-align: center;
-    padding: 20px 0;
-    background-color: rgb(247, 243, 238);
-    margin: 40px 0;
-    font-size: 60px;
-}
-
-.recruiting-container {
-    width: 100%;
+    height: 120px;
+    position: sticky;
+    top: 80px;
+    z-index: 5;
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    margin: 50px auto;
+
+    svg {
+        width: 80%;
+        margin: auto;
+    }
+
+    path {
+        fill: #00000000;
+        stroke-width: 0.5px;
+        stroke: #fd8585;
+    }
+}
+
+@include rwd_768_below {
+    .area-title {
+        top: 0;
+    }
+}
+
+//時間軸
+.timeline-container {
+    position: relative;
+    max-width: 1200px;
+    margin: 100px auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.timeline-box .timeline-item {
+    padding: 10px 50px;
+    position: relative;
+    width: 50%;
+
+    &:nth-child(even) {
+        left: 50%;
+    }
+
+    .text-box {
+        padding: 16px;
+        border-radius: 10px;
+        font-size: 15px;
+        background-color: rgb(247, 243, 238);
+        display: flex;
+        flex-wrap: wrap;
+
+        h2 {
+            font-weight: 600;
+            font-size: 24px;
+            font-style: italic;
+        }
+
+        .year {
+            margin-top: 10px;
+            margin-left: 10px;
+        }
+
+        p {
+            margin: 5px;
+            padding: 5px;
+            font-size: 18px;
+            line-height: 1.5;
+            background-color: #fff;
+            font-style: italic;
+            font-weight: 500;
+        }
+    }
+}
+
+.timeline-item {
+    .text-box {
+        position: relative;
+
+        .arrow {
+            height: 0;
+            width: 0;
+            position: absolute;
+            z-index: 1;
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+            right: 0%;
+
+            &::before,
+            &::after {
+                content: '';
+                position: absolute;
+                border-radius: 50%;
+            }
+
+            &::before {
+                width: 30px;
+                height: 30px;
+                background-color: #d6a4a4;
+                top: -15px;
+            }
+
+            &::after {
+                width: 20px;
+                height: 20px;
+                background-color: #ffffff;
+                top: -10px;
+                animation: breathing 3s infinite ease-in-out;
+            }
+        }
+    }
+
+    &:nth-child(odd) .arrow {
+        right: -15px;
+        border-left: 15px solid #d6a4a4;
+
+        &::before {
+            right: -50px;
+        }
+
+        &::after {
+            right: -45px;
+        }
+    }
+
+    &:nth-child(even) .arrow {
+        left: -15px;
+        border-right: 15px solid #d6a4a4;
+
+        &::before {
+            left: -50px;
+        }
+
+        &::after {
+            left: -45px;
+        }
+    }
+}
+
+.timeline-box .center-line {
+    //中心線
+    position: absolute;
+    width: 6px;
+    height: 85%;
+    background: #d6a4a4;
+    top: 180px;
+    left: 50%;
+    margin-left: -3px;
+    z-index: -1;
+}
+
+//呼吸效果
+@keyframes breathing {
+    0% {
+        transform: scale(0.5);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
+@include rwd_768_below {
+    .timeline-container {
+        margin: 0 auto;
+
+        .timeline-box .timeline-item {
+            width: 80%;
+            left: 10%;
+
+        }
+    }
+
+    .timeline-box .timeline-item {
+
+        &:nth-child(odd) .arrow,
+        &:nth-child(even) .arrow {
+            left: -15px;
+            border-right: 15px solid #d6a4a4;
+            border-left: 0px;
+
+            &::before {
+                left: -50px;
+            }
+
+            &::after {
+                left: -45px;
+            }
+        }
+    }
+
+    .timeline-box .center-line {
+        left: 10%;
+    }
+}
+
+@include rwd_576_below {
+    .timeline-container .timeline-box .timeline-item {
+        width: 90%;
+
+        p {
+            @include txt_multi_line_ellipsis(3, 1.5rem);
+            padding: 0;
+        }
+    }
+}
+
+
+
+
+//理念
+.concept-container {
+    max-width: 1200px;
     margin: auto;
 }
 
-/* 地圖 */
-.recruiting {
-    width: 49%;
-    text-align: center;
-}
-
-.recruiting .recruiting-txt {
-    font-size: 24px;
-    padding: 20px 0;
-    background-color: bisque;
-}
-
-.recruiting-map {
+.concept-container .item-box {
     display: flex;
-    justify-content: space-around;
+    height: 200px;
+    position: relative;
+    transition: all 0.55s ease;
+    perspective: 1000px;
+    transform-origin: center;
+
+    .item {
+        position: relative;
+        overflow: hidden;
+        padding: 10px;
+        width: 25%;
+        font-size: 16px;
+
+        img {
+            width: 100%;
+            opacity: 0.8;
+        }
+
+        .description {
+            position: absolute;
+            bottom: 5%;
+            right: 5%;
+            padding: 10px;
+
+            h3 {
+                font-size: 36px;
+                font-weight: 400;
+                color: #ffffff;
+            }
+
+            p {
+                position: absolute;
+                display: block;
+                width: 200px;
+                font-size: 16px;
+                font-weight: 700;
+                padding: 5px 10px;
+                color: #000000;
+                bottom: 0;
+                right: 0;
+                transform: translate(0%, 0%);
+                opacity: 0;
+                transition: all 0.55s ease;
+            }
+        }
+    }
+}
+
+//裝飾線
+.concept-container .description {
+
+    &::after,
+    &::before,
+    h3::after,
+    h3::before {
+        position: absolute;
+        content: '';
+        background-color: #ffffff;
+        transition: all 0.55s ease;
+    }
+
+    &::after,
+    &::before {
+        height: 2px; //線條尺寸
+        width: 400px;
+    }
+
+    &:before {
+        top: 0; // 平行上線
+        left: 0;
+        transform: translateX(100%);
+    }
+
+    &::after {
+        bottom: 0; //平行下線
+        right: 0;
+        transform: translateX(-100%);
+    }
+
+    h3::before,
+    h3::after {
+        width: 2px; //線條尺寸
+        height: 400px;
+    }
+
+    h3::before {
+        top: 0; // 垂直左線
+        left: 0;
+        transform: translateY(100%);
+    }
+
+    h3::after {
+        bottom: 0; // 垂直右線
+        right: 0;
+        transform: translateY(-100%);
+    }
+}
+
+// 效果
+.concept-container .item-box {
+    .item:hover {
+        img {
+            opacity: 0.4;
+        }
+
+        .description::before,
+        .description::after,
+        .description h3::before,
+        .description h3::after {
+            transform: translate(0, 0);
+        }
+
+        h3 {
+            color: #000;
+        }
+
+        p {
+            opacity: 1;
+            transform: translate(-20%, -160%);
+        }
+    }
+}
+
+
+//人物卡片
+// 動態邊線配置
+:root {
+    --d: 2500ms;
+    --angle: 90deg;
+    --gradX: 100%;
+    --gradY: 50%;
+    --c1: rgba(168, 239, 255, 1);
+    --c2: rgba(168, 239, 255, 0.1);
+    --c1: rgb(9, 209, 254);
+    --c2: rgba(168, 239, 255, 0.1);
+}
+
+@property --angle {
+    syntax: '<angle>';
+    initial-value: 90deg;
+    inherits: true;
+}
+
+@property --gradX {
+    syntax: '<percentage>';
+    initial-value: 50%;
+    inherits: true;
+}
+
+@property --gradY {
+    syntax: '<percentage>';
+    initial-value: 0%;
+    inherits: true;
+}
+
+.person-container {
+    display: flex;
+    max-width: 1200px;
+    margin: auto;
+    margin-top: 30px;
     flex-wrap: wrap;
-    background-color: rgb(247, 243, 238);
 }
 
-.recruiting-map .address {
-    line-height: 40px;
+.card-box {
+    width: 100%;
+    display: flex;
 }
 
-/* 表單 */
-.form-container {
-    width: 50%;
+.person-card {
+    overflow: hidden;
+    margin: 0 10px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-clip: padding-box;
+    box-sizing: content-box;
+    border: 0.35rem solid #fff;
+    opacity: 0.8;
+}
+
+.person-card:hover {
+    opacity: 1;
+    border: 0.35rem solid;
+    border-image: conic-gradient(from var(--angle), var(--c2), var(--c1) 0.1turn, var(--c1) 0.15turn, var(--c2) 0.25turn) 30;
+    animation: borderRotate var(--d) linear infinite forwards;
+}
+
+@keyframes borderRotate {
+    100% {
+        --angle: 420deg;
+    }
+}
+
+.person-card:nth-child(1) {
+    background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample87.jpg");
+}
+
+.person-card:nth-child(2) {
+    background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample69.jpg");
+}
+
+.person-card:nth-child(3) {
+    background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample74.jpg");
+}
+
+.person-card * {
+    transition: all 0.25s ease;
+}
+
+.profile-info {
+    text-align: left;
+    line-height: 1.4em;
+    color: #ffffff;
+    margin-top: 200px;
+    background-color: #141414;
+    padding: 25px;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+
+    &::before {
+        position: absolute;
+        content: '';
+        bottom: 100%;
+        left: 0;
+        // width: 0;
+        // height: 0;
+        border-style: solid;
+        border-width: 55px 0 0 400px;
+        border-color: transparent transparent transparent #141414;
+    }
+
+    .profile {
+        border-radius: 50%;
+        position: absolute;
+        bottom: 100%;
+        left: 25px;
+        z-index: 1;
+        max-width: 90px;
+        opacity: 0.85;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    }
+
+    h2 {
+        font-weight: 300;
+        font-size: 32px;
+
+        span {
+            font-style: italic;
+            display: block;
+            font-size: 0.5em;
+            color: #2980b9;
+        }
+    }
+
+    p {
+        letter-spacing: 1px;
+        @include txt_multi_line_ellipsis(5, 1.5)
+    }
+
+    a {
+        padding: 5px;
+        border: 1px solid #ffffff;
+        margin: 10px 0;
+        display: block;
+        opacity: 0.65;
+        width: 45%;
+        text-align: center;
+        font-weight: 600;
+        letter-spacing: 1px;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    .follow {
+        margin-right: 4%;
+        border-color: #2980b9;
+        color: #2980b9;
+    }
+}
+
+
+.contact-us-container {
+    max-width: 1200px;
+    margin: 100px auto;
+
+    .title {
+        z-index: 0;
+    }
+
+}
+
+.interactive-container {
+    height: 620px;
+    background-image: url(/img/StockSnap_0HCMIT272C.jpg);
+    background-size: 100% 100%;
+    position: relative;
+}
+
+.interactive {
+    width: 400px;
+    height: 600px;
+    background-image: url(/img/people.png);
+    background-size: 100% 100%;
+    position: absolute;
+    bottom: 0;
+    left: 200px;
+    z-index: 5;
+}
+
+.form-box {
+    width: 400px;
+    height: 500px;
+    background-image: url(/img/blackboard.jpg);
+    background-size: 100% 100%;
+    position: absolute;
+    bottom: 30px;
+    left: 650px;
+    z-index: 5;
+    padding: 40px 20px;
 }
 
 .contact-form {
-    width: 80%;
-    margin: auto;
-}
+    color: #fff;
+    font-size: 16px;
 
-.contact-form input {
-    width: 272px;
-    margin-top: 5px;
-}
+    .form-group {
+        display: flex;
+        height: 40px;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+        margin-left: 10px;
 
-#phone,
-#purpose {
-    margin-left: 40px;
-}
+        .illustrate {
+            width: 100%;
+        }
 
-#message {
-    width: 312px;
-    height: 200px;
-}
+        label {
+            width: 20%;
+            display: block;
+        }
 
-@media screen and (max-width:768px) {
+        .contact-data {
+            width: 50%;
+            display: block;
+        }
 
-    .form-container,
-    .recruiting {
-        width: 100%;
+        p {
+            font-size: 20px;
+            margin: 5px 0;
+            font-weight: 600;
+            font-style: italic;
+        }
+    }
+
+    .note {
+        display: block;
+        color: #ff0000;
     }
 }
 
-.note {
-    display: inline;
-    color: #ff0000;
+#message {
+    width: 60%;
+    height: 150px;
+    display: block;
 }
 
-.contact-form .form-txt {
-    font-weight: 800;
-    font-size: 18px;
-    margin: 10px 0 0 5px;
-}
 
-#form-submit-button {
-    margin: 10px 0 50px 50px;
-}
+
+
+// 棄用
+//掃描光效果
+// .title::before {
+//     content: "";
+//     display: block;
+//     position: absolute;
+//     top: 0;
+//     left: 0px;
+//     height: 100%;
+//     width: 100px;
+//     background: linear-gradient(100deg,
+//             rgba(255, 255, 255, 0) 40%,
+//             rgba(255, 255, 255, 0.5) 50%,
+//             rgba(255, 255, 255, 0) 60%);
+//     animation: loading 2s infinite;
+//     z-index: 10;
+// }
+
+// @keyframes loading {
+//     0% {
+//         left: 0px;
+//     }
+
+//     100% {
+//         left: 85%;
+//     }
+// }
+
+
+
+//箭頭
+// .timeline-box .item {
+//     &::before {
+//         content: '';
+//         width: 0;
+//         height: 0;
+//         border-top: 10px solid transparent;
+//         border-bottom: 10px solid transparent;
+//         border-left: 20px solid #d6a4a4;
+//         position: absolute;
+//         right: 30px;
+//         top: 20%;
+//         animation: arrow_left 2s infinite ease-in-out;
+//     }
+// }
+
+//箭頭飄移 向左
+//箭頭飄移 向右
+// @keyframes arrow_left {
+//     0% {
+//         right: 30px;
+//     }
+
+//     100% {
+//         right: 10px;
+//     }
+// }

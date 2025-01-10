@@ -61,6 +61,12 @@
     }
 }
 
+//下拉展開選單
+.h-auto-3 {
+    // transition: max-height 0.7s ease-in-out;
+    max-height: 300px !important;
+}
+
 .down-rotate {
     transform: rotate(180deg);
 }
