@@ -21,7 +21,7 @@ shopping_item_box.addEventListener('click', function (e) {
 // 更新購物欄
 function update_cart_box() {
     let shopping_records = utils.get_local_records('shopping_records');
-
+    console.log(shopping_records)
     let shopping_box = document.querySelector('.shopping-item');
     shopping_box.innerHTML = '';
 
