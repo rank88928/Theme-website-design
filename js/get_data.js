@@ -7,6 +7,7 @@ function parse_data_array(data) {
 
 //拿取資料
 async function fetch_data(url) {
+    console.log(url)
     try {
         const response = await fetch(url);
 

@@ -33,19 +33,20 @@ form_tab_btn.forEach(function (btn, i) {
 
 
 // 輸入框輸入時效果
-form_input = document.querySelectorAll(".m_login_box input");
-form_label = document.querySelectorAll(".m_login_box label");
+// form_input = document.querySelectorAll(".m_login_box input");
+// form_label = document.querySelectorAll(".m_login_box label");
 
-form_input.forEach(function (input, i) {
-    input.addEventListener("input", function () {
+// form_input.forEach(function (input, i) {
+//     input.addEventListener("input", function () {
 
-        if (input.value === "") {
-            form_label[i].classList.remove("has-content");
-        } else {
-            form_label[i].classList.add("has-content");
-        };
-    })
-});
+//         if (input.value === "") {
+//             form_label[i].classList.remove("has-content");
+//         } else {
+//             form_label[i].classList.add("has-content");
+//         };
+//     })
+// });
+// 改成監聽
 
 //rwd選單開關
 let menu_btn = document.querySelector(".menu-btn");

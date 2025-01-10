@@ -1,6 +1,6 @@
 import * as get_data from './get_data.js';
 import * as feedback from './feedback.js';
-
+import * as firebase from './firebase_init.js'
 import './header.js';
 
 // 首頁背景輪播
@@ -183,8 +183,20 @@ if (l_accordion) {
     })
 }
 
+console.log(firebase.db)
 
+const product = "product1";  // 這裡是你要查詢的產品 ID
 
-
-
-
+// 讀取特定文件
+const productRef = firebase.doc(firebase.db, 'product', product);
+firebase.getDoc(productRef)
+    .then(docSnap => {
+        if (docSnap.exists()) {
+            console.log(docSnap.data());  // 輸出該文件的資料
+        } else {
+            console.log('文件不存在');
+        }
+    })
+    .catch(error => {
+        console.error('讀取資料錯誤:', error);
+    });

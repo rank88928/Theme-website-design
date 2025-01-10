@@ -8,7 +8,8 @@ export {
     menu_card,
     shopping_box_card,
     cart_checkout_card,
-    cart_price__card
+    cart_price__card,
+    toolbox,
 }
 
 
@@ -25,6 +26,15 @@ function increase_qty_btm(qty) {
     let num = parseInt(qty.value);
     qty.value = num + 1;
 }
+//加跟減其實同一種狀況 +正數或+負數 可以合併為一條功能
+//改成讀自定義屬性去判斷
+
+// 按這個邏輯 按鈕判斷可以在合併一條 同時可以再封裝一層 按鈕功能 現在是每個能修改的
+// 地方都寫了邏輯 可以共同呼叫 只是傳入的最終回調函數不一樣罷了
+
+//某些個體功能 能夠在拆分為獨立檔案 import後直接呼叫即可 分開封裝同時先判斷有沒有存在頁面上
+
+//在做一個像面預覽介面 用假圖)(骨架屏)
 
 
 //購物紀錄存取
@@ -149,6 +159,104 @@ function cart_price__card(item) {
             共${item.order * item.price}元
         </div>
     </li>`;
+}
+
+
+// const r_toolbox = {
+//     window_size: {
+//         /**
+//          * 響應式頁面-寬度判斷處理調用
+//          * @param {給定判斷寬度} Width
+//          * @param {大於該尺寸的callback} onExceed
+//          * @param {小於等於該尺的寸callback} onBelowOrEqual
+//          */
+//         check_trigger: function (Width, onExceed, onBelowOrEqual) {
+
+//             function handleResize() {
+//                 let size_judgment = window.innerWidth - Width
+//                 if (size_judgment > 0) {
+//                     onExceed()
+//                 } else {
+//                     onBelowOrEqual()
+//                 }
+//             }
+
+//             handleResize();// 初始檢查
+//             window.addEventListener('resize', handleResize);//尺寸變化
+//             //這裡應該有問題 大量使用時會不斷掛載 須注意
+//         }
+//     }
+// }
+
+
+const toolbox = {
+
+    rwd_size_monitor: {
+        previous_width: 0,
+        size_listener: [],
+        /**
+        * 響應式頁面-寬度判斷處理
+        * @param {給定判斷寬度} width
+        * @param {大於該尺寸的callback} onExceed
+        * @param {小於等於該尺的寸callback} onBelowOrEqual
+        */
+        size: function (width, onExceed, onBelowOrEqual) {
+
+            function size_judgment() {
+                if (previous_width === 0) {
+                    //判斷是否為第一次進入
+                    judgment()
+                } else if (previous_width < width && window.innerWidth > width) {
+                    //前次小於且本次大於
+                    judgment()
+                } else if (previous_width > width && window.innerWidth < width) {
+                    //前次大於且本次小於
+                    judgment()
+                }
+                //可以合併條件
+
+                function judgment() {
+                    if (window.innerWidth > width) {
+                        onExceed()
+                    } else {
+                        onBelowOrEqual()
+                    }
+                }
+
+                previous_width = window.innerWidth
+            }
+
+            if (size_listener === null) {
+                size_judgment()//初始化
+
+                window.addEventListener("resize", size_judgment)
+            }
+        },
+
+        clear: function () {
+            window.removeEventListener("resize", "size_judgment")
+            this.previous_width = 0
+        }
+    },
+
+    load_script: {
+        //動態載入JS腳本
+        script_init: function (url, callback) {
+            let script = document.createElement('script');
+            script.src = url;
+
+            script.onload = function () {
+                console.log(`Script ${url} loaded successfully.`);
+                callback()
+            };
+
+            script.onerror = function () {
+                console.error(`Failed to load script: ${url}`);
+            };
+
+            document.head.appendChild(script);
+        }
+    }
 }
 
 

@@ -59,7 +59,6 @@ let config = {
     }
 };
 
-//差RWD
 (async () => {
     let data = await fetch(config.data.api_url + 'access_token=' + config.data.api_key);
 
