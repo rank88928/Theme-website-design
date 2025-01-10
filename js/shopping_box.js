@@ -1,7 +1,7 @@
 import * as utils from './utils.js'
 import * as shopping_fun from "./shopping_operations.js"
 
-export { update_cart_box }
+
 
 update_cart_box();
 let shopping_item_box = document.querySelector(".shopping-item");
@@ -31,7 +31,6 @@ function update_cart_box() {
     } else {
         utils.rendering_ui_template_strings(shopping_records, utils.shopping_box_card, '.shopping-item')
     }
-
 }
 
-
+export { update_cart_box }
