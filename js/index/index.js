@@ -1,0 +1,9 @@
+import "./carousel_bk.js";
+import "./rwd_carousel_introduce.js";
+import "./card_specify_bk.js";
+import "./evaluate.js";
+import "./accordion.js";
+import "./product_data.js";
+import "../header.js";
+import "../shopping/cart_box.js";
+import "./anchor.js";

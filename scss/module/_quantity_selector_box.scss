@@ -1,28 +1,29 @@
 .m-quantity-selector-box {
+  .reduce-btn,
+  .plus-btn {
+    border: 5px;
+    width: 35px;
+    height: 35px;
+    border-radius: 40px;
+    margin: 0 5px;
+    background-color: rgb(231, 228, 228);
+  }
 
-    .reduce-btn,
-    .plus-btn {
-        border: 5px;
-        width: 35px;
-        height: 35px;
-        border-radius: 40px;
-        margin: 0 5px;
-        background-color: rgb(231, 228, 228);
+  .quantity-box {
+    width: 50px;
+  }
+
+  .shopping-btn {
+    background-color: #ff9556;
+    border: 1px solid #ff9556;
+    border-radius: 10px;
+    color: #ffffff;
+    padding: 10px;
+
+    &:hover {
+      background-color: #ff6000;
+      border: 1px solid #ff6000;
+      color: #2600ff;
     }
-
-    .quantity-box {
-        width: 50px;
-    }
-
-    .shopping-btn {
-        background-color: #ff6000;
-        border: 1px solid #ff6000;
-        border-radius: 10px;
-        color: #ffffff;
-        padding: 10px;
-
-        &:hover {
-            color: #2600ff;
-        }
-    }
+  }
 }
