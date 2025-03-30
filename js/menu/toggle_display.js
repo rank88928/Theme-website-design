@@ -1,3 +1,4 @@
+import { card_config } from "./product_data.js";
 let mode_box = document.querySelector(".display-mode-box");
 
 function revise_class(old_class, new_class, describe_show) {
@@ -18,8 +19,10 @@ function mode_btn() {
     let class_name = target.className;
     if (class_name === "detailed") {
       revise_class("card-simple", "card-detailed", true);
+      card_config.mode = "detailed";
     } else if (class_name === "simple") {
       revise_class("card-detailed", "card-simple", false);
+      card_config.mode = "simple";
     }
   });
 }

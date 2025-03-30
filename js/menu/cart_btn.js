@@ -12,6 +12,7 @@ document.querySelector(".card-container").addEventListener("click", function (e)
   } else if (target.classList.contains("reduce-btn")) {
     revise_input_num(qty_input, -1);
   } else if (target.closest(".shopping-btn")) {
+    //加入購物車
     let id = target.closest(".card").dataset.index;
     let num = Number(qty_input.value);
     add_to_cart(id, num);

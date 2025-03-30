@@ -1,0 +1,67 @@
+.status-box {
+  position: fixed;
+  display: flex;
+  justify-content: flex-start;
+  right: 10px;
+  bottom: 0;
+  width: 20%;
+  height: 80vh;
+  overflow: hidden;
+  flex-wrap: nowrap;
+  flex-direction: column-reverse;
+}
+
+.status {
+  display: flex;
+  flex-wrap: wrap;
+  width: 95%;
+  height: 80px;
+  background: #fff;
+  font-weight: 500;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 10px;
+  box-shadow: 00 0 5px rgb(0, 43, 255, 30%);
+  display: flex;
+  align-items: center;
+  position: relative;
+  flex-shrink: 0;
+
+  p {
+    font-size: 18px;
+    margin-left: 20px;
+  }
+}
+
+.status::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 5px;
+  background: green;
+  animation: anim 3s linear forwards;
+}
+
+@keyframes anim {
+  100% {
+    width: 0;
+  }
+}
+
+.status div {
+  width: 100%;
+  font-size: 24px;
+  margin-left: 10px;
+
+  .fa-circle-check {
+    color: #49bc6c;
+    margin-right: 10px;
+  }
+
+  .fa-circle-xmark {
+    color: #f25959;
+    margin-right: 10px;
+  }
+}

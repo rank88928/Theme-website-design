@@ -1631,7 +1631,7 @@ body {
   display: block;
   margin-top: 8px;
 }
-.options-container .options-btn {
+.options-container .type-btn {
   font-size: 24px;
   width: 100%;
   margin: 4px auto;
@@ -1643,7 +1643,7 @@ body {
   z-index: 2;
   overflow: hidden;
 }
-.options-container .options-btn::before {
+.options-container .type-btn::before {
   content: "";
   position: absolute;
   width: 100%;
@@ -1656,10 +1656,10 @@ body {
   border-right: 60px solid transparent;
   border-bottom: 70px solid #ff9556;
 }
-.options-container .options-btn:hover {
+.options-container .type-btn:hover {
   color: #fff;
 }
-.options-container .options-btn:hover::before {
+.options-container .type-btn:hover::before {
   background-color: #ff9556;
   transform: translateX(0%);
 }
@@ -1679,7 +1679,7 @@ body {
   .options-container h2::after {
     width: 100%;
   }
-  .options-container .options-btn {
+  .options-container .type-btn {
     flex: 0 0 auto;
     width: auto;
     padding: 8px 24px;

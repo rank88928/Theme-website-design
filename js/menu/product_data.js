@@ -1,20 +1,25 @@
 import { get_isListed_product_data } from "../api/firebase_product_api.js";
 let card_content = document.querySelector(".card-container");
-
+let product_data = [];
+let display_data = [];
+let current_type = "全部";
+let card_config = {
+  mode: "detailed",
+};
 function select_recommendations_data(data) {
-  return data.map((itme) => {
+  return data.map((item) => {
     return {
-      id: itme.id,
-      name: itme.name,
-      img: itme.img,
-      price: itme.price,
-      product_text: itme.product_text,
+      id: item.id,
+      name: item.name,
+      img: item.img,
+      price: item.price,
+      product_text: item.product_text,
     };
   });
 }
 
 function card_html(item) {
-  return `<li class="card card-detailed" data-index='${item.id}'>
+  return `<li class="card card-${card_config.mode}" data-index='${item.id}'>
         <div class="img-box">
            <img src="${item.img}">
         </div>
@@ -40,15 +45,38 @@ function card_html(item) {
     </li> `;
 }
 
-async function menu_card() {
-  let product_data = await get_isListed_product_data();
-  let display_data = select_recommendations_data(product_data);
-
+function ui_update() {
   let buffer_html = "";
-  display_data.forEach((itme) => {
-    buffer_html += card_html(itme);
+  display_data.forEach((item) => {
+    buffer_html += card_html(item);
   });
   card_content.innerHTML = buffer_html;
 }
 
+async function menu_card() {
+  let all_product_data = await get_isListed_product_data();
+  display_data = select_recommendations_data(all_product_data);
+
+  ui_update();
+}
 menu_card();
+
+function click_type(key) {
+  if (product_data.length === 0) {
+    return;
+  }
+  if (current_type === key) {
+    return;
+  }
+
+  if (key === "全部") {
+    display_data = product_data;
+  } else {
+    display_data = product_data.filter((item) => {
+      return item.type === key;
+    });
+  }
+  current_type = key;
+  ui_update();
+}
+export { click_type, card_config };

@@ -1,27 +1,28 @@
-//shared(專案共享資源) 
+//shared(專案共享資源)
 
-//Base(基礎) 
+//Base(基礎)
 @import "base/reset";
 @import "base/base";
 @import "base/animation_utilities";
 @import "base/mixins_utilities";
 @import "base/button";
 @import "base/rwd_utilities";
-//Layout(佈局) 
+//Layout(佈局)
 @import "layout/header";
 @import "layout/footer";
 @import "layout/nav";
 @import "layout/anchor";
 @import "layout/accordion";
 
-//Module(模組) 
+//Module(模組)
 @import "module/carousel"; //第三方套件-slick輪播
 @import "module/nav_shopping_box";
 @import "module/login_box";
 @import "module/quantity_selector_box";
 @import "module/feedback";
-//Theme(主題) 
+@import "module/cart_message";
 
+//Theme(主題)
 // 頁面
 @import "page/index";
 @import "page/menu";

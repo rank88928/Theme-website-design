@@ -12,52 +12,17 @@
     <script type="module" src="js/globalSettings_init.js"></script>
   </head>
 
-  <body>
+  <body class="page-menu">
     <header></header>
 
     <div class="main">
-      <nav class="product-sidebar">
-        <div class="cat-dropmenu">
-          <a class="all-cat" href="#">商品一覽</a>
-
-          <a class="main-cat" href="#">美味甜點</a>
-          <ul class="cat-box">
-            <li class="sub-cat"><a href="#">蛋糕</a></li>
-            <li class="sub-cat"><a href="#">鬆餅</a></li>
-            <li class="sub-cat"><a href="#">冰淇淋</a></li>
-          </ul>
-
-          <a class="main-cat" href="#">前菜、沙拉</a>
-          <ul class="cat-box">
-            <li class="sub-cat"><a href="#">特製沙拉</a></li>
-            <li class="sub-cat"><a href="#">開胃小點</a></li>
-          </ul>
-
-          <a class="main-cat" href="#">豪華主餐</a>
-          <ul class="cat-box">
-            <li class="sub-cat"><a href="#">主菜</a></li>
-            <li class="sub-cat"><a href="#">小食</a></li>
-          </ul>
-
-          <a class="main-cat" href="#">商業午餐</a>
-          <ul class="cat-box">
-            <li class="sub-cat"><a href="#">組合套餐</a></li>
-            <li class="sub-cat"><a href="#">特惠套餐</a></li>
-          </ul>
-
-          <a class="main-cat" href="#">沁涼飲品</a>
-          <ul class="cat-box">
-            <li class="sub-cat"><a href="#">軟性飲料</a></li>
-            <li class="sub-cat"><a href="#">酒精飲料</a></li>
-          </ul>
-
-          <a class="main-cat" href="#">氣氛晚宴</a>
-          <ul class="cat-box">
-            <li class="sub-cat"><a href="#">雙人套餐</a></li>
-            <li class="sub-cat"><a href="#">四人晚宴</a></li>
-          </ul>
-        </div>
-      </nav>
+      <div class="options-container">
+        <h2>商品種類</h2>
+        <button class="type-btn" data-index="全部">全部</button>
+        <button class="type-btn" data-index="前菜">前菜</button>
+        <button class="type-btn" data-index="主菜">主菜</button>
+        <button class="type-btn" data-index="甜點">甜點</button>
+      </div>
 
       <div class="product-container">
         <div class="display-mode-box">
