@@ -1146,6 +1146,70 @@ body {
   position: relative;
 }
 
+.status-box {
+  position: fixed;
+  display: flex;
+  justify-content: flex-start;
+  right: 10px;
+  bottom: 0;
+  width: 20%;
+  height: 80vh;
+  overflow: hidden;
+  flex-wrap: nowrap;
+  flex-direction: column-reverse;
+}
+
+.status {
+  display: flex;
+  flex-wrap: wrap;
+  width: 95%;
+  height: 80px;
+  background: #fff;
+  font-weight: 500;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0, 43, 255, 0.3);
+  display: flex;
+  align-items: center;
+  position: relative;
+  flex-shrink: 0;
+}
+.status p {
+  font-size: 18px;
+  margin-left: 20px;
+}
+
+.status::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 5px;
+  background: green;
+  animation: anim 3s linear forwards;
+}
+
+@keyframes anim {
+  100% {
+    width: 0;
+  }
+}
+.status div {
+  width: 100%;
+  font-size: 24px;
+  margin-left: 10px;
+}
+.status div .fa-circle-check {
+  color: #49bc6c;
+  margin-right: 10px;
+}
+.status div .fa-circle-xmark {
+  color: #f25959;
+  margin-right: 10px;
+}
+
 .top-video {
   margin: 80px auto 60px auto;
 }
@@ -1867,71 +1931,6 @@ body {
     margin: auto;
   }
 }
-/* ***********狀態提示框****************** */
-.status-box {
-  position: fixed;
-  display: flex;
-  justify-content: flex-start;
-  right: 10px;
-  bottom: 0;
-  width: 20%;
-  height: 80vh;
-  overflow: hidden;
-  flex-wrap: nowrap;
-  flex-direction: column-reverse;
-}
-
-.status {
-  display: flex;
-  flex-wrap: wrap;
-  width: 95%;
-  height: 80px;
-  background: #fff;
-  font-weight: 500;
-  margin: 5px;
-  padding: 5px;
-  border-radius: 10px;
-  box-shadow: 0 0 5px rgba(0, 43, 255, 0.3);
-  display: flex;
-  align-items: center;
-  position: relative;
-  flex-shrink: 0;
-}
-.status p {
-  font-size: 18px;
-  margin-left: 20px;
-}
-
-.status::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 5px;
-  background: green;
-  animation: anim 3s linear forwards;
-}
-
-@keyframes anim {
-  100% {
-    width: 0;
-  }
-}
-.status div {
-  width: 100%;
-  font-size: 24px;
-  margin-left: 10px;
-}
-.status div .fa-circle-check {
-  color: #49bc6c;
-  margin-right: 10px;
-}
-.status div .fa-circle-xmark {
-  color: #f25959;
-  margin-right: 10px;
-}
-
 .banner-container {
   width: 100%;
   height: 600px;
@@ -2576,6 +2575,7 @@ body {
   width: 100%;
   height: 100vh;
   position: relative;
+  overflow: hidden;
 }
 .slogan img {
   width: 100%;
@@ -2605,9 +2605,23 @@ body {
 }
 .slogan .text-box p {
   font-size: 20px;
-  margin: 8px;
+  margin-bottom: 8px;
 }
 
+@media screen and (max-width: 576px) {
+  .slogan .text-box {
+    width: 80%;
+  }
+  .slogan .text-box h2 {
+    font-family: 24px;
+  }
+  .slogan .text-box h3 {
+    font-family: 28px;
+  }
+  .slogan .text-box p {
+    font-size: 16px;
+  }
+}
 .store-container {
   width: 100%;
 }
@@ -2651,6 +2665,17 @@ body {
   color: #a0a0a0;
 }
 
+@media screen and (max-width: 768px) {
+  .store-container .item {
+    margin-bottom: 16px;
+  }
+  .info-box {
+    width: 80%;
+    top: 0;
+    left: 50% !important;
+    transform: translateX(-50%);
+  }
+}
 .info-list {
   display: grid;
   grid-template-columns: auto 1fr;
@@ -2680,6 +2705,14 @@ body {
   text-align: start;
 }
 
+@media screen and (max-width: 576px) {
+  .info-box {
+    padding: 20px 10px 0 10px;
+  }
+  .info-box .info-list {
+    padding: 20px 0 0 0;
+  }
+}
 .serve-container {
   display: flex;
   flex-wrap: wrap;
@@ -2689,9 +2722,8 @@ body {
 
 .serve-container h2 {
   width: 100%;
-  height: 120px;
   font-size: 40px;
-  line-height: 120px;
+  padding: 16px 0;
   text-align: center;
   background-color: #f7f3ee;
   color: #bc9d51;
@@ -2711,6 +2743,16 @@ body {
   opacity: 0.8;
 }
 
+@media screen and (max-width: 768px) {
+  .serve-container .item {
+    width: 40%;
+  }
+}
+@media screen and (max-width: 500px) {
+  .serve-container .item {
+    width: 80%;
+  }
+}
 .serve-container .text-box {
   width: 100%;
   height: 100%;
