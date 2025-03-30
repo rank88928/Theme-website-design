@@ -1,0 +1,340 @@
+.query-data-container {
+    max-width: 1200px;
+    margin: 100px auto 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.controls-container {
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    justify-content: center;
+    position: relative;
+
+    .config,
+    .page-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+}
+
+//配置
+.config {
+
+    .area-selection {
+        width: 30%;
+        display: flex;
+
+        p {
+            margin-right: 10px;
+            font-size: 24px;
+            line-height: 60px;
+        }
+    }
+
+    .selection-box {
+        width: 50%;
+        display: flex;
+        position: relative;
+        line-height: 2;
+        background: #a9d0ff;
+        overflow: hidden;
+        border-radius: .25em;
+
+        &::after {
+            content: '\25BC';
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 10px 10px;
+            background: #a9d0ff;
+            cursor: pointer;
+            pointer-events: none;
+            transition: 0.25s all ease;
+        }
+
+        &:hover::after {
+            color: #ffffff;
+        }
+
+        select {
+            width: 100px;
+            height: 60px;
+            //
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            -ms-appearance: none;
+            appearance: none;
+            outline: 0;
+            box-shadow: none;
+            border: 0;
+            background: #a9d0ff;
+            background-image: none;
+            flex: 1;
+            padding: 0 .5em;
+            color: #000000;
+            cursor: pointer;
+            font-size: 1.2em;
+            font-family: 'Open Sans', sans-serif;
+        }
+    }
+
+    .query-box {
+        width: 40%;
+        display: flex;
+
+        .input-box {
+            height: 50px;
+        }
+
+        .query-btn {
+            width: 80px;
+            height: 50px;
+            color: #000000;
+            background-color: #a9d0ff;
+            border-radius: 20px;
+            margin: 0 5px;
+
+            &:hover {
+                color: #ffffff;
+                background-color: #5b94da;
+            }
+        }
+    }
+
+    .enter {
+        margin-top: 5px;
+        height: 50px;
+    }
+
+    //資料數
+    .reply-box {
+        display: flex;
+        line-height: 60px;
+        font-size: 24px;
+        width: 30%;
+    }
+}
+
+@include rwd_992_below {
+    .config {
+        flex-wrap: wrap;
+
+        .area-selection,
+        .query-box,
+        .reply-box {
+            width: 100%;
+            justify-content: center;
+            margin: 8px 0;
+        }
+
+        .reply-box {
+            line-height: 24px;
+        }
+    }
+}
+
+
+
+
+//頁碼
+.page-container {
+    margin: 16px 0;
+
+    .page-ul {
+        display: flex;
+    }
+
+    a {
+        margin: 0 10px;
+        display: block;
+        color: #000;
+        padding: 10px 18px;
+        border: 1px solid #000000;
+        font-size: 24px;
+        background-color: #a9d0ff;
+        display: block;
+
+        &:hover {
+            color: #ffffff !important;
+            background-color: #5b94da;
+        }
+    }
+
+    &>i {
+        padding: 2px 5px;
+        font-size: 40px;
+        border-radius: 10px;
+    }
+
+    .previous-page i {
+        transform: rotate(270deg)
+    }
+
+    .next-page i {
+        transform: rotate(90deg)
+    }
+
+    .show-page {
+        background-color: rgb(247, 199, 77) !important;
+        color: #ffffff !important;
+    }
+}
+
+@include rwd_992_below {
+    .page-container {
+        flex-wrap: wrap;
+
+        .page-ul {
+            order: 3;
+            flex-wrap: wrap;
+
+            li {
+                margin: 8px 0;
+            }
+        }
+
+        .previous-page,
+        .next-page {
+            width: 150px;
+            margin: 8px 0;
+        }
+
+        .next-page {
+            text-align: end;
+        }
+    }
+}
+
+//表格
+.data-container {
+    width: 100%;
+    margin: 20px 0;
+    text-align: center;
+
+    .column-title,
+    .data-list {
+        width: 80%;
+        margin: auto;
+        display: flex;
+    }
+
+    .column-title {
+        font-size: 24px;
+        background-color: rgb(247, 199, 77);
+
+        p {
+            margin: 20px 0px;
+            text-align: center;
+        }
+    }
+
+    .data-list {
+        font-size: 20px;
+        flex-wrap: wrap;
+        background-color: #a9d0ff;
+
+        .store-data {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            min-height: 60px;
+            // line-height: 60px;
+
+            &:nth-child(2n) {
+                background-color: rgb(234 234 234);
+            }
+        }
+    }
+
+    // 欄位尺寸
+    .id-column,
+    .name-column,
+    .area-column,
+    .location-column,
+    .contact-column {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .id-column,
+    .name-column {
+        flex-basis: 15%;
+    }
+
+    .area-column {
+        flex-basis: 20%;
+    }
+
+    .location-column,
+    .contact-column {
+        flex-basis: 25%;
+    }
+
+    .mobile-label {
+        display: none;
+    }
+
+    //錯誤文本
+    .abnormal-table-data {
+        width: 100%;
+        min-height: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 60px;
+        background-color: #dadcdf;
+    }
+}
+
+@include rwd_576_below {
+    .data-container {
+        .column-title {
+            display: none;
+        }
+
+        .store-data {
+            min-height: 80px;
+        }
+
+        .id-column,
+        .name-column,
+        .area-column,
+        .location-column,
+        .contact-column {
+            flex: 0 0 auto;
+            height: 33%;
+            justify-content: flex-start;
+            padding: 10px 0;
+        }
+
+        .id-column {
+
+            display: none;
+        }
+
+        .name-column {
+            width: 100%;
+        }
+
+        .area-column {
+            width: 40%;
+        }
+
+        .location-column {
+            width: 60%;
+        }
+
+        .contact-column {
+            width: 100%;
+        }
+
+        .mobile-label {
+            display: block;
+        }
+    }
+}

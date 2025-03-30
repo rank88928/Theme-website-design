@@ -1,90 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>餐廳</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <link rel="stylesheet" href="css/all.css">
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="css/all.css" />
     <script type="module" src="js/globalSettings_init.js"></script>
-</head>
+  </head>
 
-<body>
+  <body class="page-store">
     <header></header>
-
-    <div class="query-data-container">
-        <div class="controls-container">
-            <div class="config">
-                <div class="area-selection">
-                    <p>地區選擇</p>
-                    <div class="selection-box">
-                        <select>
-                            <option value="0">所有地區</option>
-                            <option value="1">台北市</option>
-                            <option value="2">新北市</option>
-                            <option value="3">桃園市</option>
-                            <option value="4">台中市</option>
-                            <option value="5">台南市</option>
-                            <option value="6">高雄市</option>
-                            <option value="7">基隆市</option>
-                            <option value="8">新竹市</option>
-                            <option value="9">嘉義市</option>
-                            <option value="10">新竹縣</option>
-                            <option value="11">苗栗縣</option>
-                            <option value="12">彰化縣</option>
-                            <option value="13">南投縣</option>
-                            <option value="14">雲林縣</option>
-                            <option value="15">嘉義縣</option>
-                            <option value="16">屏東縣</option>
-                            <option value="17">宜蘭縣</option>
-                            <option value="18">花蓮縣</option>
-                            <option value="19">台東縣</option>
-                            <option value="20">澎湖縣</option>
-                            <option value="21">金門縣</option>
-                            <option value="21">連江縣</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="query-box">
-                    <button class="query-btn">查詢</button>
-                    <input type="text" placeholder="請輸入關鍵字" class="input-box">
-                </div>
-
-                <div class="reply-box">
-                    <p class="reply-txt">符合筆數共:0</p>
-                </div>
-            </div>
-
-            <!-- 頁碼 -->
-            <div class="page-container">
-                <a class="previous-page"><i class="fa-solid fa-angle-up"></i>Previous</a>
-                <ul class="page-ul"></ul>
-                <a class="next-page">Next<i class="fa-solid fa-angle-up"></i></a>
-            </div>
+    <div class="slogan">
+      <img src="./img/store/bk.jpg" alt="" />
+      <div class="text-box">
+        <div class="title-box">
+          <h3>Explore New Flavors</h3>
+          <h2>美味之旅 由此開始</h2>
         </div>
-
-        <div class="data-container">
-            <div class="column-title">
-                <p class="id-column">門市序號</p>
-                <p class="name-column">門市名稱</p>
-                <p class="area-column">所在區域</p>
-                <p class="location-column">地點</p>
-                <p class="contact-column">連絡電話</p>
-            </div>
-            <!-- 列表 -->
-            <ul class="data-list"></ul>
-        </div>
+        <p>Embark on a culinary adventure</p>
+        <p>Discover exquisite tastes from every corner of the globe</p>
+        <p>Savor each moment with every bite</p>
+      </div>
     </div>
+    <div class="main">
+      <div class="store-container">
+        <div class="item">
+          <img src="./img/store/store-01.jpg" alt="" />
+          <div class="info-box">
+            <h3>INFORMATION</h3>
+            <p>新光三越 新竹店</p>
+            <dl class="info-list">
+              <dt>PLACE</dt>
+              <dd>新竹市東區西大路323號</dd>
 
+              <dt>TEL/FAX</dt>
+              <dd>0649841348</dd>
+
+              <dt>營業時間</dt>
+              <dd>17:00~23:00</dd>
+
+              <dt>公休日</dt>
+              <dd>無</dd>
+
+              <dt>客數</dt>
+              <dd>40席</dd>
+            </dl>
+            <button class="access-map">ACCESS MAP</button>
+          </div>
+        </div>
+        <div class="item">
+          <img src="./img/store/store-02.jpg" alt="" />
+          <div class="info-box">
+            <h3>INFORMATION</h3>
+            <p>台北 101 購物中心</p>
+            <dl class="info-list">
+              <dt>PLACE</dt>
+              <dd>台北市信義區信義路五段7號</dd>
+
+              <dt>TEL/FAX</dt>
+              <dd>02-8101-7777</dd>
+
+              <dt>營業時間</dt>
+              <dd>11:00~21:30</dd>
+
+              <dt>公休日</dt>
+              <dd>無</dd>
+
+              <dt>客數</dt>
+              <dd>500席</dd>
+            </dl>
+            <button class="access-map">ACCESS MAP</button>
+          </div>
+        </div>
+        <div class="item">
+          <img src="./img/store/store-03.jpg" alt="" />
+          <div class="info-box">
+            <h3>INFORMATION</h3>
+            <p>新光三越 台中中港店</p>
+            <dl class="info-list">
+              <dt>PLACE</dt>
+              <dd>台中市西屯區台灣大道三段301號</dd>
+
+              <dt>TEL/FAX</dt>
+              <dd>04-2255-3333</dd>
+
+              <dt>營業時間</dt>
+              <dd>11:00~22:00</dd>
+
+              <dt>公休日</dt>
+              <dd>無</dd>
+
+              <dt>客數</dt>
+              <dd>350席</dd>
+            </dl>
+            <button class="access-map">ACCESS MAP</button>
+          </div>
+        </div>
+        <div class="item">
+          <img src="./img/store/store-04.jpg" alt="" />
+          <div class="info-box">
+            <h3>INFORMATION</h3>
+            <p>遠東百貨 板橋中山店</p>
+            <dl class="info-list">
+              <dt>PLACE</dt>
+              <dd>新北市板橋區中山路一段152號</dd>
+
+              <dt>TEL/FAX</dt>
+              <dd>02-2956-7890</dd>
+
+              <dt>營業時間</dt>
+              <dd>10:30~21:30</dd>
+
+              <dt>公休日</dt>
+              <dd>無</dd>
+
+              <dt>客數</dt>
+              <dd>280席</dd>
+            </dl>
+            <button class="access-map">ACCESS MAP</button>
+          </div>
+        </div>
+      </div>
+      <div class="serve-container">
+        <h2>各種餐宴規劃 請找專業的我們</h2>
+        <div class="item">
+          <img src="./img/store/item-01.jpg" alt="" />
+          <div class="text-box">
+            <span>會議</span>
+          </div>
+        </div>
+        <div class="item">
+          <img src="./img/store/item-02.jpg" alt="" />
+          <div class="text-box">
+            <span>婚禮</span>
+          </div>
+        </div>
+        <div class="item">
+          <img src="./img/store/item-03.jpg" alt="" />
+          <div class="text-box">
+            <span>外燴</span>
+          </div>
+        </div>
+        <div class="item">
+          <img src="./img/store/item-04.jpg" alt="" />
+          <div class="text-box">
+            <span>團體</span>
+          </div>
+        </div>
+      </div>
+    </div>
     <footer></footer>
-</body>
+  </body>
 
-<script type="module" src="./js/store.js"></script>
-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <script type="module" src="js/store/index.js"></script>
 </html>

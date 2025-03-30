@@ -44,7 +44,16 @@ a {
   text-decoration: none;
 }
 
-//專案自定義
+//專案
+
+.main {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  margin-top: 80px;
+  align-items: flex-start;
+}
+
 button {
   background-color: rgb(255, 255, 255);
   color: #ffffff;
