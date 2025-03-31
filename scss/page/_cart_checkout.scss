@@ -1,135 +1,128 @@
-// 結帳頁1
-.order-status {
-    width: 90%;
-    display: flex;
-    align-items: flex-start;
-    margin: 15px auto;
-}
-
-.order-details-container,
-.price-details-container {
-    background-color: #dbe7ff;
-    margin: 10px;
-
-    .title {
-        font-size: 40px;
-        font-style: italic;
-        background-color: #efdcba;
-        text-align: center;
-        padding: 5px;
-    }
-
-    .order-list,
-    .price-list {
-        padding: 15px;
-    }
-
-    .item {
-        display: flex;
-        margin: 0px auto 10px;
-        font-size: 24px;
-        font-weight: 600;
-    }
-}
-
-// 內容
-.order-details-container {
-    width: 80%;
-
-    .item {
-        height: 160px;
-        flex-wrap: wrap;
-        flex-direction: column;
-        // box-shadow: 5px 5px 5px 5px rgba(222, 168, 218, 0.22);
-        background-color: rgb(255, 255, 255);
-
-        .img-box {
-            width: 30%;
-            height: 100%;
-            padding: 10px;
-
-            img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                border: 1px solid rgb(173, 189, 230);
-                border-radius: 10px;
-            }
-        }
-
-        .txt-box,
-        .m-quantity-selector-box {
-            width: 70%;
-            height: 50%;
-        }
-
-
-        .txt-box {
-            display: flex;
-            align-items: center;
-
-            .name {
-                width: 60%;
-            }
-
-            .qty,
-            .price {
-                width: 20%;
-            }
-        }
-    }
-}
-
-// 金額
-.price-details-container {
-    width: 30%;
-
-    .price-list {
-        background-color: #ffffff;
-        margin: 15px 5px;
-    }
-
-    .item {
-
-        .price-name,
-        .price {
-            width: 50%;
-        }
-
-        .price-name {
-            @include txt_line_ellipsis
-        }
-
-        .price {
-            text-align: end;
-        }
-    }
-}
-
-.total-price {
-    color: #ff0000;
-    margin: 20px 10px;
-    font-size: 30px;
-    font-weight: 600;
-    font-style: italic;
-}
-
-.remove-btn,
-.step-btn,
-.revise-btn {
-    background-color: #ff6000;
-    border: 1px solid #ff6000;
-    border-radius: 10px;
-    color: #ffffff;
-    padding: 10px;
-
-    &:hover {
-        color: #2600ff;
-    }
-}
-
-.step-btn {
+.cart-container {
+  width: 100%;
+  padding-top: 24px;
+  min-height: calc(100vh - 280px);
+  .table-title {
+    text-align: center;
     font-size: 24px;
-    font-weight: 600;
-    margin: 0 10px 10px 15px;
+    background-color: #f7f3ee;
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+}
+
+.cart-container {
+  table {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-size: 20px;
+    background-color: #fff;
+    th,
+    td {
+      padding: 8px;
+      text-align: center;
+      vertical-align: middle;
+      font-weight: 600;
+    }
+    th {
+      border: 1px solid #dee2e6;
+    }
+    td {
+      border-bottom: 1px solid #dee2e6;
+    }
+
+    img {
+      width: 100px;
+      height: 100px;
+    }
+    .name {
+      width: 40%;
+    }
+
+    .subtotal {
+      color: #fe0000;
+    }
+    .delete {
+      display: flex;
+      justify-content: center;
+      border: 0px;
+
+      .delete-btn {
+        display: flex;
+        color: rgba(0, 18, 46, 0.7019607843);
+        flex-direction: column;
+        font-size: 12px;
+        i {
+          font-size: 24px;
+          margin-bottom: 4px;
+        }
+      }
+    }
+  }
+}
+
+.cart-container table .order {
+  height: 100%;
+  border-bottom: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .m-quantity-selector-box {
+    display: flex;
+
+    border: 1px solid #dee2e6;
+    height: 36px;
+    .reduce-btn,
+    .plus-btn,
+    .quantity-box {
+      border-radius: 0px;
+      margin: 0px;
+      border: 0px;
+      text-align: center;
+    }
+  }
+}
+
+.empty-cart td {
+  padding: 24px;
+  border: 1px solid #dee2e6;
+  height: 30vh;
+  .empty-text {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    p {
+      width: 100%;
+      margin-bottom: 24px;
+    }
+  }
+}
+
+.total_amount-box {
+  display: flex;
+  width: 100%;
+  justify-content: end;
+  margin: 60px 0;
+  font-size: 24px;
+  align-items: center;
+}
+
+.order-btn,
+.go-menu {
+  font-size: 24px;
+
+  padding: 8px;
+  border-radius: 5px;
+  background-color: rgb(255, 217, 169);
+  display: block;
+  margin-left: 20px;
+}
+.go-menu {
+  width: 200px;
+  margin: 0;
+}
+.order-btn:hover {
+  background-color: #ff9556;
 }

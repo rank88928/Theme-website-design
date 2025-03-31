@@ -1,5 +1,5 @@
 // 通用函數
-export { reduce_qty_btn, increase_qty_btm, rendering_ui_template_strings, cart_checkout_card, cart_price__card, toolbox, revise_input_num };
+export { rendering_ui_template_strings, cart_price__card, toolbox, revise_input_num };
 
 function revise_input_num(input, num) {
   let input_num = parseInt(input.value) || 0;
@@ -10,23 +10,6 @@ function revise_input_num(input, num) {
   }
   input.value = result;
 }
-
-// 減少選擇數量
-function reduce_qty_btn(qty) {
-  let num = parseInt(qty.value);
-  if (num > 0) {
-    qty.value = num - 1;
-  }
-}
-
-// 增加選擇數量
-function increase_qty_btm(qty) {
-  let num = parseInt(qty.value);
-  qty.value = num + 1;
-}
-
-// 按這個邏輯 按鈕判斷可以在合併一條 同時可以再封裝一層 按鈕功能 現在是每個能修改的
-// 地方都寫了邏輯 可以共同呼叫 只是傳入的最終回調函數不一樣罷了
 
 /**
  * 渲染模板字符串
@@ -45,36 +28,6 @@ function rendering_ui_template_strings(data, html, target) {
   dom.insertAdjacentHTML("beforeend", buffer);
 }
 
-function cart_checkout_card(item) {
-  return `
-    <li class="item">
-        <div class="img-box">
-            <img src="/img/product/${item.url}.jpg">
-        </div>
-        <div class="txt-box">  
-            <div class="name">
-                品項:${item.name}
-            </div>
-            <div class="qty">
-                數量:${item.order}
-            </div>
-            <div class="price">
-                單價:${item.price}
-            </div>
-        </div> 
-        <div class="m-quantity-selector-box">
-            <input class="reduce-btn" type="button" value="-">
-            <input class="quantity-box" type="text" value="${item.order}">
-            <input class="plus-btn" type="button" value="+">
-            <button class="revise-btn">
-                <i class="fa-solid fa-cart-shopping icon">修改數量</i>
-            </button>
-            <button class="remove-btn">
-                <i class="fa-solid fa-rectangle-xmark">商品移除</i>
-            </button>
-        </div>
-    </li>`;
-}
 function cart_price__card(item) {
   return `
     <li class="item">

@@ -1,4 +1,5 @@
 import { get_isListed_product_data } from "../api/firebase_product_api.js";
+import "../shopping/cart_box.js";
 let card_content = document.querySelector(".card-container");
 let product_data = [];
 let display_data = [];
@@ -32,7 +33,7 @@ function card_html(item) {
                 <div class="price">
                     售價:${item.price}元
                 </div>
-                <div class="m-quantity-selector-box">
+                <div class="m-quantity-selector-box" data-index="${item.id}">
                     <input class="reduce-btn" type="button" value="-">
                     <input class="quantity-box" type="text" value="0">
                     <input class="plus-btn" type="button" value="+">
