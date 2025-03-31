@@ -1,3 +1,31 @@
+import { register_user, login_user } from "../auth/user.js";
+import { verify_id } from "../auth/user.js";
+//用戶資料
+let user = {
+  login_form: {
+    email: "",
+    password: "",
+  },
+  signup_form: {
+    email: "",
+    password: "",
+  },
+};
+let login_btn = document.querySelector(".login-btn");
+login_btn.addEventListener("click", click_login);
+
+function click_login() {
+  let login_email = document.querySelector("#login-email");
+  let login_password = document.querySelector("#login-password");
+
+  let user = {
+    email: login_email.value,
+    password: login_password.value,
+  };
+
+  login_user(user);
+}
+
 // 登入開關
 let login_close_btn = document.querySelector(".login-close-btn");
 let login_open_btn = document.querySelector(".login-open");
@@ -7,7 +35,11 @@ login_close_btn.addEventListener("click", function () {
   m_login_mask.style.display = "none";
 });
 login_open_btn.addEventListener("click", function () {
-  m_login_mask.style.display = "block";
+  if (verify_id()) {
+    window.location.href = "space.html";
+  } else {
+    m_login_mask.style.display = "block";
+  }
 });
 
 // 切換註冊登入
@@ -33,14 +65,13 @@ form_tab_btn.forEach(function (btn, i) {
 // form_label = document.querySelectorAll(".m_login_box label");
 
 // form_input.forEach(function (input, i) {
-//     input.addEventListener("input", function () {
-
-//         if (input.value === "") {
-//             form_label[i].classList.remove("has-content");
-//         } else {
-//             form_label[i].classList.add("has-content");
-//         };
-//     })
+//   input.addEventListener("input", function () {
+//     if (input.value === "") {
+//       form_label[i].classList.remove("has-content");
+//     } else {
+//       form_label[i].classList.add("has-content");
+//     }
+//   });
 // });
 // 改成監聽
 

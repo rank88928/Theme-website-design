@@ -1,10 +1,34 @@
 import { update_cart_box } from "./cart_box.js";
 import { revise_input_num } from "../utils.js";
 import { update_cart, delete_cart, get_complete_cart_data } from "./cart_actions.js";
+import "../module/index.js";
+import { add_order } from "../api/firebase_order_api.js";
+import { user_data, verify_id } from "../auth/user.js";
 
 let display_data = [];
 let tbody = document.querySelector("tbody");
 let total_order_amount;
+let order_btn = document.querySelector(".order-btn");
+
+function click_add_order() {
+  let uid = verify_id();
+
+  if (uid) {
+    let order_data = display_data.map((item) => {
+      return {
+        id: item.key,
+        order_sum: item.order,
+      };
+    });
+
+    add_order(uid, order_data, display_data);
+    localStorage.removeItem("shopping_records");
+    ui_update();
+  } else {
+    console.log("未登入");
+    return;
+  }
+}
 
 function update_table() {
   function tr_html(item) {
@@ -46,6 +70,8 @@ function update_total_amount() {
 
   let amount = document.querySelector(".amount");
   amount.innerHTML = total_order_amount + "元";
+
+  console.log(display_data);
 }
 
 async function ui_update() {
@@ -99,3 +125,5 @@ document.querySelector("table").addEventListener("input", function (e) {
     ui_update();
   }
 });
+
+order_btn.addEventListener("click", click_add_order);

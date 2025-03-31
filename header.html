@@ -1,111 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-
-<body>
+  <body>
     <div class="header-content">
-        <div class="logo">
-            <a href="">
-                <img src="img/LOGO.png" alt="">
-            </a>
+      <div class="logo">
+        <a href="">
+          <img src="img/LOGO.png" alt="" />
+        </a>
+      </div>
+
+      <div class="nav">
+        <div class="item"><a href="index.html">首頁</a></div>
+        <div class="item"><a href="menu.html">菜單</a></div>
+        <div class="item"><a href="aboutus.html">關於我們</a></div>
+        <div class="item"><a href="store.html">門市</a></div>
+      </div>
+
+      <div class="user-box">
+        <button class="icon menu-btn"><i class="fa-solid fa-bars"></i></button>
+        <button class="icon login-open"><i class="fa-solid fa-user"></i></button>
+
+        <a href="cart_1.html" class="icon nav-shopping">
+          <i class="fa-solid fa-cart-shopping"></i>
+        </a>
+        <div class="shopping-box">
+          <p>只顯示前5筆商品 完整清單請至結帳頁面</p>
+          <div class="shopping-item"></div>
         </div>
 
-        <div class="nav">
-            <div class="item"><a href="index.html">首頁</a></div>
-            <div class="item"><a href="menu.html">菜單</a></div>
-            <div class="item"><a href="aboutus.html">關於我們</a></div>
-            <div class="item"><a href="store.html">門市</a></div>
-        </div>
-
-        <div class="user-box">
-            <button class="icon menu-btn"><i class="fa-solid fa-bars "></i></button>
-            <button class="icon login-open"><i class="fa-solid fa-user "></i></button>
-
-            <a href="cart_1.html" class="icon nav-shopping">
-                <i class="fa-solid fa-cart-shopping "></i>
-            </a>
-            <div class="shopping-box">
-                <p>只顯示前5筆商品 完整清單請至結帳頁面</p>
-                <div class="shopping-item"></div>
-            </div>
-
-            <button class="icon"><i class="fa-solid fa-magnifying-glass "></i></i></button>
-            <div class="reserve">
-                <a href="" class="yellow-button">我要定位</a>
-            </div>
-        </div>
+        <!-- <button class="icon"><i class="fa-solid fa-magnifying-glass "></i></i></button> -->
+      </div>
     </div>
 
     <!-- 登入框 -->
     <div class="m_login_mask">
-        <div class="m_login_box">
-            <div class="login-close-btn"><i class="fa-solid fa-x"></i></div>
-            <div class="tab-box">
-                <a href="#" class="form-tab tab-current">註冊</a>
-                <a href="#" class="form-tab">登入</a>
-            </div>
-
-            <div class="tab-content">
-                <div class="form-login-card card-show">
-                    <h3>快速註冊</h3>
-                    <form action="">
-                        <ul>
-                            <li class="name-box">
-                                <div class="surname">
-                                    <label>姓<span>*必填</span></label>
-                                    <input type="text" required autocomplete="off">
-                                </div>
-                                <div class="name">
-                                    <label>名<span>*必填</span></label>
-                                    <input type="text" required autocomplete="off" />
-                                </div>
-                            </li>
-
-                            <li>
-                                <label>電子信箱<span>*必填</span></label>
-                                <input type="email" required autocomplete="off" />
-                            </li>
-                            <li>
-                                <label>設定密碼<span>*必填</span></label>
-                                <input type="password" required autocomplete="off" />
-                            </li>
-                        </ul>
-
-                        <button class="submit-btn">開始使用</button>
-                    </form>
-                </div>
-
-                <div class="form-login-card">
-                    <h3>歡迎回來</h3>
-                    <form action="">
-                        <ul>
-                            <li>
-                                <label>請輸入電子信箱</label>
-                                <input type="email" required autocomplete="off" />
-                            </li>
-                            <li>
-                                <label>請輸入密碼</label>
-                                <input type="password" required autocomplete="off" />
-                            </li>
-                        </ul>
-
-                        <div class="forgot"><a href="#">忘記密碼?</a></div>
-                        <button class="submit-btn">登入</button>
-
-                        <div class="m_third_party">
-                            <a href="#" class="login-fb">使用Facebook帳號登入</a>
-                            <a href="#" class="login-line">使用Line帳號登入</a>
-                        </div>
-                    </form>
-                </div>
-            </div>
+      <div class="m_login_box">
+        <div class="login-close-btn"><i class="fa-solid fa-x"></i></div>
+        <div class="tab-box">
+          <a href="#" class="form-tab tab-current">註冊</a>
+          <a href="#" class="form-tab">登入</a>
         </div>
+
+        <div class="tab-content">
+          <div class="form-login-card card-show">
+            <h3>快速註冊</h3>
+            <form action="">
+              <ul>
+                <li>
+                  <label>電子信箱<span>*必填</span></label>
+                  <input type="email" required autocomplete="off" />
+                </li>
+                <li>
+                  <label>設定密碼<span>*必填</span></label>
+                  <input type="password" required autocomplete="off" />
+                </li>
+              </ul>
+
+              <button type="button" class="submit-btn">開始使用</button>
+            </form>
+          </div>
+
+          <div class="form-login-card">
+            <h3>歡迎回來</h3>
+            <form action="">
+              <ul>
+                <li>
+                  <label>請輸入電子信箱</label>
+                  <input id="login-email" type="email" required autocomplete="off" value="zxc123456@gmail.com" />
+                </li>
+                <li>
+                  <label>請輸入密碼</label>
+                  <input id="login-password" type="password" required autocomplete="off" value="zxc123456" />
+                </li>
+              </ul>
+
+              <div class="forgot"><a href="#">忘記密碼?</a></div>
+              <button type="button" class="login-btn">登入</button>
+
+              <div class="m_third_party">
+                <a href="#" class="login-fb">使用Facebook帳號登入</a>
+                <a href="#" class="login-line">使用Line帳號登入</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
-
-</body>
-
+  </body>
 </html>

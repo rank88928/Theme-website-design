@@ -2,7 +2,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 
 //資料庫功能
-import { getFirestore, doc, getDoc, setDoc, updateDoc, deleteDoc, collection, getDocs, arrayUnion } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+import { getFirestore, doc, getDoc, setDoc, updateDoc, deleteDoc, collection, getDocs, arrayUnion, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
 //帳號驗證功能
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendEmailVerification, fetchSignInMethodsForEmail } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
@@ -34,6 +34,7 @@ const firestore_api = {
   collection, //查詢集合(整個資料夾 沒有數據)
   getDocs, //獲取全部文檔資料
   arrayUnion, //推送數組格式
+  serverTimestamp, //伺服器時間戳記
 };
 
 export { firebaseConfig, firestore_api, auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, fetchSignInMethodsForEmail };

@@ -954,21 +954,14 @@ body {
 .form-login-card li input:focus {
   box-shadow: 1px 1px 10px 3px rgba(132, 173, 252, 0.431372549);
 }
-.form-login-card .name-box {
-  display: flex;
-  justify-content: space-between;
-}
-.form-login-card .name-box .surname,
-.form-login-card .name-box .name {
-  position: relative;
-  width: 48%;
-}
-.form-login-card .submit-btn {
+.form-login-card .submit-btn,
+.form-login-card .login-btn {
   width: 100%;
   height: 40px;
   background-color: #84adfc;
 }
-.form-login-card .submit-btn:hover {
+.form-login-card .submit-btn:hover,
+.form-login-card .login-btn:hover {
   background-color: #3b7af3;
 }
 
