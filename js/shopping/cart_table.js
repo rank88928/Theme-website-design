@@ -37,20 +37,21 @@ async function click_add_order() {
 
 function update_table() {
   function tr_html(item) {
-    return `<tr class="text-center border" data-index="${item.id}">
-              <td ><img src="${item.img}" class="w-16 h-16 object-cover" /></td>
-              <td class="name" >${item.name}</td>
-              <td class="price">${item.price}</td>
-              <td class="order">
-              <div class="m-quantity-selector-box">
-                <input class="reduce-btn" type="button" value="-">
-                <input class="quantity-box" type="text" value="${item.order}"  min="1">
-                <input class="plus-btn" type="button" value="+">
-              </div>
-
+    return `<tr data-index="${item.id}">
+              <td data-label="商品圖片">
+                <img src="${item.img}" class="w-16 h-16 object-cover" />
               </td>
-              <td class="subtotal">${item.subtotal}元</td>
-              <td class="delete">
+              <td class="name" data-label="商品名稱">${item.name}</td>
+              <td class="price" data-label="單價">${item.price}</td>
+              <td class="order" data-label="數量">
+                <div class="m-quantity-selector-box">
+                  <input class="reduce-btn" type="button" value="-">
+                  <input class="quantity-box" type="text" value="${item.order}"  min="1">
+                  <input class="plus-btn" type="button" value="+">
+                </div>
+              </td>
+              <td class="subtotal" data-label="小計">${item.subtotal}元</td>
+              <td class="delete" data-label="操作">
                 <button class="delete-btn">
                 <i class="fa-solid fa-trash"></i>
                 移除該商品

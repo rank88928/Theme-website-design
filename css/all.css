@@ -193,6 +193,38 @@ body {
   background-repeat: repeat;
 }
 
+.table-title {
+  text-align: center;
+  font-size: 24px;
+  background-color: #f7f3ee;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+table {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-size: 20px;
+  background-color: #fff;
+  overflow-x: auto;
+}
+table th,
+table td {
+  padding: 8px;
+  vertical-align: middle;
+}
+table th {
+  font-weight: 600;
+  border: 1px solid #dee2e6;
+}
+table td {
+  border-bottom: 1px solid #dee2e6;
+}
+table tr {
+  border: 1px solid #dee2e6;
+}
+
 .animate-fade-in-left {
   animation-name: fadeInLeft-1;
   animation-duration: 1s;
@@ -2775,39 +2807,18 @@ body {
   left: 20%;
 }
 
+@media screen and (max-width: 768px) {
+  .page-cart .main {
+    margin-top: 0;
+  }
+}
 .cart-container {
   width: 100%;
   padding-top: 24px;
   min-height: calc(100vh - 280px);
-}
-.cart-container .table-title {
-  text-align: center;
-  font-size: 24px;
-  background-color: #f7f3ee;
-  padding: 16px;
-  margin-bottom: 16px;
+  overflow-x: auto;
 }
 
-.cart-container table {
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  font-size: 20px;
-  background-color: #fff;
-}
-.cart-container table th,
-.cart-container table td {
-  padding: 8px;
-  text-align: center;
-  vertical-align: middle;
-  font-weight: 600;
-}
-.cart-container table th {
-  border: 1px solid #dee2e6;
-}
-.cart-container table td {
-  border-bottom: 1px solid #dee2e6;
-}
 .cart-container table img {
   width: 100px;
   height: 100px;
@@ -2818,22 +2829,41 @@ body {
 .cart-container table .subtotal {
   color: #fe0000;
 }
-.cart-container table .delete {
-  display: flex;
-  justify-content: center;
-  border: 0px;
-}
-.cart-container table .delete .delete-btn {
-  display: flex;
-  color: rgba(0, 18, 46, 0.7019607843);
-  flex-direction: column;
-  font-size: 12px;
-}
-.cart-container table .delete .delete-btn i {
-  font-size: 24px;
-  margin-bottom: 4px;
-}
 
+@media screen and (max-width: 768px) {
+  .cart-container table .name {
+    width: auto;
+  }
+  .cart-container table,
+  .cart-container thead,
+  .cart-container tbody,
+  .cart-container tr,
+  .cart-container th,
+  .cart-container td {
+    display: block;
+  }
+  .cart-container thead {
+    display: none;
+  }
+  .cart-container tr {
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+  }
+  .cart-container td {
+    display: flex;
+    justify-content: space-between !important;
+    padding: 10px;
+    height: 100%;
+  }
+  .cart-container td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    color: #333;
+  }
+  .total_amount-box {
+    padding: 10px;
+  }
+}
 .cart-container table .order {
   height: 100%;
   border-bottom: 0px;
@@ -2853,6 +2883,22 @@ body {
   margin: 0px;
   border: 0px;
   text-align: center;
+}
+
+.cart-container table .delete {
+  display: flex;
+  justify-content: center;
+  border: 0px;
+}
+.cart-container table .delete .delete-btn {
+  display: flex;
+  color: rgba(0, 18, 46, 0.7019607843);
+  flex-direction: column;
+  font-size: 12px;
+}
+.cart-container table .delete .delete-btn i {
+  font-size: 24px;
+  margin-bottom: 4px;
 }
 
 .empty-cart td {
@@ -2899,6 +2945,19 @@ body {
   background-color: #ff9556;
 }
 
+@media screen and (max-width: 992px) {
+  .page-space .main .options-container {
+    width: 30%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .page-space .main {
+    flex-direction: column;
+  }
+  .page-space .main .options-container {
+    width: 100%;
+  }
+}
 .page-space .data-container {
   width: 100%;
   padding: 24px 0 60px 0;
@@ -2908,83 +2967,11 @@ body {
   display: none;
 }
 
-.order-container .table-title {
-  text-align: center;
-  font-size: 24px;
-  background-color: #f7f3ee;
-  padding: 16px;
-  margin-bottom: 16px;
-}
-
 .order-container {
   font-size: 16px;
 }
-.order-container table {
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  font-size: 20px;
-  background-color: #fff;
-}
-.order-container table th,
 .order-container table td {
-  padding: 8px;
-  text-align: center;
-  vertical-align: middle;
-  font-weight: 600;
-}
-.order-container table th {
-  border: 1px solid #dee2e6;
-}
-.order-container table td {
-  border-bottom: 1px solid #dee2e6;
   font-weight: 400;
-}
-.order-container table img {
-  width: 100px;
-  height: 100px;
-}
-.order-container table .name {
-  width: 40%;
-}
-.order-container table .subtotal {
-  color: #fe0000;
-}
-.order-container table .delete {
-  display: flex;
-  justify-content: center;
-  border: 0px;
-}
-.order-container table .delete .delete-btn {
-  display: flex;
-  color: rgba(0, 18, 46, 0.7019607843);
-  flex-direction: column;
-  font-size: 12px;
-}
-.order-container table .delete .delete-btn i {
-  font-size: 24px;
-  margin-bottom: 4px;
-}
-
-.cart-container table .order {
-  height: 100%;
-  border-bottom: 0px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.cart-container table .order .m-quantity-selector-box {
-  display: flex;
-  border: 1px solid #dee2e6;
-  height: 36px;
-}
-.cart-container table .order .m-quantity-selector-box .reduce-btn,
-.cart-container table .order .m-quantity-selector-box .plus-btn,
-.cart-container table .order .m-quantity-selector-box .quantity-box {
-  border-radius: 0px;
-  margin: 0px;
-  border: 0px;
-  text-align: center;
 }
 
 .empty-cart td {
@@ -3036,6 +3023,14 @@ body {
   margin: 4px 0;
 }
 
+@media screen and (max-width: 768px) {
+  .detailed-box .schedule {
+    font-size: 12px;
+  }
+  .detailed-box .schedule .item {
+    height: auto;
+  }
+}
 .step {
   width: 32px;
   height: 32px;
