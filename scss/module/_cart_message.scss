@@ -1,4 +1,4 @@
-.status-box {
+.m-status-box {
   position: fixed;
   display: flex;
   justify-content: flex-start;
@@ -11,7 +11,7 @@
   flex-direction: column-reverse;
 }
 
-.status {
+.m-status {
   display: flex;
   flex-wrap: wrap;
   width: 95%;
@@ -33,7 +33,7 @@
   }
 }
 
-.status::after {
+.m-status::after {
   content: "";
   position: absolute;
   left: 0;
@@ -50,11 +50,11 @@
   }
 }
 
-.status div {
+.m-status div {
   width: 100%;
   font-size: 24px;
   margin-left: 10px;
-
+  z-index: 99;
   .fa-circle-check {
     color: #49bc6c;
     margin-right: 10px;
