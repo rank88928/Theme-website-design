@@ -1,18 +1,5 @@
-import { register_user, login_user } from "../auth/user.js";
+import { login_user } from "../auth/user.js";
 import { verify_id } from "../auth/user.js";
-//用戶資料
-let user = {
-  login_form: {
-    email: "",
-    password: "",
-  },
-  signup_form: {
-    email: "",
-    password: "",
-  },
-};
-let login_btn = document.querySelector(".login-btn");
-login_btn.addEventListener("click", click_login);
 
 function click_login() {
   let login_email = document.querySelector("#login-email");
@@ -25,6 +12,9 @@ function click_login() {
 
   login_user(user);
 }
+
+let login_btn = document.querySelector(".login-btn");
+login_btn.addEventListener("click", click_login);
 
 // 登入開關
 let login_close_btn = document.querySelector(".login-close-btn");
@@ -60,20 +50,19 @@ form_tab_btn.forEach(function (btn, i) {
   });
 });
 
-// 輸入框輸入時效果
-// form_input = document.querySelectorAll(".m_login_box input");
-// form_label = document.querySelectorAll(".m_login_box label");
+// 輸入框有值 提示下浮
+let form_input = document.querySelectorAll(".m_login_box input");
+let form_label = document.querySelectorAll(".m_login_box label");
 
-// form_input.forEach(function (input, i) {
-//   input.addEventListener("input", function () {
-//     if (input.value === "") {
-//       form_label[i].classList.remove("has-content");
-//     } else {
-//       form_label[i].classList.add("has-content");
-//     }
-//   });
-// });
-// 改成監聽
+form_input.forEach(function (input, i) {
+  input.addEventListener("input", function () {
+    if (input.value === "") {
+      form_label[i].classList.remove("has-content");
+    } else {
+      form_label[i].classList.add("has-content");
+    }
+  });
+});
 
 //rwd選單開關
 let menu_btn = document.querySelector(".menu-btn");

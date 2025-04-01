@@ -23,7 +23,9 @@ function shopping_card_html(item) {
               <p class="txt-name">${item.name}</p>
               <p class="txt-qty">訂購數量:${item.order}</p>
           </div>
-          <button class="remove-shopping">移除</button>
+          <button class="remove-shopping">
+            <i class="fa-solid fa-trash"></i>
+          </button>
       </div>`;
 }
 
