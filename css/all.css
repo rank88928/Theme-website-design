@@ -1139,7 +1139,7 @@ body {
   position: relative;
 }
 
-.status-box {
+.m-status-box {
   position: fixed;
   display: flex;
   justify-content: flex-start;
@@ -1153,7 +1153,7 @@ body {
   z-index: -99;
 }
 
-.status {
+.m-status {
   display: flex;
   flex-wrap: wrap;
   width: 95%;
@@ -1169,12 +1169,12 @@ body {
   position: relative;
   flex-shrink: 0;
 }
-.status p {
+.m-status p {
   font-size: 18px;
   margin-left: 20px;
 }
 
-.status::after {
+.m-status::after {
   content: "";
   position: absolute;
   left: 0;
@@ -1190,16 +1190,16 @@ body {
     width: 0;
   }
 }
-.status div {
+.m-status div {
   width: 100%;
   font-size: 24px;
   margin-left: 10px;
 }
-.status div .fa-circle-check {
+.m-status div .fa-circle-check {
   color: #49bc6c;
   margin-right: 10px;
 }
-.status div .fa-circle-xmark {
+.m-status div .fa-circle-xmark {
   color: #f25959;
   margin-right: 10px;
 }
@@ -2897,4 +2897,167 @@ body {
 
 .order-btn:hover {
   background-color: #ff9556;
+}
+
+.page-space .data-container {
+  width: 100%;
+  padding: 24px 0 60px 0;
+  min-height: calc(100vh - 280px);
+}
+.page-space .data-container .cart-container {
+  display: none;
+}
+
+.order-container .table-title {
+  text-align: center;
+  font-size: 24px;
+  background-color: #f7f3ee;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.order-container {
+  font-size: 16px;
+}
+.order-container table {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-size: 20px;
+  background-color: #fff;
+}
+.order-container table th,
+.order-container table td {
+  padding: 8px;
+  text-align: center;
+  vertical-align: middle;
+  font-weight: 600;
+}
+.order-container table th {
+  border: 1px solid #dee2e6;
+}
+.order-container table td {
+  border-bottom: 1px solid #dee2e6;
+  font-weight: 400;
+}
+.order-container table img {
+  width: 100px;
+  height: 100px;
+}
+.order-container table .name {
+  width: 40%;
+}
+.order-container table .subtotal {
+  color: #fe0000;
+}
+.order-container table .delete {
+  display: flex;
+  justify-content: center;
+  border: 0px;
+}
+.order-container table .delete .delete-btn {
+  display: flex;
+  color: rgba(0, 18, 46, 0.7019607843);
+  flex-direction: column;
+  font-size: 12px;
+}
+.order-container table .delete .delete-btn i {
+  font-size: 24px;
+  margin-bottom: 4px;
+}
+
+.cart-container table .order {
+  height: 100%;
+  border-bottom: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cart-container table .order .m-quantity-selector-box {
+  display: flex;
+  border: 1px solid #dee2e6;
+  height: 36px;
+}
+.cart-container table .order .m-quantity-selector-box .reduce-btn,
+.cart-container table .order .m-quantity-selector-box .plus-btn,
+.cart-container table .order .m-quantity-selector-box .quantity-box {
+  border-radius: 0px;
+  margin: 0px;
+  border: 0px;
+  text-align: center;
+}
+
+.empty-cart td {
+  padding: 24px;
+  border: 1px solid #dee2e6;
+  height: 30vh;
+}
+.empty-cart td .empty-text {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.empty-cart td .empty-text p {
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.order-tbody .details-row,
+.order-tbody .details-row td {
+  padding: 0;
+}
+.order-tbody .details-row .detailed-tbody tr td,
+.order-tbody .details-row td .detailed-tbody tr td {
+  padding: 8px;
+}
+
+.detailed-box {
+  width: 100%;
+  background-color: rgb(235, 245, 255);
+  padding: 16px 16px 40px 16px;
+}
+.detailed-box .schedule {
+  display: flex;
+  background-color: #fff;
+  padding: 8px;
+  justify-content: space-around;
+  font-size: 16px;
+  color: #409eff;
+  margin-bottom: 8px;
+}
+.detailed-box .schedule .item {
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.detailed-box .schedule .item span {
+  margin: 4px 0;
+}
+
+.step {
+  width: 32px;
+  height: 32px;
+  padding: 6px;
+  border: 2px solid #409eff;
+  border-radius: 50%;
+}
+
+.state-gray {
+  color: rgb(200, 201, 204);
+}
+.state-gray .step {
+  border: 2px solid rgb(200, 201, 204);
+}
+
+.state-green {
+  color: #67c23a;
+}
+.state-green .step {
+  border: 2px solid #67c23a;
+}
+
+.logout-btn {
+  margin-top: auto !important;
 }/*# sourceMappingURL=all.css.map */

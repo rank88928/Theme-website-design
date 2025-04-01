@@ -2,14 +2,14 @@ export { prompt_message, message };
 
 let body = document.querySelector("body");
 let div = document.createElement("div");
-div.classList.add("status-box");
+div.classList.add("m-status-box");
 body.appendChild(div);
 
-let box = document.querySelector(".status-box");
+let box = document.querySelector(".m-status-box");
 
 function create(point, text) {
   let item = document.createElement("div");
-  item.classList.add("status");
+  item.classList.add("m-status");
   item.innerHTML = `<div>${point}</div>
                     <p>${text}</p>`;
   box.appendChild(item);

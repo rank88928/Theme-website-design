@@ -1,7 +1,4 @@
-import { get_all_data, get_total_count, get_single_data, add_data, delete_data, update_data } from "./firebase_api.js";
-// import {  delay_time } from "@/utils/utils.js";
-// import { product_api } from "./firebase_product_api.js";
-
+import { get_all_data, get_single_data, add_data, update_data } from "./firebase_api.js";
 import * as firebase from "./firebase_config.js";
 let api = firebase.firestore_api;
 const path = "order_data";
@@ -28,11 +25,10 @@ async function compare_db_index(order_log) {
 
 async function fill_basic_info(builder) {
   //這裡有bug 字串有"" firebase又會補一組 後臺跟資料庫渲染跟紀錄會出問題
-
-  let nsw_builder = builder.slice(1, -1);
+  let new_builder = builder.slice(1, -1);
   let data = {
     order_id: -1,
-    builder: nsw_builder,
+    builder: new_builder,
     build_time: api.serverTimestamp(),
   };
 
@@ -90,7 +86,6 @@ function format_data(data) {
 }
 
 async function generate_product_content(arr, data) {
-  // let index = arr.map((item) => item.id);
   let processed_data = [];
   let product_data = [];
   try {
@@ -132,30 +127,6 @@ function compute_order_total_price(arr) {
   return total_price;
 }
 
-async function change_state(raw_state, new_state, id) {
-  let data = await get_single_data(path, id);
-  let schedule = data.order_details.schedule;
-
-  if (schedule.status !== raw_state) {
-    return;
-  }
-  generate_state_log(schedule.time_line, new_state);
-
-  update_data(path, id, {
-    "order_details.schedule": {
-      status: new_state,
-      time_line: schedule.time_line,
-    },
-  });
-}
-
-async function get_format_item(id) {
-  let data = await get_single_data(path, id);
-  let arr_data = format_data([data]); //格式處理方式為數組
-  arr_data[0].key = id;
-  return arr_data[0];
-}
-
 async function add_order(builder, order_data, display_data) {
   let new_data = {
     order_details: {},
@@ -174,39 +145,14 @@ async function add_order(builder, order_data, display_data) {
   }
 }
 
-// let order_api = {
-//   add_order: async function (builder, order_data) {
-//     let new_data = {
-//       order_details: {},
-//     };
-
-//     try {
-//       new_data.basic = await fill_basic_info(builder);
-//       new_data.order_details.schedule = init_schedule();
-//       new_data.order_details.product_content = await generate_product_content(order_data);
-//       new_data.order_details.total_price = compute_order_total_price(new_data.order_details.product_content);
-
-//       await add_data(path, new_data);
-//     } catch (error) {
-//       console.error("建立訂單失敗" + error);
-//       throw error;
-//     }
-//   },
-
-//   get_all_order_data: async function () {
-//     try {
-//       let data = await get_all_data(path);
-//       return format_data(data);
-//     } catch (error) {
-//       console.error(error);
-//     }
-//   },
-
-//   get_order_data: async function (id) {
-//     let data = await get_single_data(path, id);
-
-//     return data;
-//   },
+async function get_all_order_data() {
+  try {
+    let data = await get_all_data(path);
+    return format_data(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
 
 //firebase時間戳記轉為UTC+8
 function convert_firebase_timestamp_to_UTC8(timestamp) {
@@ -245,4 +191,4 @@ function convert_firebase_timestamp_to_UTC8(timestamp) {
   }
 }
 
-export { add_order };
+export { add_order, get_all_order_data };

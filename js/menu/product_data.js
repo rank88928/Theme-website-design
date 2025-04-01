@@ -1,7 +1,7 @@
 import { get_isListed_product_data } from "../api/firebase_product_api.js";
 import "../shopping/cart_box.js";
 let card_content = document.querySelector(".card-container");
-let product_data = [];
+let product_data;
 let display_data = [];
 let current_type = "全部";
 let card_config = {
@@ -56,6 +56,8 @@ function ui_update() {
 
 async function menu_card() {
   let all_product_data = await get_isListed_product_data();
+  product_data = all_product_data; //邏輯重複 有空簡化
+  //資料已改成統一取得
   display_data = select_recommendations_data(all_product_data);
 
   ui_update();
@@ -77,6 +79,7 @@ function click_type(key) {
       return item.type === key;
     });
   }
+
   current_type = key;
   ui_update();
 }

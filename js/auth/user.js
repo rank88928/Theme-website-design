@@ -125,32 +125,17 @@ async function get_user_data() {
   user_data.role = data.role;
 }
 
-// export let useUserStore = defineStore('user', {
-//   state: () => ({
-//
-//     //用戶登出 清除uid紀錄
-//     logout() {
-//       this.uid = '';
-//       localStorage.removeItem('uid');
-//       window.location.reload();
-//     },
+//合法uid驗證
+// verify_uid: async function () {
+//   let user_data = await user_api.verify_uid(this.uid);
 
-//     //合法uid驗證
-//     verify_uid: async function () {
-//       let user_data = await user_api.verify_uid(this.uid);
-
-//       if (user_data) {
-//         this.data.email = user_data.email;
-//         this.data.role = user_data.role;
-//         return true;
-//       } else {
-//         return false;
-//       }
-//     },
-
-//
-//   },
-// });
+//   if (user_data) {
+//     this.data.email = user_data.email;
+//     this.data.role = user_data.role;
+//     return true;
+//   } else {
+//     return false;
+//   }
 
 function verify_id() {
   let id = localStorage.getItem("uid");
@@ -161,4 +146,10 @@ function verify_id() {
   }
 }
 
-export { register_user, login_user, user_data, verify_id };
+//登出清除uid紀錄
+function logout() {
+  localStorage.removeItem("uid");
+  window.location.href = "index.html";
+}
+
+export { register_user, login_user, user_data, verify_id, logout };

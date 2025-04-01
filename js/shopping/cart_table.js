@@ -10,24 +10,29 @@ let tbody = document.querySelector("tbody");
 let total_order_amount;
 let order_btn = document.querySelector(".order-btn");
 
-function click_add_order() {
+async function click_add_order() {
   let uid = verify_id();
 
-  if (uid) {
-    let order_data = display_data.map((item) => {
-      return {
-        id: item.key,
-        order_sum: item.order,
-      };
-    });
-
-    add_order(uid, order_data, display_data);
-    localStorage.removeItem("shopping_records");
-    ui_update();
-  } else {
+  if (!uid) {
     console.log("未登入");
     return;
   }
+
+  let order_data = display_data.map((item) => {
+    return {
+      id: item.key,
+      order_sum: item.order,
+    };
+  });
+
+  try {
+    await add_order(uid, order_data, display_data);
+  } catch (error) {
+    return;
+  }
+
+  localStorage.removeItem("shopping_records");
+  ui_update();
 }
 
 function update_table() {
