@@ -9,6 +9,7 @@
   overflow: hidden;
   flex-wrap: nowrap;
   flex-direction: column-reverse;
+  z-index: -10;
 }
 
 .m-status {
@@ -26,7 +27,7 @@
   align-items: center;
   position: relative;
   flex-shrink: 0;
-
+  z-index: 5;
   p {
     font-size: 18px;
     margin-left: 20px;
