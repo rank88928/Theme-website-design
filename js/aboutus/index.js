@@ -1,5 +1,6 @@
 import { load_gsap } from "../utils/gsap/loadgsap.js";
-
+import "../shopping/cart_box.js";
+import "../module/index.js";
 (async () => {
   await load_gsap();
 

@@ -1,22 +1,9 @@
 //共通
-
-// * {
-//     border: 1px solid #ff0000 !important;
-// }
-
-// * {
-//     scroll-behavior: smooth;
-// }
-
 *,
 *::after,
 *::before {
   box-sizing: border-box;
 }
-
-// * {
-//     transition: all 0.3s ease;
-// }
 
 html {
   font-size: 16px;
@@ -44,8 +31,7 @@ a {
   text-decoration: none;
 }
 
-//專案
-
+//該專案
 .main {
   max-width: 1200px;
   margin: auto;
@@ -67,6 +53,7 @@ body {
   background-image: url("/img/background-wall-1.gif");
   background-repeat: repeat;
 }
+
 //表格
 .table-title {
   text-align: center;
@@ -99,5 +86,81 @@ table {
   }
   tr {
     border: 1px solid #dee2e6;
+  }
+}
+
+//骨架屏
+
+.skeleton-screen {
+  padding: 24px;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #eee 25%, #f5f5f5 50%, #eee 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  p {
+    width: 100%;
+    font-size: 24px;
+    text-align: center;
+    margin-top: 16px;
+    color: #4babdb;
+  }
+  .skeleton-loader {
+    width: 50px;
+    height: 50px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 8px solid #4babdb;
+    animation: l20-1 0.8s infinite linear alternate, l20-2 1.6s infinite linear;
+  }
+  @keyframes l20-1 {
+    0% {
+      clip-path: polygon(50% 50%, 0 0, 50% 0%, 50% 0%, 50% 0%, 50% 0%, 50% 0%);
+    }
+    12.5% {
+      clip-path: polygon(50% 50%, 0 0, 50% 0%, 100% 0%, 100% 0%, 100% 0%, 100% 0%);
+    }
+    25% {
+      clip-path: polygon(50% 50%, 0 0, 50% 0%, 100% 0%, 100% 100%, 100% 100%, 100% 100%);
+    }
+    50% {
+      clip-path: polygon(50% 50%, 0 0, 50% 0%, 100% 0%, 100% 100%, 50% 100%, 0% 100%);
+    }
+    62.5% {
+      clip-path: polygon(50% 50%, 100% 0, 100% 0%, 100% 0%, 100% 100%, 50% 100%, 0% 100%);
+    }
+    75% {
+      clip-path: polygon(50% 50%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 50% 100%, 0% 100%);
+    }
+    100% {
+      clip-path: polygon(50% 50%, 50% 100%, 50% 100%, 50% 100%, 50% 100%, 50% 100%, 0% 100%);
+    }
+  }
+  @keyframes l20-2 {
+    0% {
+      transform: scaleY(1) rotate(0deg);
+    }
+    49.99% {
+      transform: scaleY(1) rotate(135deg);
+    }
+    50% {
+      transform: scaleY(-1) rotate(0deg);
+    }
+    100% {
+      transform: scaleY(-1) rotate(-135deg);
+    }
+  }
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
   }
 }

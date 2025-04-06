@@ -1,6 +1,6 @@
 import { get_all_order_data } from "../api/firebase_order_api.js";
 import { verify_id, logout } from "../auth/user.js";
-
+import "../shopping/cart_box.js";
 let uid;
 
 function page_verify() {
@@ -26,12 +26,17 @@ async function get_data() {
     return item.basic.builder === new_uid;
   });
   display_data = user_order_data;
-  update_table();
+
+  if (display_data.length === 0) {
+    update_empty_table();
+  } else {
+    update_table();
+  }
 }
 
 logout_btn.addEventListener("click", logout);
 
-// 展開行
+// 點擊展開行
 tbody.addEventListener("click", function (event) {
   let row = event.target.closest(".main-row");
   if (!row) return;
@@ -41,6 +46,18 @@ tbody.addEventListener("click", function (event) {
     details_row.style.display = details_row.style.display === "none" ? "table-row" : "none";
   }
 });
+
+function update_empty_table() {
+  let buffer_html = `
+  <tr class="empty-cart">
+    <td colspan="4">
+      <div class="empty-text">
+        <p>當前沒有訂單</p>
+      </div>
+    </td>
+  </tr>`;
+  tbody.innerHTML = buffer_html;
+}
 
 //生成html結構
 function update_table() {

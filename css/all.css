@@ -225,6 +225,79 @@ table tr {
   border: 1px solid #dee2e6;
 }
 
+.skeleton-screen {
+  padding: 24px;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #eee 25%, #f5f5f5 50%, #eee 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.skeleton-screen p {
+  width: 100%;
+  font-size: 24px;
+  text-align: center;
+  margin-top: 16px;
+  color: #4babdb;
+}
+.skeleton-screen .skeleton-loader {
+  width: 50px;
+  height: 50px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 8px solid #4babdb;
+  animation: l20-1 0.8s infinite linear alternate, l20-2 1.6s infinite linear;
+}
+@keyframes l20-1 {
+  0% {
+    clip-path: polygon(50% 50%, 0 0, 50% 0%, 50% 0%, 50% 0%, 50% 0%, 50% 0%);
+  }
+  12.5% {
+    clip-path: polygon(50% 50%, 0 0, 50% 0%, 100% 0%, 100% 0%, 100% 0%, 100% 0%);
+  }
+  25% {
+    clip-path: polygon(50% 50%, 0 0, 50% 0%, 100% 0%, 100% 100%, 100% 100%, 100% 100%);
+  }
+  50% {
+    clip-path: polygon(50% 50%, 0 0, 50% 0%, 100% 0%, 100% 100%, 50% 100%, 0% 100%);
+  }
+  62.5% {
+    clip-path: polygon(50% 50%, 100% 0, 100% 0%, 100% 0%, 100% 100%, 50% 100%, 0% 100%);
+  }
+  75% {
+    clip-path: polygon(50% 50%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 50% 100%, 0% 100%);
+  }
+  100% {
+    clip-path: polygon(50% 50%, 50% 100%, 50% 100%, 50% 100%, 50% 100%, 50% 100%, 0% 100%);
+  }
+}
+@keyframes l20-2 {
+  0% {
+    transform: scaleY(1) rotate(0deg);
+  }
+  49.99% {
+    transform: scaleY(1) rotate(135deg);
+  }
+  50% {
+    transform: scaleY(-1) rotate(0deg);
+  }
+  100% {
+    transform: scaleY(-1) rotate(-135deg);
+  }
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
 .animate-fade-in-left {
   animation-name: fadeInLeft-1;
   animation-duration: 1s;
@@ -314,15 +387,17 @@ table tr {
 }
 
 .shopping-i-btn-1 {
-  background-color: #fcde1d;
-  border-radius: 30px;
-  padding: 10px 30px;
+  background-color: #ff9556;
+  border: 1px solid #ff9556;
+  border-radius: 10px;
   color: #ffffff;
+  padding: 10px;
   text-align: center;
 }
 .shopping-i-btn-1:hover {
-  color: #5f95ff;
-  background-color: #ffed79;
+  background-color: #ff6000;
+  border: 1px solid #ff6000;
+  color: #2600ff;
 }
 
 .icon-right {
@@ -520,6 +595,26 @@ table tr {
   color: rgb(247, 199, 77);
 }
 
+.login-open {
+  position: relative;
+}
+.login-open span {
+  position: absolute;
+  display: none;
+  top: 60px;
+  left: 20px;
+  font-size: 16px;
+  width: 160px;
+  background-color: #ffffff;
+  color: #000;
+  line-height: 16px;
+  padding: 8px;
+  text-align: left;
+}
+.login-open:hover span {
+  display: block;
+}
+
 @media screen and (max-width: 768px) {
   .user-box {
     width: 100%;
@@ -530,6 +625,10 @@ table tr {
   }
   .user-box .icon i {
     font-size: 40px;
+  }
+  .login-open span {
+    top: 36px;
+    left: 20px;
   }
 }
 .anchor {
@@ -613,6 +712,40 @@ table tr {
   transform: rotate(180deg);
 }
 
+body {
+  overflow-y: scroll;
+}
+
+.preload-container {
+  width: 100vw;
+  height: 100vh;
+  background-color: #eaf7fc;
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+  font-family: sans-serif;
+  font-size: 30px;
+  animation: l1 1s linear infinite alternate;
+}
+
+.loader:before {
+  content: "Loading...";
+}
+
+@keyframes l1 {
+  to {
+    opacity: 0;
+  }
+}
 .slick-slider {
   position: relative;
   display: block;
@@ -987,13 +1120,13 @@ table tr {
   color: #ff0000;
 }
 
-.form-login-card .submit-btn,
+.form-login-card .register-btn,
 .form-login-card .login-btn {
   width: 100%;
   padding: 8px;
   background-color: #84adfc;
 }
-.form-login-card .submit-btn:hover,
+.form-login-card .register-btn:hover,
 .form-login-card .login-btn:hover {
   background-color: #3b7af3;
 }
@@ -1178,35 +1311,31 @@ table tr {
   justify-content: flex-start;
   right: 10px;
   bottom: 0;
-  width: 20%;
-  height: 80vh;
   overflow: hidden;
   flex-wrap: nowrap;
   flex-direction: column-reverse;
+  z-index: 999;
+  pointer-events: none;
 }
-
-.m-status {
+.m-status-box .m-status {
   display: flex;
+  align-items: center;
   flex-wrap: wrap;
-  width: 95%;
+  flex-shrink: 0;
+  max-width: 200px;
   height: 80px;
   background: #fff;
-  font-weight: 500;
   margin: 5px;
   padding: 5px;
   border-radius: 10px;
   box-shadow: 0 0 5px rgba(0, 43, 255, 0.3);
-  display: flex;
-  align-items: center;
   position: relative;
-  flex-shrink: 0;
 }
-.m-status p {
+.m-status-box .m-status p {
   font-size: 18px;
   margin-left: 20px;
 }
-
-.m-status::after {
+.m-status-box .m-status::after {
   content: "";
   position: absolute;
   left: 0;
@@ -1217,6 +1346,15 @@ table tr {
   animation: anim 3s linear forwards;
 }
 
+@media screen and (max-width: 768px) {
+  .m-status-box {
+    right: 10px;
+    bottom: auto;
+    max-height: 180px;
+    top: 0;
+    overflow: hidden;
+  }
+}
 @keyframes anim {
   100% {
     width: 0;
@@ -1226,7 +1364,6 @@ table tr {
   width: 100%;
   font-size: 24px;
   margin-left: 10px;
-  z-index: 99;
 }
 .m-status div .fa-circle-check {
   color: #49bc6c;
@@ -1525,8 +1662,7 @@ table tr {
 }
 .product-card .txt .price a {
   padding: 0;
-  width: 40px;
-  height: 40px;
+  width: 60px;
 }
 
 .product-card .img {

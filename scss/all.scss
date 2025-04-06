@@ -15,7 +15,8 @@
 @import "layout/accordion";
 
 //Module(模組)
-@import "module/carousel"; //第三方套件-slick輪播
+@import "module/page_load";
+@import "module/carousel"; //套件-slick輪播
 @import "module/nav_shopping_box";
 @import "module/login_box";
 @import "module/quantity_selector_box";

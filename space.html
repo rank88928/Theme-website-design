@@ -18,7 +18,7 @@
     <div class="main">
       <div class="options-container">
         <h2>個人中心</h2>
-        <button class="type-btn">我的購物車</button>
+        <!-- <button class="type-btn">我的購物車</button> -->
         <button class="type-btn">我的訂單</button>
         <button class="type-btn logout-btn">登出</button>
       </div>
@@ -65,8 +65,9 @@
             <tbody class="order-tbody">
               <tr class="empty-cart">
                 <td colspan="4">
-                  <div class="empty-text">
-                    <p>當前沒有訂單</p>
+                  <div class="skeleton-screen">
+                    <div class="skeleton-loader"></div>
+                    <p>資料載入中</p>
                   </div>
                 </td>
               </tr>

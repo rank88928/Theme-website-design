@@ -22,7 +22,10 @@
 
       <div class="user-box">
         <button class="icon menu-btn"><i class="fa-solid fa-bars"></i></button>
-        <button class="icon login-open"><i class="fa-solid fa-user"></i></button>
+        <button class="icon login-open">
+          <i class="fa-solid fa-user"> </i>
+          <span class="login-status-tooltip">尚未登入</span>
+        </button>
 
         <a href="cart_1.html" class="icon nav-shopping">
           <i class="fa-solid fa-cart-shopping"></i>
@@ -50,15 +53,15 @@
               <ul>
                 <li>
                   <label>電子信箱<span>*必填</span></label>
-                  <input type="email" required autocomplete="off" />
+                  <input id="register-email" type="email" required autocomplete="off" />
                 </li>
                 <li>
                   <label>設定密碼<span>*必填</span></label>
-                  <input type="password" required autocomplete="off" />
+                  <input id="register-password" type="password" required autocomplete="off" />
                 </li>
               </ul>
 
-              <button type="button" class="submit-btn">開始使用</button>
+              <button type="button" class="register-btn">開始使用</button>
             </form>
           </div>
 

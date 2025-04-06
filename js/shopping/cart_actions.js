@@ -37,6 +37,7 @@ function delete_cart(id) {
   shopping_data.splice(index, 1);
   store_local_shopping_records("shopping_records", shopping_data);
   update_cart_box();
+
   message.success("刪除 " + get_name(id) + " 成功");
 }
 

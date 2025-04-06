@@ -1,4 +1,5 @@
 import { get_isListed_product_data } from "../api/firebase_product_api.js";
+import { load_finish } from "../module/page_load.js";
 let card_content = document.querySelector("#card_content");
 let recommend_id = [9, 10, 12, 6, 5, 7, 8, 4, 1]; //展示序列
 
@@ -27,7 +28,7 @@ function card_html(item) {
                       <p>${item.product_text}</p>
                       <div class="price">
                           <span>NT$:${item.price}</span>
-                          <a href="" class="shopping-i-btn-1"><i class="fa-solid fa-cart-shopping icon "></i></a>
+                          <a href="menu.html" class="shopping-i-btn-1"><i class="fa-solid fa-cart-shopping icon "></i></a>
                       </div>
                   </div>
               </div>
@@ -43,6 +44,8 @@ async function home_page_recommendation_card() {
     buffer_html += card_html(itme);
   });
   card_content.innerHTML = buffer_html;
+
+  load_finish();
 }
 
 home_page_recommendation_card();

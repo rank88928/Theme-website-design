@@ -77,15 +77,16 @@
 
 // 首頁 商品列購物車
 .shopping-i-btn-1 {
-  background-color: #fcde1d;
-  border-radius: 30px;
-  padding: 10px 30px;
+  background-color: #ff9556;
+  border: 1px solid #ff9556;
+  border-radius: 10px;
   color: #ffffff;
+  padding: 10px;
   text-align: center;
-
   &:hover {
-    color: #5f95ff;
-    background-color: #ffed79;
+    background-color: #ff6000;
+    border: 1px solid #ff6000;
+    color: #2600ff;
   }
 }
 

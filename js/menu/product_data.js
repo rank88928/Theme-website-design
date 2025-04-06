@@ -56,7 +56,7 @@ function ui_update() {
 
 async function menu_card() {
   let all_product_data = await get_isListed_product_data();
-  product_data = all_product_data; //邏輯重複 有空簡化
+  product_data = all_product_data; //邏輯重複 可簡化
   //資料已改成統一取得
   display_data = select_recommendations_data(all_product_data);
 

@@ -4,11 +4,11 @@ import { delete_cart, get_complete_cart_data } from "../shopping/cart_actions.js
   let shopping_box = document.querySelector(".shopping-item");
 
   shopping_box.addEventListener("click", function (e) {
-    let target = e.target;
-    if (target.classList.contains("remove-shopping")) {
-      let id = target.parentElement.dataset.index;
-      delete_cart(id);
-    }
+    let card = e.target.closest("[data-index]");
+    if (!card) return;
+
+    let id = card.dataset.index;
+    delete_cart(id);
   });
   update_cart_box();
 })();

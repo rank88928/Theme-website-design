@@ -1,3 +1,4 @@
+import "../module/page_load.js";
 import "./carousel_bk.js";
 import "./rwd_carousel_introduce.js";
 import "./card_specify_bk.js";
