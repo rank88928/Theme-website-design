@@ -105,22 +105,6 @@
   }
 }
 
-.empty-cart td {
-  padding: 24px;
-  border: 1px solid #dee2e6;
-  height: 30vh;
-  .empty-text {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    p {
-      width: 100%;
-      margin-bottom: 24px;
-    }
-  }
-}
-
 .total_amount-box {
   display: flex;
   width: 100%;
@@ -142,6 +126,7 @@
 .go-menu {
   width: 200px;
   margin: 0;
+  flex-grow: 0;
 }
 .order-btn:hover {
   background-color: #ff9556;

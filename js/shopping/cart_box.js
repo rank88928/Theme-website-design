@@ -1,7 +1,8 @@
 import { delete_cart, get_complete_cart_data } from "../shopping/cart_actions.js";
 
-(function () {
+document.addEventListener("DOMContentLoaded", () => {
   let shopping_box = document.querySelector(".shopping-item");
+  if (!shopping_box) return;
 
   shopping_box.addEventListener("click", function (e) {
     let card = e.target.closest("[data-index]");
@@ -10,8 +11,9 @@ import { delete_cart, get_complete_cart_data } from "../shopping/cart_actions.js
     let id = card.dataset.index;
     delete_cart(id);
   });
+
   update_cart_box();
-})();
+});
 
 function shopping_card_html(item) {
   return `

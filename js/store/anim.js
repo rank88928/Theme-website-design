@@ -144,9 +144,10 @@ function fade_in_from_bottom(target) {
   let timeline = gsap.timeline({
     scrollTrigger: {
       trigger: target.querySelector("h2"),
-      start: "bottom 50%",
+      start: "top 80%",
       end: "bottom 30%",
       scrub: false,
+      // markers: true,
     },
   });
 

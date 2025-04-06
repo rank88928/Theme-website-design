@@ -1,6 +1,9 @@
 import { load_gsap } from "../utils/gsap/loadgsap.js";
 import "../shopping/cart_box.js";
 import "../module/index.js";
+
+let anim_enable_size = 768;
+
 (async () => {
   await load_gsap();
 
@@ -116,238 +119,59 @@ import "../module/index.js";
   })();
 })();
 
-//  let animation_config = {
-//     title_id: [],
-//   };
-
-//標題文字描邊
-// function title_text_stroke_animation(title) {
-//   let path = title.querySelectorAll("path");
-//   return gsap.fromTo(
-//     path,
-//     {
-//       strokeDasharray: 250,
-//       strokeDashoffset: 250,
-//     },
-//     {
-//       strokeDashoffset: 0,
-//       duration: 1,
-//       ease: "power1.inOut",
-//       stagger: {
-//         each: 0.1, // 間隔時間
-//         from: "end",
-//       },
-//       scrollTrigger: {
-//         trigger: path[0],
-//         start: "top 80%",
-//         end: "bottom 50%",
-//         toggleActions: "play none reverse none",
-//         // markers: true,
-//         scrub: 0.1,
-//         pinSpacing: true,
-
-//         onLeaveBack: () => {
-//           gsap.to(path, {
-//             // 滾動回到頂部移除效果
-//             strokeWidth: 0.5,
-//             fill: "none",
-//           });
-//           gsap.to(title, {
-//             backgroundColor: "rgba(247, 243, 238, 0)",
-//             duration: 0.5,
-//           });
-//         },
-//       },
-//       onComplete: () => {
-//         gsap.to(
-//           path, //描邊完成後充滿字體 補上背景色塊
-//           {
-//             strokeWidth: 0,
-//             fill: "#fd8585",
-//           }
-//         );
-//         gsap.to(title, {
-//           backgroundColor: "#ffe8cb",
-//           duration: 0.5,
-//         });
-//       },
-//     }
-//   );
-// }
-
-// function title_text_stroke() {
-//   let title_all = document.querySelectorAll(".area-title");
-
-//   title_all.forEach(function (item) {
-//     let id = title_text_stroke_animation(item);
-//     animation_config.title_id.push(id);
-//   });
-// }
-// title_text_stroke();
-
-// let config = {
-//   dom: {
-//     timeline_item: document.querySelectorAll(".timeline-item"),
-//     timeline_arrow: document.querySelectorAll(".arrow"),
-//     concept_item: document.querySelectorAll(".concept-container .item"),
-//     contact: {
-//       bk: document.querySelector(".interactive-container"),
-//       people: document.querySelector(".interactive"),
-//       form_box: document.querySelector(".form-box"),
-//       form_group: document.querySelectorAll(".form-group"),
-//     },
-//   },
-// };
-
-//RWD下開關動畫
-// tool.r_toolbox.window_size.check_trigger(576, enable_gsap, disable_gsap)
-
-// function enable_gsap() {
-//     console.log('啟用')
-//     timeline_item_anim()
-// }
-
-// function disable_gsap() {
-//     console.log('禁用')
-// }
-
-// 時間軸項目
-//   function timeline_item_anim() {
-//     config.dom.timeline_item.forEach((item) => {
-//       gsap.fromTo(
-//         item,
-//         {
-//           opacity: 0,
-//           y: 50,
-//           scale: 0,
-//         },
-//         {
-//           y: 0,
-//           duration: 1,
-//           ease: "power2.out", // 緩動效果
-//           scrollTrigger: {
-//             trigger: item,
-//             // markers: true,
-//             start: "top 90%",
-//             end: "bottom 30%",
-//             toggleActions: "play none none reverse",
-
-//             onUpdate: (self) => {
-//               let progress = self.progress;
-//               let arrow = item.querySelector(".arrow");
-//               if (progress <= 0.2) {
-//                 gsap.set(item, {
-//                   scale: progress / 0.2,
-//                   opacity: progress,
-//                 });
-//                 arrow.style.display = "none";
-//               } else if (progress > 0.2 && progress <= 0.9) {
-//                 gsap.set(item, {
-//                   scale: 1,
-//                   opacity: 1,
-//                 });
-//                 arrow.style.display = "block";
-//               } else if (progress > 0.9) {
-//                 let adjustedProgress = (progress - 0.9) / 0.1;
-//                 gsap.set(item, {
-//                   scale: 1 - adjustedProgress * 0.2,
-//                   opacity: 1 - adjustedProgress,
-//                 });
-//                 arrow.style.display = "none";
-//               }
-//             },
-//           },
-//         }
-//       );
-//     });
-//   }
-
-//   //時間軸線條
-//   gsap.fromTo(
-//     ".center-line",
-//     {
-//       height: "0%",
-//     },
-//     {
-//       height: "1100px",
-//       ease: "power1.out",
-//       scrollTrigger: {
-//         trigger: ".timeline-container",
-//         scrub: true,
-//         start: "top 40%",
-//         end: "bottom 40%",
-//         toggleActions: "play none none reverse",
-//       },
-//     }
-//   );
-
-//   //理念圖塊
-//   gsap.fromTo(
-//     config.dom.concept_item,
-//     {
-//       opacity: 0,
-//       x: -200,
-//       scale: 0,
-//     },
-//     {
-//       stagger: {
-//         each: 0.5, // 間隔時間
-//         from: "start",
-//       },
-//       opacity: 1,
-//       x: 0,
-//       scale: 1,
-//       ease: "none",
-//       scrollTrigger: {
-//         trigger: config.dom.concept_item,
-//         // markers: true,
-//         start: "top 90%",
-//         end: "bottom 30%",
-//         toggleActions: "play none none reverse",
-//       },
-//     }
-//   );
-// })();
-
 let sections = document.querySelectorAll(".scroll-block");
-let currentIndex = 0;
+let current_index = 0;
 let isScrolling = false; // 防止滾動過快
+
+function debounce() {
+  setTimeout(() => {
+    isScrolling = false;
+  }, 500);
+}
+
+function sections_anim_reset() {
+  current_index = 0;
+  isScrolling = false;
+
+  sections.forEach((item) => {
+    gsap.to(item, { width: "100%" });
+  });
+}
 
 function left_changeSection() {
   if (isScrolling) return;
   isScrolling = true;
 
-  if (currentIndex >= sections.length - 1) {
+  if (current_index >= sections.length - 1) {
     isScrolling = false;
     return;
   }
 
-  gsap.to(sections[currentIndex], { width: 0 });
-  currentIndex += 1;
-
-  setTimeout(() => {
-    isScrolling = false;
-  }, 500);
+  gsap.to(sections[current_index], { width: 0 });
+  current_index += 1;
+  debounce();
 }
 
 function right_changeSection() {
   if (isScrolling) return;
   isScrolling = true;
 
-  if (currentIndex <= 0) {
+  if (current_index <= 0) {
     isScrolling = false;
     return;
   }
+  current_index -= 1;
+  gsap.to(sections[current_index], { width: "100%" });
 
-  currentIndex -= 1;
-  gsap.to(sections[currentIndex], { width: "100%" });
-
-  setTimeout(() => {
-    isScrolling = false;
-  }, 500);
+  debounce();
 }
 
 window.addEventListener("wheel", (event) => {
+  if (window.innerWidth <= anim_enable_size) {
+    sections_anim_reset();
+    return;
+  }
+
   if (event.deltaY > 0) {
     left_changeSection();
   } else {
@@ -356,15 +180,20 @@ window.addEventListener("wheel", (event) => {
 });
 
 // 監聽手勢滑動 (手機)
-let startY = 0;
-window.addEventListener("touchstart", (event) => {
-  startY = event.touches[0].clientY;
-});
-window.addEventListener("touchmove", (event) => {
-  let deltaY = startY - event.touches[0].clientY;
-  if (Math.abs(deltaY) > 50) {
-    // 避免誤觸
-    changeSection(deltaY);
-    startY = event.touches[0].clientY;
-  }
-});
+// let startY = 0;
+// window.addEventListener("touchstart", (event) => {
+//   startY = event.touches[0].clientY;
+// });
+// window.addEventListener("touchmove", (event) => {
+//   if (window.innerWidth <= anim_enable_size) {
+//     sections_anim_reset();
+//     return;
+//   }
+
+//   let deltaY = startY - event.touches[0].clientY;
+//   if (Math.abs(deltaY) > 50) {
+//     // 避免誤觸
+//     changeSection(deltaY);
+//     startY = event.touches[0].clientY;
+//   }
+// });

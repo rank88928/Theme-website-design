@@ -13,9 +13,14 @@
 }
 
 @include rwd_768_below {
+  .page-aboutus footer {
+    display: block;
+  }
   .scroll-block {
     margin: 0px;
-    height: calc(100vh - 74px);
+    height: auto;
+    position: relative;
+    overflow: auto;
   }
 }
 
@@ -138,11 +143,11 @@
   }
 }
 
-#message {
-  width: 60%;
-  height: 150px;
-  display: block;
-}
+// #message {
+//   width: 60%;
+//   height: 150px;
+//   display: block;
+// }
 
 .year-block,
 .concept-block {
@@ -160,68 +165,128 @@
     background-size: 100% 100%;
     filter: grayscale(40%);
   }
-  .year {
-    width: 5%;
-    height: 80%;
-    background-color: rgba(0, 18, 46, 0.7019607843);
-    margin: 4px;
-    padding: 8px 36px;
+}
+.year-block .year {
+  width: 5%;
+  height: 80%;
+  background-color: rgba(0, 18, 46, 0.7019607843);
+  margin: 4px;
+  padding: 8px 36px;
+  border-radius: 30px;
+  transition: 1.5s ease;
+  position: relative;
+  overflow: hidden;
 
-    border-radius: 30px;
-    transition: 1.5s ease;
-    position: relative;
-    overflow: hidden;
-    span {
-      position: absolute;
-      top: 30px;
-      left: 25px;
-      color: #ffffff;
-      writing-mode: vertical-rl;
-      text-orientation: mixed;
-      font-size: 24px;
-      display: flex;
-      align-items: center;
-      p {
-        writing-mode: horizontal-tb;
-      }
-
-      h3 {
-        margin-top: 24px;
-        font-style: italic;
-      }
+  &:hover {
+    width: 40%;
+    .content {
+      display: block;
     }
   }
-
-  .content {
-    position: relative;
-    display: none;
-    font-size: 24px;
-    margin: 60px 0 0 80px;
-    padding: 0 20px 20px 0;
+  span {
+    position: absolute;
+    top: 30px;
+    left: 25px;
     color: #ffffff;
-    h3 {
-      font-size: 36px;
-      margin-bottom: 20px;
-      font-weight: 600;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    p {
+      writing-mode: horizontal-tb;
     }
-    img {
-      top: 130%;
-      left: 40%;
-      position: absolute;
-      width: 260px;
-      height: 180px;
-      transform: rotate(12deg);
-      filter: grayscale(40%);
-      &:hover {
-        transform: rotate(0deg);
+
+    h3 {
+      margin-top: 24px;
+      font-style: italic;
+    }
+  }
+}
+
+.year-block .content {
+  position: relative;
+  display: none;
+  font-size: 24px;
+  margin: 60px 0 0 80px;
+  padding: 0 20px 20px 0;
+  color: #ffffff;
+  h3 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+  img {
+    top: 130%;
+    left: 40%;
+    position: absolute;
+    width: 260px;
+    height: 180px;
+    transform: rotate(12deg);
+    filter: grayscale(40%);
+    &:hover {
+      transform: rotate(0deg);
+    }
+  }
+}
+
+@include rwd_992_below {
+  .year {
+    span {
+      p,
+      h3 {
+        font-size: 20px;
+      }
+    }
+    .content {
+      margin: 30px 0 0 30px;
+      font-size: 16px;
+      h3 {
+        font-size: 20px;
+      }
+      img {
+        width: 160px;
+        height: 120px;
+        top: 100%;
+        left: 0%;
       }
     }
   }
 }
-.year-block .year:hover {
-  width: 40%;
-  .content {
-    display: block;
+@include rwd_768_below {
+  .year-block {
+    flex-direction: column;
+    padding: 16px 0;
+    .year {
+      display: flex;
+      flex-wrap: wrap;
+      width: 80%;
+      height: 60px;
+      &:hover {
+        width: 80%;
+        max-height: 360px;
+        height: 360px;
+      }
+      span {
+        width: 100%;
+        position: relative;
+        top: 0;
+        left: 0;
+        flex-direction: column-reverse;
+        h3 {
+          display: none;
+        }
+      }
+      .content {
+        margin: 8px 0 0 8px;
+        img {
+          position: relative;
+          top: 0;
+          left: 0;
+          margin-top: 16px;
+        }
+      }
+    }
   }
 }
 
@@ -235,7 +300,6 @@
     filter: grayscale(40%);
   }
 }
-
 //理念
 .concept-container {
   max-width: 1200px;
@@ -309,6 +373,13 @@
     justify-content: space-evenly;
     .item {
       width: 35%;
+    }
+  }
+}
+@include rwd_768_below {
+  .concept-container .item-box {
+    .item {
+      width: 60%;
     }
   }
 }

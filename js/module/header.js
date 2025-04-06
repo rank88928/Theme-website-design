@@ -55,7 +55,7 @@ login_open_btn.addEventListener("click", function () {
   if (verify_id()) {
     window.location.href = "space.html";
   } else {
-    m_login_mask.style.display = "block";
+    m_login_mask.style.display = "flex";
   }
 });
 

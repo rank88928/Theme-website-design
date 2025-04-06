@@ -8,11 +8,12 @@
   left: 0;
   z-index: 999;
   display: none;
+  justify-content: center;
 }
 
 .m_login_box {
   max-width: 600px;
-  margin: 60px auto;
+  margin: auto;
   background-color: #f8f9fa;
   border-radius: 10px;
   padding: 40px;
@@ -98,7 +99,7 @@
 
 @include rwd_576_below {
   .m_login_box {
-    margin: 10px auto;
+    margin: auto 0;
     padding: 16px;
   }
   .form-login-card {
@@ -198,4 +199,11 @@
 
 .login-line {
   background-color: #00b900;
+}
+
+//帳號相關提示
+.account-tips {
+  font-size: 12px;
+  color: #ff0000;
+  margin: 16px;
 }

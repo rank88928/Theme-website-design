@@ -24,7 +24,8 @@
 @include rwd_768_below {
   // 按鈕組定位至手機下方
   .header-content {
-    top: 85%;
+    bottom: 0%;
+    top: auto;
   }
 
   // 移除多於組件

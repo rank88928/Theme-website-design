@@ -30,22 +30,6 @@
   }
 }
 
-.empty-cart td {
-  padding: 24px;
-  border: 1px solid #dee2e6;
-  height: 30vh;
-  .empty-text {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    p {
-      width: 100%;
-      margin-bottom: 24px;
-    }
-  }
-}
-
 //展開行
 .order-tbody {
   .details-row,
