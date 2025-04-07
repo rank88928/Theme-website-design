@@ -19,7 +19,7 @@ function check_load_slick() {
 
   if (e && !slickLoaded) {
     toolbox.load_script.script_init(
-      "/slick/slick.min.js",
+      "./slick/slick.min.js",
       () => {
         slickLoaded = true; // 標記為已加載
         console.log("Slick 載入成功！");
