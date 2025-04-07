@@ -1,4 +1,4 @@
-import "/slick/slick.min.js";
+import "../slick/slick.min.js";
 
 window.addEventListener("load", slick_viewport_response);
 window.addEventListener("resize", slick_viewport_response);

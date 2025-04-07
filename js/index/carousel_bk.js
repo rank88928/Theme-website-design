@@ -1,4 +1,4 @@
-import "/slick/slick.min.js";
+import "../slick/slick.min.js";
 
 // 首頁背景輪播
 $(document).ready(function () {
