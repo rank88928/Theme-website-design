@@ -2161,15 +2161,15 @@ body {
   transition: all 0.5s ease;
 }
 .banner-box .banner-1 {
-  background-image: url("/img/banner-bk-1.jpg");
+  background-image: url("../img/banner-bk-1.jpg");
   z-index: 5;
 }
 .banner-box .banner-2 {
-  background-image: url("/img/banner-bk-2.jpg");
+  background-image: url("../img/banner-bk-2.jpg");
   z-index: 4;
 }
 .banner-box .banner-3 {
-  background-image: url("/img/banner-bk-3.jpg");
+  background-image: url("../img/banner-bk-3.jpg");
   z-index: 3;
 }
 

@@ -7,6 +7,6 @@ product_content.addEventListener("mouseover", function (e) {
     let img = element.querySelector("img");
     product_content.style.backgroundImage = `url(${img.src})`;
   } else {
-    product_content.style.backgroundImage = `url(/img/bk2.JPG)`; // 預設背景
+    product_content.style.backgroundImage = `url(./img/bk2.JPG)`; // 預設背景
   }
 });
